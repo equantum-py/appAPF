@@ -98,7 +98,9 @@
     "E-02": {
       "status": "IN_REVIEW",
       "approval": null,
-      "reason": "Esquema y pruebas preparados; SQL real pendiente de CI; sin aprobación de cierre"
+      "reason": "23 domain tables verified in PostgreSQL17.11; 55 tests and Alembic check PASS; pending human closure",
+      "verified_commit": "949b46e65aa7cb55ce5125eb1c691f51a879a305",
+      "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38199926053"
     },
     "E-03": {
       "status": "BLOCKED",
