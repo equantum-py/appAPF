@@ -50,7 +50,7 @@
     --text: #e9f1ec;
     --text-muted: #a3b8ab;
     --border: #23402f;
-    --accent: var(--color-pitch-500);
+    --accent: #3fa874;
     --accent-contrast: #04140d;
   }
 }

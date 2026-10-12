@@ -40,8 +40,8 @@ export function PitchIllustration() {
             <circle cx="262" cy="110" r="16" fill="none" stroke="var(--color-card-yellow)" strokeWidth="2" />
           </svg>
         </div>
-  
-        <div className="animate-rise absolute -bottom-10 -left-4 w-60 rounded-2xl border border-[var(--border)] bg-[var(--surface-raised)] p-4 shadow-[var(--shadow-lift)] [animation-delay:0.5s] sm:-left-10">
+
+        <div className="animate-rise absolute -bottom-10 -right-4 w-60 rounded-2xl border border-[var(--border)] bg-[var(--surface-raised)] p-4 shadow-[var(--shadow-lift)] [animation-delay:0.5s] sm:-right-10">
           <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Tu decisión</p>
           <div className="mt-3 grid grid-cols-3 gap-2" aria-hidden>
             <span className="rounded-lg border border-[var(--border)] py-2 text-center text-xs font-medium">Sigue</span>
@@ -55,10 +55,10 @@ export function PitchIllustration() {
             <div className="h-full w-2/3 rounded-full bg-[var(--accent)]" />
           </div>
           <p className="mt-2 text-[11px] text-[var(--text-muted)]">Seguridad de la decisión</p>
-      </div>
+        </div>
       </div>
 
-      <figcaption id="pitch-caption" className="mt-16 text-right text-xs text-[var(--text-muted)]">
+      <figcaption id="pitch-caption" className="mt-16 text-left text-xs text-[var(--text-muted)]">
         Vista ilustrativa. Todavía no es una función disponible.
       </figcaption>
     </figure>
