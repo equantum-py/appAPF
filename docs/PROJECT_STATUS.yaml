@@ -203,7 +203,9 @@
     "GATE-01": {
       "status": "IN_REVIEW",
       "approval": null,
-      "package": "docs/gates/GATE-01/README.md"
+      "package": "docs/gates/GATE-01/README.md",
+      "verified_commit": "c332262f8f08a4521a57a3beb20c273d6ab8cba8",
+      "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38197888901"
     }
   }
 }
