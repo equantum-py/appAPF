@@ -124,9 +124,9 @@
       "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38204865151"
     },
     "E-04": {
-      "status": "IN_PROGRESS",
+      "status": "IN_REVIEW",
       "approval": null,
-      "reason": "Contrato aceptado por Derlis sobre 0ee2b25; implementación y pruebas en curso, cierre humano pendiente",
+      "reason": "CI PASS: 159 pruebas backend, AUD-01..17 y 1 Chromium; pendiente aprobación humana de implementación",
       "contract_status": "ACCEPTED",
       "contract": "docs/deliveries/E-04.md",
       "implementation_started": true,
@@ -136,7 +136,11 @@
         "date": "2026-10-12T19:59:44-03:00",
         "statement": "Apruebo el contrato E-04 del commit 0ee2b25",
         "scope": "Aceptación del contrato E-04 e inicio de implementación y pruebas dentro de su alcance; no cierre E-04 ni producción"
-      }
+      },
+      "commit": "47ec9a2481261f81f6a12557e3d68cfcd0c9f7cb",
+      "verified_commit": "47ec9a2481261f81f6a12557e3d68cfcd0c9f7cb",
+      "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38320546485",
+      "external_blockers": []
     },
     "E-05": {
       "status": "BLOCKED",
