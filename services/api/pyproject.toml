@@ -2,12 +2,20 @@
 name = "arbitral-api"
 version = "0.0.0"
 requires-python = ">=3.12,<3.13"
-dependencies = ["fastapi==0.143.0", "pydantic==2.14.1", "sqlalchemy==2.1.4", "alembic==1.20.0", "uvicorn==0.54.0"]
+dependencies = [
+    "fastapi==0.143.0",
+    "pydantic==2.14.1",
+    "sqlalchemy==2.1.4",
+    "alembic==1.20.0",
+    "uvicorn==0.54.0",
+    "psycopg[binary]==3.3.6",
+]
 [dependency-groups]
 dev = ["pytest==9.1.1", "httpx==0.28.1", "ruff==0.17.0"]
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+markers = ["postgres: requires the isolated real PostgreSQL E-02 target"]
 [tool.ruff]
 target-version = "py312"
 [tool.ruff.lint]

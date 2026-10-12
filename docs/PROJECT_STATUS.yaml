@@ -11,7 +11,7 @@
       "scope": "GATE-00 y planificación P-00..P-04; no cierres de implementación"
     }
   },
-  "active_delivery": "E-01",
+  "active_delivery": "E-02",
   "application_implemented": true,
   "deliveries": {
     "P-00": {
@@ -83,16 +83,22 @@
       "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38195094051"
     },
     "E-01": {
-      "status": "IN_REVIEW",
-      "approval": null,
-      "reason": "Configuración/API probadas localmente y CI success; pendiente aprobación humana",
+      "status": "COMPLETED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "83658aebb85451708e4c58a0467d7359dcf7f54f",
+        "date": "2026-10-12T00:03:29-03:00",
+        "statement": "Apruebo E-01 del commit 83658ae y GATE-01 del commit c332262",
+        "scope": "Cierre E-01"
+      },
+      "reason": "Aprobación humana del commit probado registrada",
       "verified_commit": "83658aebb85451708e4c58a0467d7359dcf7f54f",
       "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38195776012"
     },
     "E-02": {
-      "status": "BLOCKED",
+      "status": "IN_REVIEW",
       "approval": null,
-      "reason": "Bloqueada por cierre E-01 y aprobación/rebaselining GATE-01; no migraciones ejecutadas"
+      "reason": "Esquema y pruebas preparados; SQL real pendiente de CI; sin aprobación de cierre"
     },
     "E-03": {
       "status": "BLOCKED",
@@ -183,10 +189,90 @@
       "status": "BLOCKED",
       "approval": null,
       "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "N-00": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-01": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-02": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-03": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-04": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-05": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-06": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-07": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-08": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-09": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-10": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-11": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-12": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-13": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-14": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
+    },
+    "N-15": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "Dependencias/contrato detallado pendientes según GATE-01"
     }
   },
   "application_scope": "Base web y API mínima; módulos de negocio no implementados",
-  "active_gate": "GATE-01",
+  "active_gate": null,
   "change_requests": {
     "CHG-002": {
       "status": "APPROVED",
@@ -201,11 +287,23 @@
   },
   "gates": {
     "GATE-01": {
-      "status": "IN_REVIEW",
-      "approval": null,
+      "status": "COMPLETED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "c332262f8f08a4521a57a3beb20c273d6ab8cba8",
+        "date": "2026-10-12T00:03:29-03:00",
+        "statement": "Apruebo E-01 del commit 83658ae y GATE-01 del commit c332262",
+        "scope": "Adopción línea base GATE-01 v2; implementación E-02 autorizada; no cierre de E-02"
+      },
       "package": "docs/gates/GATE-01/README.md",
       "verified_commit": "c332262f8f08a4521a57a3beb20c273d6ab8cba8",
       "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38197888901"
     }
+  },
+  "baseline": {
+    "version": 2,
+    "gate": "GATE-01",
+    "approved_commit": "c332262f8f08a4521a57a3beb20c273d6ab8cba8",
+    "path": "docs/gates/GATE-01"
   }
 }

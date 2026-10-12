@@ -1,0 +1,7 @@
+{
+  "approver": "Derlis Aguilera",
+  "approved_commit": "c332262f8f08a4521a57a3beb20c273d6ab8cba8",
+  "date": "2026-10-12T00:03:29-03:00",
+  "statement": "Apruebo E-01 del commit 83658ae y GATE-01 del commit c332262",
+  "scope": "Adopción línea base GATE-01 v2; implementación E-02 autorizada; no cierre de E-02"
+}

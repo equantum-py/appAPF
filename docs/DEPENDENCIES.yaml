@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "gate": "GATE-00",
+  "schema_version": 2,
+  "gate": "GATE-01",
   "types": {
     "HARD": "COMPLETED con evidencia y aprobación",
     "CONTRACT": "interfaz aprobada",
@@ -83,7 +83,10 @@
       "EXTERNAL": [
         "PostgreSQL de prueba"
       ],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-03": {
       "name": "Autenticación",
@@ -94,7 +97,10 @@
       "EXTERNAL": [
         "proyecto Supabase Auth de prueba y configuración JWT"
       ],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-04": {
       "name": "Auditoría",
@@ -103,7 +109,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-05": {
       "name": "Ediciones de reglas",
@@ -112,7 +121,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-06": {
       "name": "Situaciones versionadas",
@@ -121,7 +133,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-07": {
       "name": "Videos privados",
@@ -133,7 +148,10 @@
       "EXTERNAL": [
         "proveedor privado y video con derechos"
       ],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-08": {
       "name": "Aprobación y publicación",
@@ -146,7 +164,10 @@
       "EXTERNAL": [
         "especialista arbitral autorizado"
       ],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-09": {
       "name": "Biblioteca",
@@ -156,7 +177,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-10": {
       "name": "Rúbricas",
@@ -166,7 +190,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-11": {
       "name": "Intentos y evaluación",
@@ -176,7 +203,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-12": {
       "name": "Resultados",
@@ -185,7 +215,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-13": {
       "name": "Progreso",
@@ -194,7 +227,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-14": {
       "name": "Revisión de evaluaciones",
@@ -204,7 +240,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-15": {
       "name": "Administración",
@@ -215,7 +254,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-16": {
       "name": "Apelaciones",
@@ -224,7 +266,10 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "OPTIONAL"
+      "classification": "OPTIONAL",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-17": {
       "name": "QA integral",
@@ -232,11 +277,17 @@
         "E-12",
         "E-13",
         "E-14",
-        "E-15"
+        "E-15",
+        "N-00",
+        "N-01",
+        "N-03"
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-18": {
       "name": "Preparación del piloto",
@@ -247,7 +298,10 @@
       "EXTERNAL": [
         "institución piloto, hosting, soporte, derechos y presupuesto"
       ],
-      "classification": "REQUIRED"
+      "classification": "REQUIRED",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-19": {
       "name": "Asistente IA",
@@ -260,7 +314,10 @@
       "EXTERNAL": [
         "proveedor IA y presupuesto aprobados"
       ],
-      "classification": "OPTIONAL"
+      "classification": "OPTIONAL",
+      "GATE": [
+        "GATE-01"
+      ]
     },
     "E-20": {
       "name": "Optimización",
@@ -269,7 +326,281 @@
       ],
       "CONTRACT": [],
       "EXTERNAL": [],
-      "classification": "FUTURE"
+      "classification": "FUTURE",
+      "GATE": [
+        "GATE-01"
+      ]
+    },
+    "N-00": {
+      "name": "Sitio público informativo",
+      "HARD": [
+        "E-00"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "contenido público aprobado"
+      ],
+      "classification": "REQUIRED",
+      "phase": 1,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-01": {
+      "name": "PWA y offline acotado",
+      "HARD": [
+        "E-00",
+        "E-03"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED",
+      "phase": 1,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-02": {
+      "name": "Catálogo físico versionado",
+      "HARD": [
+        "E-02",
+        "E-04",
+        "E-08"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "responsable físico designado y material autorizado"
+      ],
+      "classification": "REQUIRED",
+      "phase": 1,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-03": {
+      "name": "Sesiones físicas y registro",
+      "HARD": [
+        "N-02",
+        "E-03",
+        "E-13"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED",
+      "phase": 1,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-04": {
+      "name": "Grupos y asignaciones",
+      "HARD": [
+        "E-15",
+        "N-03"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "FUTURE",
+      "phase": 2,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-05": {
+      "name": "Tests institucionales versionados",
+      "HARD": [
+        "N-04",
+        "E-10",
+        "E-11"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "protocolos y validación institucional"
+      ],
+      "classification": "FUTURE",
+      "phase": 2,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-06": {
+      "name": "Feedback pedagógico",
+      "HARD": [
+        "N-04",
+        "E-07",
+        "E-14"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "FUTURE",
+      "phase": 2,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-07": {
+      "name": "Reportes PDF CSV",
+      "HARD": [
+        "N-04",
+        "N-05",
+        "N-06",
+        "E-13"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "FUTURE",
+      "phase": 2,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-08": {
+      "name": "Memoria y reconocimiento",
+      "HARD": [
+        "E-11",
+        "E-13"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "ejercicios y métricas validados"
+      ],
+      "classification": "FUTURE",
+      "phase": 2,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-09": {
+      "name": "Sesiones combinadas",
+      "HARD": [
+        "N-03",
+        "N-08",
+        "N-15"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "protocolo físico/cognitivo validado"
+      ],
+      "classification": "FUTURE",
+      "phase": 2,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-10": {
+      "name": "Licencias y suscripciones",
+      "HARD": [
+        "E-03",
+        "E-04",
+        "E-15"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "pasarela, presupuesto, recurrencia, términos e impuestos aprobados"
+      ],
+      "classification": "FUTURE",
+      "phase": "COMMERCIAL",
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-11": {
+      "name": "Designaciones",
+      "HARD": [
+        "E-15",
+        "N-04"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "reglas operativas de designación"
+      ],
+      "classification": "FUTURE",
+      "phase": 3,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-12": {
+      "name": "Informes de partido",
+      "HARD": [
+        "N-11",
+        "E-04"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "formato institucional"
+      ],
+      "classification": "FUTURE",
+      "phase": 3,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-13": {
+      "name": "Veeduría",
+      "HARD": [
+        "N-11",
+        "N-12"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "rúbrica/rol de veedor aprobado"
+      ],
+      "classification": "FUTURE",
+      "phase": 3,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-14": {
+      "name": "Liquidación de honorarios",
+      "HARD": [
+        "N-11",
+        "N-12",
+        "E-04"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "reglas económicas y aprobación institucional"
+      ],
+      "classification": "FUTURE",
+      "phase": 3,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
+    },
+    "N-15": {
+      "name": "Estímulos audiovisuales",
+      "HARD": [
+        "N-08"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "protocolo de tiempos y dispositivos piloto"
+      ],
+      "classification": "FUTURE",
+      "phase": 2,
+      "GATE": [
+        "GATE-01"
+      ],
+      "status": "BLOCKED"
     }
-  }
+  },
+  "status": "ACTIVE",
+  "activation": "GATE-01 approved by Derlis on c332262; approvals/GATE-01.json"
 }

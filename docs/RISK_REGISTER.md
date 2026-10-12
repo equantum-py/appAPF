@@ -1,11 +1,13 @@
-# Riesgos
-| ID | Riesgo | Responsable | Bloquea | Resolución |
+# Riesgos ampliados
+| ID | Riesgo | Responsable | Bloquea | Acción |
 |---|---|---|---|---|
-| R01 | Falta aprobación inicial | Derlis | E-00 | aprobar versión de GATE-00 |
-| R02 | Versiones sin validar | Arquitectura | E-00 | fuentes oficiales y lockfiles |
-| R03 | Hosting API/videos pendiente | Arquitectura + Derlis para gastos | despliegue | propuesta y autorización |
-| R04 | No hay especialista ni derechos de videos | Product Owner | publicación/piloto | nombramiento y permisos |
-| R05 | Fuga entre instituciones o solución anticipada | Implementación/QA | E-03/E-11/E-17 | negativas API y navegador |
-| R06 | Agente revisa su propio trabajo | Derlis | cierre | revisión humana; no declarar QA independiente |
-| R07 | Privacidad, retención y recuperación sin definir | Product Owner/operación | piloto | política y restauración verificadas |
-| R08 | Contratos de código aún incompletos | Arquitectura | READY de E-* | expandir antes de implementar |
+| R01 | E-01 sin cierre humano | Derlis | E-02 | aprobar versión probada |
+| R02 | GATE-01 pendiente | Derlis | ampliación | revisar alcance/datos/contratos |
+| R03 | DB efímera no disponible/versiones sin validar | Arquitectura | E-02 pruebas | PostgreSQL real aislado compatible |
+| R04 | Falta experto físico/técnico o material con derechos | PO | publicación/piloto | designación y validación |
+| R05 | Mezcla historial privado/institucional | Implementación/QA | MVP | tests negativos de alcance |
+| R06 | Mezcla unidades físicas con score | Arquitectura/QA | N-03 | métricas tipadas separadas |
+| R07 | PWA offline interpretada como entrenamiento video offline | Producto/QA | piloto | UI y cache explícitos |
+| R08 | URLs compartibles mientras vigentes | Seguridad | E-07 | TTL y política acordados |
+| R09 | Contratos futuros necesitan detalle previo | Arquitectura | READY N-* | fixtures/rutas/permisos antes de ejecución |
+| R10 | Presupuesto/hosting/pasarela sin autorización | PO | deployment/cobros | propuesta concreta antes de gasto |
