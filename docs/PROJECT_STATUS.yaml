@@ -11,7 +11,7 @@
       "scope": "GATE-00 y planificación P-00..P-04; no cierres de implementación"
     }
   },
-  "active_delivery": "E-03",
+  "active_delivery": "E-04",
   "application_implemented": true,
   "deliveries": {
     "P-00": {
@@ -109,16 +109,24 @@
       "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38199926053"
     },
     "E-03": {
-      "status": "IN_REVIEW",
-      "approval": null,
-      "reason": "CI PASS: 95 pruebas backend + navegador real; espera aprobación humana",
+      "status": "COMPLETED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "165307e472e0e13ea2ff1ba3eaf65f52e5d2790f",
+        "date": "2026-10-12T15:50:51-03:00",
+        "statement": "Apruebo E-03 del commit 165307e",
+        "scope": "Cierre E-03 sobre versión verificada; preparación E-04 conforme línea base aprobada"
+      },
+      "reason": "Aprobación humana del commit verificado registrada; 95 pruebas backend y 1 Chromium PASS",
       "external_blockers": [],
-      "commit": "165307e472e0e13ea2ff1ba3eaf65f52e5d2790f"
+      "commit": "165307e472e0e13ea2ff1ba3eaf65f52e5d2790f",
+      "verified_commit": "165307e472e0e13ea2ff1ba3eaf65f52e5d2790f",
+      "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38204865151"
     },
     "E-04": {
       "status": "BLOCKED",
       "approval": null,
-      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+      "reason": "Dependencia HARD E-03 COMPLETED; pendiente expansión del contrato antes de READY e implementación"
     },
     "E-05": {
       "status": "BLOCKED",
