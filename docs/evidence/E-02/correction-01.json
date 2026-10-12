@@ -1,0 +1,10 @@
+{
+  "delivery": "E-02",
+  "failed_commit": "ef90e8bd274fd23b9dc2101c3928d2f046e75b8b",
+  "failed_run": 38199445299,
+  "result": "FAIL",
+  "cause": "Fixture add(name,...) collides with organizations.name keyword; all 15 SQL cases stop in setup",
+  "correction": "Rename helper parameter table_name; Alembic path_separator=os",
+  "verification": "local Ruff PASS; real PostgreSQL rerun required",
+  "url": "https://github.com/equantum-py/appAPF/actions/runs/38199445299"
+}

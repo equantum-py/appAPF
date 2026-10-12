@@ -48,9 +48,11 @@ def database():
     ids = {}
     with admin.begin() as connection:
 
-        def add(name, key, **values):
+        def add(table_name, key, **values):
             identifier = uuid4()
-            connection.execute(table(name).insert().values(id=identifier, **values))
+            connection.execute(
+                table(table_name).insert().values(id=identifier, **values)
+            )
             ids[key] = identifier
             return identifier
 
