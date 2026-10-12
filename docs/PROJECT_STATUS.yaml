@@ -85,7 +85,9 @@
     "E-01": {
       "status": "IN_REVIEW",
       "approval": null,
-      "reason": "API/configuración implementadas; pruebas locales y CI requeridas; cierre pendiente"
+      "reason": "Configuración/API probadas localmente y CI success; pendiente aprobación humana",
+      "verified_commit": "83658aebb85451708e4c58a0467d7359dcf7f54f",
+      "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38195776012"
     },
     "E-02": {
       "status": "BLOCKED",
