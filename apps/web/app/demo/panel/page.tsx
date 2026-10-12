@@ -55,8 +55,8 @@ export default function PanelResumen() {
         </section>
         <section className="flex min-w-0 flex-[1_1_300px] flex-col gap-3 rounded-3xl bg-[var(--surface-raised)] p-5 ring-1 ring-[var(--border)]">
           <h2 className="text-lg font-extrabold">Requieren atención</h2>
-          <p className="flex gap-2.5 rounded-xl bg-[#fde3e3] p-3 text-[13px] text-[#5c1515]"><span aria-hidden className="mt-0.5 h-3.5 w-2.5 shrink-0 rounded-sm bg-[var(--color-card-red)]" />Aciertos en <strong>mano</strong> bajaron 9 pts en Grupo Ascenso.</p>
-          <p className="flex gap-2.5 rounded-xl bg-[var(--color-card-yellow-soft)] p-3 text-[13px] text-[#5c4700]"><span aria-hidden className="mt-0.5 h-3.5 w-2.5 shrink-0 rounded-sm bg-[var(--color-card-yellow)]" />2 situaciones esperan revisión técnica para publicarse.</p>
+          <p className="flex gap-2.5 rounded-xl bg-[#fde3e3] p-3 text-[13px] text-[#5c1515]"><span aria-hidden className="mt-0.5 h-3.5 w-2.5 shrink-0 rounded-sm bg-[var(--color-card-red)]" /><span>Aciertos en <strong>mano</strong> bajaron 9 pts en Grupo Ascenso.</span></p>
+          <p className="flex gap-2.5 rounded-xl bg-[var(--color-card-yellow-soft)] p-3 text-[13px] text-[#5c4700]"><span aria-hidden className="mt-0.5 h-3.5 w-2.5 shrink-0 rounded-sm bg-[var(--color-card-yellow)]" /><span>2 situaciones esperan revisión técnica para publicarse.</span></p>
         </section>
       </div>
 
