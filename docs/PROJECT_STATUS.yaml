@@ -72,7 +72,9 @@
     "E-00": {
       "status": "IN_REVIEW",
       "approval": null,
-      "reason": "Implementación de fundación; verificar evidencia local y CI antes de aprobación"
+      "reason": "Fundación verificada localmente y GitHub Actions success sobre ce7dfa7; pendiente aprobación humana de cierre",
+      "verified_commit": "ce7dfa73fd4ca60477b9d7fdfcdb98a9309ba5e7",
+      "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38195094051"
     },
     "E-01": {
       "status": "BLOCKED",
