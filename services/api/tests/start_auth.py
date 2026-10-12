@@ -33,7 +33,7 @@ with create_engine(auth_url).begin() as connection:
 key = ec.generate_private_key(ec.SECP256R1())
 jwk = jwt.algorithms.ECAlgorithm.to_jwk(key, as_dict=True)
 jwk.update(kid=str(uuid4()), alg="ES256", use="sig")
-jwk.pop("key_ops", None)
+jwk["key_ops"] = ["sign"]
 env = {
     "GOTRUE_API_HOST": "0.0.0.0",
     "GOTRUE_API_PORT": "19999",
@@ -92,7 +92,10 @@ for _ in range(50):
         pass
     time.sleep(0.5)
 else:
-    diagnostic = subprocess.run(["docker", "logs", "--tail", "15", "apf-auth-e03"], capture_output=True, text=True)
+    diagnostic = subprocess.run(
+        ["docker", "logs", "--tail", "15", "apf-auth-e03"],
+        capture_output=True, text=True,
+    )
     output = diagnostic.stdout + diagnostic.stderr
     for value in (env["GOTRUE_JWT_SECRET"], env["GOTRUE_JWT_KEYS"], jwk["d"]):
         output = output.replace(value, "[REDACTED]")

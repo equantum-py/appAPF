@@ -1,0 +1,1 @@
+{"previous_commit":"523e2b8666634ca1a34abfecebd85dd1fd18abe5","change":"Official Auth requires private key_ops sign; public JWKS sets verify. Format diagnostic for Ruff.","source":"https://github.com/supabase/auth/blob/v2.196.0/internal/conf/jwk.go"}
