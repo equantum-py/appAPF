@@ -101,4 +101,11 @@ def organization_access(
     responses=ERRORS,
 )
 def member_list(organization_id: UUID, request: Request, actor=Depends(identity)):
-    return invoke(request, "organization", actor, organization_id, admin=True)
+    return invoke(
+        request,
+        "organization",
+        actor,
+        organization_id,
+        admin=True,
+        request_id=UUID(request.state.request_id),
+    )

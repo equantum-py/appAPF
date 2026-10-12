@@ -124,12 +124,19 @@
       "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38204865151"
     },
     "E-04": {
-      "status": "BLOCKED",
+      "status": "IN_PROGRESS",
       "approval": null,
-      "reason": "Contrato expandido v1 en revisión; HARD E-03 satisfecha. Pendiente aceptación del contrato antes de READY; código no implementado",
-      "contract_status": "IN_REVIEW",
+      "reason": "Contrato aceptado por Derlis sobre 0ee2b25; implementación y pruebas en curso, cierre humano pendiente",
+      "contract_status": "ACCEPTED",
       "contract": "docs/deliveries/E-04.md",
-      "implementation_started": false
+      "implementation_started": true,
+      "contract_approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "0ee2b259bbb474072cf432d2000e89c4863cbc2d",
+        "date": "2026-10-12T19:59:44-03:00",
+        "statement": "Apruebo el contrato E-04 del commit 0ee2b25",
+        "scope": "Aceptación del contrato E-04 e inicio de implementación y pruebas dentro de su alcance; no cierre E-04 ni producción"
+      }
     },
     "E-05": {
       "status": "BLOCKED",

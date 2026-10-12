@@ -4,6 +4,8 @@ from uuid import UUID
 from sqlalchemy import select, text
 from sqlalchemy.exc import SQLAlchemyError
 
+from app.audit.schemas import Action
+from app.audit.service import AuditService, AuthorizedContext, InvalidAuditEvent
 from app.identity.jwt import AuthUnavailable
 from app.shared.database import register_models
 
@@ -23,8 +25,9 @@ class Actor:
 
 
 class AccessService:
-    def __init__(self, engine):
+    def __init__(self, engine, audit_service=None):
         self.engine = engine
+        self.audit_service = audit_service or AuditService()
 
     def _resolve(self, connection, identity):
         forbidden = connection.exec_driver_sql(
@@ -104,43 +107,77 @@ class AccessService:
         except SQLAlchemyError:
             raise AuthUnavailable() from None
 
-    def organization(self, identity, organization_id, admin=False):
+    def _organization_scope(self, connection, identity, organization_id):
+        actor = self._resolve(connection, identity)
+        connection.execute(
+            text("SELECT set_config('app.organization_id', :v, true)"),
+            {"v": str(organization_id)},
+        )
+        member = (
+            connection.execute(
+                select(memberships).where(
+                    memberships.c.organization_id == organization_id,
+                    memberships.c.user_id == actor.user_id,
+                    memberships.c.active.is_(True),
+                )
+            )
+            .mappings()
+            .one_or_none()
+        )
+        organization = (
+            connection.execute(
+                select(organizations).where(organizations.c.id == organization_id)
+            )
+            .mappings()
+            .one_or_none()
+        )
+        if member is None or organization is None:
+            raise ForbiddenAccess()
+        return actor, member, organization
+
+    def audit_events(self, identity, organization_id, query, request_id):
         try:
             with self.engine.begin() as connection:
-                actor = self._resolve(connection, identity)
-                connection.execute(
-                    text("SELECT set_config('app.organization_id', :v, true)"),
-                    {"v": str(organization_id)},
+                actor, member, organization = self._organization_scope(
+                    connection, identity, organization_id
                 )
-                member = (
-                    connection.execute(
-                        select(memberships).where(
-                            memberships.c.organization_id == organization_id,
-                            memberships.c.user_id == actor.user_id,
-                            memberships.c.active.is_(True),
-                        )
-                    )
-                    .mappings()
-                    .one_or_none()
+                allowed = (
+                    organization["kind"] == "INSTITUTIONAL"
+                    and member["role"] == "ADMIN"
+                ) or (
+                    organization["kind"] == "PERSONAL"
+                    and organization["owner_user_id"] == actor.user_id
                 )
-                organization = (
-                    connection.execute(
-                        select(organizations).where(
-                            organizations.c.id == organization_id
-                        )
-                    )
-                    .mappings()
-                    .one_or_none()
-                )
-                if member is None or organization is None:
+                if not allowed:
                     raise ForbiddenAccess()
+                context = AuthorizedContext(actor.user_id, organization_id)
+                page = self.audit_service.page(connection, context, query)
+                self.audit_service.record(
+                    connection,
+                    context,
+                    Action.EVENTS_READ,
+                    "organization",
+                    organization_id,
+                    request_id,
+                    {"returned_count": len(page["items"])},
+                )
+                return page
+        except (SQLAlchemyError, InvalidAuditEvent):
+            raise AuthUnavailable() from None
+
+    def organization(self, identity, organization_id, admin=False, request_id=None):
+        try:
+            with self.engine.begin() as connection:
+                actor, member, organization = self._organization_scope(
+                    connection, identity, organization_id
+                )
                 if admin:
                     if (
                         member["role"] != "ADMIN"
                         or organization["kind"] != "INSTITUTIONAL"
                     ):
                         raise ForbiddenAccess()
-                    return [
+                    rows = [
                         {
                             "user_id": row["user_id"],
                             "role": row["role"],
@@ -152,6 +189,16 @@ class AccessService:
                             )
                         ).mappings()
                     ]
+                    self.audit_service.record(
+                        connection,
+                        AuthorizedContext(actor.user_id, organization_id),
+                        Action.MEMBERSHIPS_READ,
+                        "organization",
+                        organization_id,
+                        request_id,
+                        {"returned_count": len(rows)},
+                    )
+                    return rows
                 reviewer = organization["kind"] == "INSTITUTIONAL" and member[
                     "role"
                 ] in {
@@ -165,5 +212,5 @@ class AccessService:
                     "can_review_technical": reviewer and member["can_review_technical"],
                     "can_review_physical": reviewer and member["can_review_physical"],
                 }
-        except SQLAlchemyError:
+        except (SQLAlchemyError, InvalidAuditEvent):
             raise AuthUnavailable() from None

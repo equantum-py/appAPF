@@ -10,6 +10,7 @@ from pydantic import BaseModel
 from sqlalchemy import create_engine
 from starlette.exceptions import HTTPException
 
+from app.audit.routes import router as audit_router
 from app.identity.jwt import JWTVerifier
 from app.identity.routes import router as identity_router
 from app.organizations.access import AccessService
@@ -51,6 +52,7 @@ def create_app(env: Mapping[str, str] | None = None) -> FastAPI:
         else None
     )
     app.include_router(identity_router)
+    app.include_router(audit_router)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=list(settings.cors_origins),
