@@ -92,4 +92,9 @@ for _ in range(50):
         pass
     time.sleep(0.5)
 else:
+    diagnostic = subprocess.run(["docker", "logs", "--tail", "15", "apf-auth-e03"], capture_output=True, text=True)
+    output = diagnostic.stdout + diagnostic.stderr
+    for value in (env["GOTRUE_JWT_SECRET"], env["GOTRUE_JWT_KEYS"], jwk["d"]):
+        output = output.replace(value, "[REDACTED]")
+    print(output)
     raise RuntimeError("Isolated Supabase Auth did not become healthy.")
