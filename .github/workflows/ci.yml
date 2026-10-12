@@ -84,7 +84,7 @@ jobs:
           npm run start --workspace apps/web -- --hostname 127.0.0.1 --port 13000 > /tmp/apf-web.log 2>&1 &
           python - <<'PYREADY'
           import time, urllib.request
-          for url in ('http://127.0.0.1:18000/health', 'http://127.0.0.1:13000/ingresar'):
+          for url in ('http://127.0.0.1:18000/v1/health', 'http://127.0.0.1:13000/ingresar'):
               for attempt in range(60):
                   try:
                       with urllib.request.urlopen(url, timeout=2) as response:
