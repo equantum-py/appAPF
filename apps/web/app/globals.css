@@ -1,0 +1,9 @@
+@import "tailwindcss";
+:root { color-scheme: light; }
+body { margin: 0; background: #f5f6f3; color: #182920; font-family: Arial, sans-serif; }
+main { max-width: 720px; padding: 80px 24px; margin: 0 auto; }
+h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 500; line-height: 1.15; }
+p { font-size: 18px; line-height: 1.6; }
+.eyebrow { font-size: 14px; color: #526759; }
+.status { margin-top: 40px; font-size: 15px; }
+footer { margin-top: 80px; font-size: 13px; color: #526759; }

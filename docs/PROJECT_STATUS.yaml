@@ -2,41 +2,77 @@
   "schema_version": 1,
   "gate": {
     "id": "GATE-00",
-    "status": "IN_REVIEW",
-    "approval": null
+    "status": "COMPLETED",
+    "approval": {
+      "approver": "Derlis Aguilera",
+      "approved_commit": "b6117d135e0e25bc6804e33204e85b78f7c1b7be",
+      "date": "2026-10-11T23:09:30-03:00",
+      "statement": "Apruebo GATE-00 del commit b6117d1",
+      "scope": "GATE-00 y planificación P-00..P-04; no cierres de implementación"
+    }
   },
-  "active_delivery": "GATE-00",
+  "active_delivery": "E-00",
   "application_implemented": false,
   "deliveries": {
     "P-00": {
-      "status": "IN_REVIEW",
-      "approval": null,
-      "reason": "propuesta documental preparada; HARD no satisfechos hasta aprobación conjunta"
+      "status": "COMPLETED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "b6117d135e0e25bc6804e33204e85b78f7c1b7be",
+        "date": "2026-10-11T23:09:30-03:00",
+        "statement": "Apruebo GATE-00 del commit b6117d1",
+        "scope": "GATE-00 y planificación P-00..P-04; no cierres de implementación"
+      },
+      "reason": "Paquete documental aprobado por Derlis; cierre en orden de dependencias"
     },
     "P-01": {
-      "status": "IN_REVIEW",
-      "approval": null,
-      "reason": "propuesta documental preparada; HARD no satisfechos hasta aprobación conjunta"
+      "status": "COMPLETED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "b6117d135e0e25bc6804e33204e85b78f7c1b7be",
+        "date": "2026-10-11T23:09:30-03:00",
+        "statement": "Apruebo GATE-00 del commit b6117d1",
+        "scope": "GATE-00 y planificación P-00..P-04; no cierres de implementación"
+      },
+      "reason": "Paquete documental aprobado por Derlis; cierre en orden de dependencias"
     },
     "P-02": {
-      "status": "IN_REVIEW",
-      "approval": null,
-      "reason": "propuesta documental preparada; HARD no satisfechos hasta aprobación conjunta"
+      "status": "COMPLETED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "b6117d135e0e25bc6804e33204e85b78f7c1b7be",
+        "date": "2026-10-11T23:09:30-03:00",
+        "statement": "Apruebo GATE-00 del commit b6117d1",
+        "scope": "GATE-00 y planificación P-00..P-04; no cierres de implementación"
+      },
+      "reason": "Paquete documental aprobado por Derlis; cierre en orden de dependencias"
     },
     "P-03": {
-      "status": "IN_REVIEW",
-      "approval": null,
-      "reason": "propuesta documental preparada; HARD no satisfechos hasta aprobación conjunta"
+      "status": "COMPLETED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "b6117d135e0e25bc6804e33204e85b78f7c1b7be",
+        "date": "2026-10-11T23:09:30-03:00",
+        "statement": "Apruebo GATE-00 del commit b6117d1",
+        "scope": "GATE-00 y planificación P-00..P-04; no cierres de implementación"
+      },
+      "reason": "Paquete documental aprobado por Derlis; cierre en orden de dependencias"
     },
     "P-04": {
-      "status": "IN_REVIEW",
-      "approval": null,
-      "reason": "propuesta documental preparada; HARD no satisfechos hasta aprobación conjunta"
+      "status": "COMPLETED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "b6117d135e0e25bc6804e33204e85b78f7c1b7be",
+        "date": "2026-10-11T23:09:30-03:00",
+        "statement": "Apruebo GATE-00 del commit b6117d1",
+        "scope": "GATE-00 y planificación P-00..P-04; no cierres de implementación"
+      },
+      "reason": "Paquete documental aprobado por Derlis; cierre en orden de dependencias"
     },
     "E-00": {
-      "status": "BLOCKED",
+      "status": "IN_REVIEW",
       "approval": null,
-      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+      "reason": "Implementación de fundación; verificar evidencia local y CI antes de aprobación"
     },
     "E-01": {
       "status": "BLOCKED",

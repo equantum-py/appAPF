@@ -1,7 +1,20 @@
 # Plataforma de formación arbitral
-Proyecto independiente de eQuantum. No representa una contratación ni aprobación de la APF.
+Proyecto independiente de eQuantum. Sin vínculo institucional APF.
+GATE-00 aprobado por Derlis sobre b6117d1. E-00: fundación en revisión; no hay entrenamiento, API operativa ni despliegue.
 
-## Inicio
-Leer [GATE-00](docs/GATE-00.md), [alcance](docs/PROJECT_SCOPE.md), [estado](docs/PROJECT_STATUS.yaml) y [plan](docs/ACTION_PLAN.md).
-La primera entrega es documental. No existe todavía una aplicación, CI, infraestructura ni contenido institucional aprobado.
-Los documentos normativos se encuentran en docs/. El prompt original se conserva sin alteraciones en docs/source/PROMPT_V3.md.
+## Comprobaciones reproducibles
+Node 24 y Python 3.12. No requiere servicios externos de negocio ni secretos.
+```bash
+npm ci
+npm run lint
+npm run typecheck
+npm run build
+cd services/api
+uv sync --locked
+uv run ruff check .
+uv run pytest -q
+```
+Desde raíz: `python docs/evidence/validate_planning.py`.
+Ejecutar web: `npm run dev --workspace apps/web`. API todavía no tiene servidor; corresponde E-01.
+Ver docs/GATE-00.md, docs/PROJECT_STATUS.yaml y docs/deliveries/E-00.md.
+GitHub Actions replica verificaciones en checkout limpio y guarda el SHA del commit verificado.

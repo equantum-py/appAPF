@@ -1,0 +1,114 @@
+{
+  "delivery": "E-00",
+  "date": "2026-10-12T02:14:08.525506+00:00",
+  "environment": "Node 24.19.0, Python 3.12.14, uv 0.12.23; local",
+  "version_binding": "containing commit and SHA256 manifest; GitHub CI references exact tested commit",
+  "checks": [
+    {
+      "command": [
+        "npm",
+        "ci"
+      ],
+      "cwd": ".",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "docs/evidence/E-00/00.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "cwd": ".",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "docs/evidence/E-00/01.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "cwd": ".",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "docs/evidence/E-00/02.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": ".",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "docs/evidence/E-00/03.log"
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--locked"
+      ],
+      "cwd": "services/api",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "docs/evidence/E-00/04.log"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "ruff",
+        "check",
+        "."
+      ],
+      "cwd": "services/api",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "docs/evidence/E-00/05.log"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "pytest",
+        "-q"
+      ],
+      "cwd": "services/api",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "docs/evidence/E-00/06.log"
+    },
+    {
+      "command": [
+        "python",
+        "docs/evidence/validate_planning.py"
+      ],
+      "cwd": ".",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "docs/evidence/E-00/07.log"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": ".",
+      "result": "PASS",
+      "exit_code": 0,
+      "log": "docs/evidence/E-00/08.log"
+    }
+  ],
+  "ci": {
+    "result": "NOT_RUN",
+    "reason": "commit has not yet been pushed"
+  },
+  "review": "agent checked TSX: server components, semantic main/h1, es language, no hooks or client fetching; not independent QA",
+  "approval": null
+}

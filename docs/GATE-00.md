@@ -1,5 +1,5 @@
 # GATE-00 — revisión inicial
-Estado: IN_REVIEW. Aprobador: Derlis Aguilera. Aprobación: no recibida.
+Estado: COMPLETED. Aprobador: Derlis Aguilera. Aprobación explícita del commit b6117d1 registrada en approvals/GATE-00.json.
 Esta propuesta conserva el stack y los HARD del prompt. La primera ejecución produce documentación, no código de aplicación.
 
 ## Auditoría del protocolo

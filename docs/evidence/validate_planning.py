@@ -14,7 +14,11 @@ for i in d:
  assert (root/f'docs/deliveries/{i}.md').exists(),i
 s=json.loads((root/'docs/PROJECT_STATUS.yaml').read_text())
 assert set(s['deliveries'])==set(d)
-assert all(x['approval'] is None and x['status']!='COMPLETED' for x in s['deliveries'].values())
+for i,x in s['deliveries'].items():
+ if x['status']=='COMPLETED':
+  assert x['approval'] and x['approval']['approver']=='Derlis Aguilera'
+  assert (root/'docs/approvals/GATE-00.json').exists()
+  assert all(s['deliveries'][j]['status']=='COMPLETED' for j in d[i]['HARD'])
 for f in ['GOVERNANCE.md','ARCHITECTURE.md','DEPENDENCIES.yaml','DEFINITION_OF_DONE.md','DELIVERY_CONTRACTS.md','CHANGE_CONTROL.md']:
  assert (root/'docs'/f).is_file(),f
 print('PASS: 26 delivery contracts, acyclic HARD graph, normative files, status and no invented approvals')
