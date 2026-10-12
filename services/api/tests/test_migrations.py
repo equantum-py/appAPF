@@ -256,7 +256,7 @@ def test_t02_constraints_and_indexes(database):
             if constraint["referred_table"] not in {"users", "organizations"}:
                 assert "organization_id" in constraint["constrained_columns"]
     assert any(
-        x["constrained_columns"] == ["organization_id", "user_id"]
+        x["column_names"] == ["organization_id", "user_id"]
         for x in inspector.get_unique_constraints("memberships", schema="app")
     )
     with admin.connect() as connection:

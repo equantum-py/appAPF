@@ -1,0 +1,14 @@
+{
+  "delivery": "E-02",
+  "failed_commit": "4adce9f1f7ba3422413cef01a0caf957fe70ffd5",
+  "failed_run": 38199762776,
+  "result": "FAIL",
+  "test_results": {
+    "passed": 54,
+    "failed": 1
+  },
+  "cause": "Unique constraint inspection uses column_names; test incorrectly used constrained_columns",
+  "correction": "Use ReflectedUniqueConstraint.column_names; checked installed SQLAlchemy interface",
+  "verification": "Ruff PASS; final PostgreSQL and Alembic check rerun required",
+  "url": "https://github.com/equantum-py/appAPF/actions/runs/38199762776"
+}
