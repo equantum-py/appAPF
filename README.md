@@ -1,6 +1,6 @@
 # Plataforma de formación arbitral
 Proyecto independiente de eQuantum; sin vínculo institucional APF.
-Línea base activa: [GATE-01 v2](docs/BASELINE_INDEX.md). E-00, E-01, E-02 y E-03 aprobadas. Identidad y aislamiento verificados con Supabase Auth y PostgreSQL efímeros; despliegue cloud persistente pendiente. Siguiente entrega: E-04 auditoría, pendiente de expandir su contrato antes de implementar. Entrenamiento, video privado y evaluación funcional aún pendientes.
+Línea base activa: [GATE-01 v2](docs/BASELINE_INDEX.md). E-00, E-01, E-02 y E-03 aprobadas. Identidad y aislamiento verificados con Supabase Auth y PostgreSQL efímeros; despliegue cloud persistente pendiente. Siguiente entrega: E-04 auditoría, [contrato detallado en revisión](docs/deliveries/E-04.md), pendiente de aceptación antes de implementar. Entrenamiento, video privado y evaluación funcional aún pendientes.
 
 ## Comprobaciones
 Node 24, Python 3.12 y uv 0.12.23; lockfiles comprometidos.
