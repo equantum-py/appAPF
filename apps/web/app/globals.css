@@ -1,9 +1,100 @@
 @import "tailwindcss";
-:root { color-scheme: light; }
-body { margin: 0; background: #f5f6f3; color: #182920; font-family: Arial, sans-serif; }
-main { max-width: 720px; padding: 80px 24px; margin: 0 auto; }
-h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 500; line-height: 1.15; }
-p { font-size: 18px; line-height: 1.6; }
-.eyebrow { font-size: 14px; color: #526759; }
-.status { margin-top: 40px; font-size: 15px; }
-footer { margin-top: 80px; font-size: 13px; color: #526759; }
+
+/*
+ * Identidad visual base. Paleta propia inspirada en el campo de juego
+ * (verde césped, cal de las líneas) y en las tarjetas del árbitro.
+ * No usa colores ni marcas institucionales.
+ */
+@theme {
+  --color-pitch-950: #0a1f16;
+  --color-pitch-900: #0f2e21;
+  --color-pitch-800: #15402e;
+  --color-pitch-700: #1d5a40;
+  --color-pitch-600: #257452;
+  --color-pitch-500: #2f8f65;
+  --color-pitch-100: #dcefe4;
+  --color-pitch-50: #eef7f1;
+  --color-chalk: #f7f8f4;
+  --color-ink: #13231b;
+  --color-muted: #4d6357;
+  --color-line: #d8e0da;
+  --color-card-yellow: #f5c518;
+  --color-card-yellow-soft: #fdf3c4;
+  --color-card-red: #d93a3a;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --radius-card: 1.25rem;
+  --shadow-soft: 0 1px 2px rgb(10 31 22 / 0.06), 0 8px 24px -8px rgb(10 31 22 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(10 31 22 / 0.08), 0 18px 40px -12px rgb(10 31 22 / 0.28);
+}
+
+:root {
+  color-scheme: light;
+  --surface: var(--color-chalk);
+  --surface-raised: #ffffff;
+  --text: var(--color-ink);
+  --text-muted: var(--color-muted);
+  --border: var(--color-line);
+  --accent: var(--color-pitch-700);
+  --accent-contrast: #ffffff;
+  --focus: var(--color-card-yellow);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --surface: var(--color-pitch-950);
+    --surface-raised: #11291e;
+    --text: #e9f1ec;
+    --text-muted: #a3b8ab;
+    --border: #23402f;
+    --accent: var(--color-pitch-500);
+    --accent-contrast: #04140d;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+  ::selection {
+    background: var(--color-card-yellow);
+    color: var(--color-ink);
+  }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(245 197 24 / 0.55); }
+  50% { box-shadow: 0 0 0 6px rgb(245 197 24 / 0); }
+}
+
+.animate-rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-draw { stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw 1.8s 0.4s ease-out forwards; }
+.animate-pulse-dot { animation: pulse-dot 2.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-rise, .animate-pulse-dot { animation: none; }
+  .animate-draw { animation: none; stroke-dashoffset: 0; }
+}
