@@ -1,4 +1,4 @@
-# Arquitectura propuesta — pendiente de GATE-00
+# Arquitectura aprobada en GATE-00 — commit b6117d1
 Monolito modular FastAPI; frontend Next.js App Router, TypeScript, Tailwind, shadcn/ui y PWA. PostgreSQL; Supabase Auth para identidad. SQLAlchemy y Alembic. No microservicios.
 Estructura: apps/web; services/api/app/{identity,organizations,rules,catalog,media,training,evaluation,analytics,assistant,audit,shared}; services/api/migrations y tests; packages/contracts y config; docs/{architecture,deliveries,evidence,business,security}; infra; .github.
 
@@ -12,5 +12,5 @@ Contenido: DRAFT -> IN_REVIEW -> APPROVED -> PUBLISHED -> ARCHIVED, con permisos
 
 ## Operación pendiente
 Frontend: Vercel como candidato, no recurso creado. Hosting FastAPI: proveedor pendiente de decisión; no asumir que equivale al hosting Next.js. PostgreSQL y Auth: proyecto de prueba separado pendiente. Videos: almacenamiento privado con URLs temporales, proveedor pendiente. Sentry y retención de logs pendientes de presupuesto y privacidad.
-Antes de E-00 validar versiones soportadas en documentación oficial, fijar lockfiles y registrar matriz de compatibilidad. No se han validado versiones en esta entrega.
+Antes de E-00 validar versiones soportadas en documentación oficial, fijar lockfiles y registrar matriz de compatibilidad. La base de versiones fue verificada en E-00; consultar architecture/VERSIONS.md y evidence/E-00/ci.json. Las nuevas integraciones requieren verificación en su propia entrega.
 Antes del piloto: despliegues separados, secretos fuera del repo, límites de solicitudes, monitoreo, respaldo y prueba de restauración.

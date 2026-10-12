@@ -17,7 +17,8 @@ assert set(s['deliveries'])==set(d)
 for i,x in s['deliveries'].items():
  if x['status']=='COMPLETED':
   assert x['approval'] and x['approval']['approver']=='Derlis Aguilera'
-  assert (root/'docs/approvals/GATE-00.json').exists()
+  approval_path = root/'docs/approvals'/('GATE-00.json' if i.startswith('P-') else f'{i}.json')
+  assert json.loads(approval_path.read_text()) == x['approval']
   assert all(s['deliveries'][j]['status']=='COMPLETED' for j in d[i]['HARD'])
 for f in ['GOVERNANCE.md','ARCHITECTURE.md','DEPENDENCIES.yaml','DEFINITION_OF_DONE.md','DELIVERY_CONTRACTS.md','CHANGE_CONTROL.md']:
  assert (root/'docs'/f).is_file(),f

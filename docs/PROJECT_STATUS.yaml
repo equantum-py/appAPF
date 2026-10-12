@@ -11,8 +11,8 @@
       "scope": "GATE-00 y planificación P-00..P-04; no cierres de implementación"
     }
   },
-  "active_delivery": "E-00",
-  "application_implemented": false,
+  "active_delivery": "E-01",
+  "application_implemented": true,
   "deliveries": {
     "P-00": {
       "status": "COMPLETED",
@@ -70,16 +70,22 @@
       "reason": "Paquete documental aprobado por Derlis; cierre en orden de dependencias"
     },
     "E-00": {
-      "status": "IN_REVIEW",
-      "approval": null,
-      "reason": "Fundación verificada localmente y GitHub Actions success sobre ce7dfa7; pendiente aprobación humana de cierre",
+      "status": "COMPLETED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "ce7dfa73fd4ca60477b9d7fdfcdb98a9309ba5e7",
+        "date": "2026-10-11T23:22:12-03:00",
+        "statement": "muy bien, Apruebo E-00 del commit ce7dfa7",
+        "scope": "Cierre E-00; E-01 autorizado dentro del plan aprobado"
+      },
+      "reason": "Aprobación humana del commit probado registrada",
       "verified_commit": "ce7dfa73fd4ca60477b9d7fdfcdb98a9309ba5e7",
       "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38195094051"
     },
     "E-01": {
-      "status": "BLOCKED",
+      "status": "IN_REVIEW",
       "approval": null,
-      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+      "reason": "API/configuración implementadas; pruebas locales y CI requeridas; cierre pendiente"
     },
     "E-02": {
       "status": "BLOCKED",
@@ -176,5 +182,6 @@
       "approval": null,
       "reason": "dependencias no COMPLETED; contrato debe expandirse"
     }
-  }
+  },
+  "application_scope": "Base web y API mínima; módulos de negocio no implementados"
 }

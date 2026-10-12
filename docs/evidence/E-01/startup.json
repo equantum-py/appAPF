@@ -1,0 +1,6 @@
+{
+  "health_http": "PASS",
+  "sanitized_access_log": "PASS",
+  "missing_configuration_blocks_process": "PASS",
+  "invalid_process_exit": 1
+}
