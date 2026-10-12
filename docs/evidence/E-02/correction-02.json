@@ -1,0 +1,10 @@
+{
+  "delivery": "E-02",
+  "failed_commit": "6b48233ea7a93042a26775bb3b851cc45691978e",
+  "failed_run": 38199575236,
+  "result": "FAIL",
+  "cause": "Fixture key parameter also collides with situation_options.key",
+  "correction": "Use positional-only helper arguments and extract seed_fixture; compile every fixture insert locally before retry",
+  "verification": "Ruff PASS; 36 PostgreSQL INSERTs built/compiled locally; database constraints still require CI",
+  "url": "https://github.com/equantum-py/appAPF/actions/runs/38199575236"
+}

@@ -33,6 +33,184 @@ def table(name):
     return metadata.tables[f"app.{name}"]
 
 
+def seed_fixture(connection):
+    ids = {}
+
+    def add(table_name, fixture_key, /, **values):
+        identifier = uuid4()
+        connection.execute(table(table_name).insert().values(id=identifier, **values))
+        ids[fixture_key] = identifier
+        return identifier
+
+    for user in ["user_a", "reviewer", "user_b"]:
+        add("users", user, supabase_subject=uuid4())
+    for org in ["a", "b"]:
+        add("organizations", org, name=org, kind="INSTITUTIONAL")
+    add(
+        "organizations",
+        "personal",
+        name="private",
+        kind="PERSONAL",
+        owner_user_id=ids["user_a"],
+    )
+    for org, user, role in [
+        ("a", "user_a", "REFEREE"),
+        ("a", "reviewer", "REVIEWER"),
+        ("b", "user_b", "REFEREE"),
+        ("personal", "user_a", "REFEREE"),
+    ]:
+        add(
+            "memberships",
+            f"member_{org}_{user}",
+            organization_id=ids[org],
+            user_id=ids[user],
+            role=role,
+        )
+    for org, user in [("a", "user_a"), ("b", "user_b")]:
+        common = {"organization_id": ids[org]}
+        add("rulebook_editions", f"edition_{org}", **common, label="fixture")
+        add(
+            "video_assets",
+            f"video_{org}",
+            **common,
+            object_key=f"{org}/fixture",
+            mime_type="video/mp4",
+            size_bytes=10,
+            rights_reference="synthetic",
+        )
+        add("situations", f"situation_{org}", **common, title="fixture")
+        add(
+            "situation_versions",
+            f"version_{org}",
+            **common,
+            situation_id=ids[f"situation_{org}"],
+            version_number=1,
+            status="DRAFT",
+            rulebook_edition_id=ids[f"edition_{org}"],
+            video_asset_id=ids[f"video_{org}"],
+            author_user_id=ids[user],
+            prompt="synthetic test",
+            technical_criterion={"fixture": True},
+        )
+    common = {"organization_id": ids["a"]}
+    add(
+        "situation_options",
+        "option",
+        **common,
+        situation_version_id=ids["version_a"],
+        key="A",
+        text="synthetic",
+    )
+    add("physical_exercises", "exercise", **common, title="synthetic")
+    add(
+        "physical_exercise_versions",
+        "physical_version",
+        **common,
+        physical_exercise_id=ids["exercise"],
+        version_number=1,
+        status="DRAFT",
+        author_user_id=ids["user_a"],
+        instructions="fixture only",
+        rights_reference="synthetic",
+    )
+    for kind, key in [
+        ("PHYSICAL", "physical"),
+        ("COGNITIVE_DECISION", "cognitive"),
+    ]:
+        add("training_sessions", f"session_{key}", **common, title="fixture")
+        add(
+            "training_session_versions",
+            f"session_version_{key}",
+            **common,
+            training_session_id=ids[f"session_{key}"],
+            version_number=1,
+            status="DRAFT",
+            kind=kind,
+        )
+        refs = (
+            {"physical_exercise_version_id": ids["physical_version"]}
+            if (key == "physical")
+            else {"situation_version_id": ids["version_a"]}
+        )
+        add(
+            "training_session_items",
+            f"item_{key}",
+            **common,
+            session_version_id=ids[f"session_version_{key}"],
+            position=1,
+            kind=kind,
+            **refs,
+        )
+        add(
+            "training_runs",
+            f"run_{key}",
+            **common,
+            user_id=ids["user_a"],
+            session_version_id=ids[f"session_version_{key}"],
+            state="STARTED",
+            idempotency_key=f"fixture_{key}",
+            payload_hash="a" * 64,
+        )
+    add("rubrics", "rubric", **common, situation_id=ids["situation_a"])
+    add(
+        "rubric_versions",
+        "rubric_version",
+        **common,
+        rubric_id=ids["rubric"],
+        situation_id=ids["situation_a"],
+        situation_version_id=ids["version_a"],
+        version_number=1,
+        status="DRAFT",
+    )
+    add(
+        "rubric_criteria",
+        "criterion",
+        **common,
+        rubric_version_id=ids["rubric_version"],
+        key="fixture",
+        weight=1,
+    )
+    add(
+        "attempts",
+        "attempt",
+        **common,
+        user_id=ids["user_a"],
+        situation_version_id=ids["version_a"],
+        response={"choice": "A"},
+        idempotency_key="fixture_attempt",
+        payload_hash="a" * 64,
+    )
+    add(
+        "evaluations",
+        "evaluation",
+        **common,
+        attempt_id=ids["attempt"],
+        situation_version_id=ids["version_a"],
+        rubric_version_id=ids["rubric_version"],
+        rulebook_edition_id=ids["edition_a"],
+        algorithm_version="fixture",
+        score=50,
+        breakdown={"fixture": True},
+    )
+    add(
+        "audit_log",
+        "audit",
+        **common,
+        actor_user_id=ids["user_a"],
+        action="fixture",
+        details={},
+    )
+    add(
+        "audit_log",
+        "private_audit",
+        organization_id=ids["personal"],
+        actor_user_id=ids["user_a"],
+        action="private fixture",
+        details={},
+    )
+    return ids
+
+
 @pytest.fixture
 def database():
     admin = create_engine(isolated_test_url("E02_TEST_ADMIN_URL"))
@@ -45,183 +223,8 @@ def database():
         assert 170000 <= version < 180000
     command.downgrade(config, "base")
     command.upgrade(config, "head")
-    ids = {}
     with admin.begin() as connection:
-
-        def add(table_name, key, **values):
-            identifier = uuid4()
-            connection.execute(
-                table(table_name).insert().values(id=identifier, **values)
-            )
-            ids[key] = identifier
-            return identifier
-
-        for user in ["user_a", "reviewer", "user_b"]:
-            add("users", user, supabase_subject=uuid4())
-        for org in ["a", "b"]:
-            add("organizations", org, name=org, kind="INSTITUTIONAL")
-        add(
-            "organizations",
-            "personal",
-            name="private",
-            kind="PERSONAL",
-            owner_user_id=ids["user_a"],
-        )
-        for org, user, role in [
-            ("a", "user_a", "REFEREE"),
-            ("a", "reviewer", "REVIEWER"),
-            ("b", "user_b", "REFEREE"),
-            ("personal", "user_a", "REFEREE"),
-        ]:
-            add(
-                "memberships",
-                f"member_{org}_{user}",
-                organization_id=ids[org],
-                user_id=ids[user],
-                role=role,
-            )
-        for org, user in [("a", "user_a"), ("b", "user_b")]:
-            common = {"organization_id": ids[org]}
-            add("rulebook_editions", f"edition_{org}", **common, label="fixture")
-            add(
-                "video_assets",
-                f"video_{org}",
-                **common,
-                object_key=f"{org}/fixture",
-                mime_type="video/mp4",
-                size_bytes=10,
-                rights_reference="synthetic",
-            )
-            add("situations", f"situation_{org}", **common, title="fixture")
-            add(
-                "situation_versions",
-                f"version_{org}",
-                **common,
-                situation_id=ids[f"situation_{org}"],
-                version_number=1,
-                status="DRAFT",
-                rulebook_edition_id=ids[f"edition_{org}"],
-                video_asset_id=ids[f"video_{org}"],
-                author_user_id=ids[user],
-                prompt="synthetic test",
-                technical_criterion={"fixture": True},
-            )
-        common = {"organization_id": ids["a"]}
-        add(
-            "situation_options",
-            "option",
-            **common,
-            situation_version_id=ids["version_a"],
-            key="A",
-            text="synthetic",
-        )
-        add("physical_exercises", "exercise", **common, title="synthetic")
-        add(
-            "physical_exercise_versions",
-            "physical_version",
-            **common,
-            physical_exercise_id=ids["exercise"],
-            version_number=1,
-            status="DRAFT",
-            author_user_id=ids["user_a"],
-            instructions="fixture only",
-            rights_reference="synthetic",
-        )
-        for kind, key in [
-            ("PHYSICAL", "physical"),
-            ("COGNITIVE_DECISION", "cognitive"),
-        ]:
-            add("training_sessions", f"session_{key}", **common, title="fixture")
-            add(
-                "training_session_versions",
-                f"session_version_{key}",
-                **common,
-                training_session_id=ids[f"session_{key}"],
-                version_number=1,
-                status="DRAFT",
-                kind=kind,
-            )
-            refs = (
-                {"physical_exercise_version_id": ids["physical_version"]}
-                if (key == "physical")
-                else {"situation_version_id": ids["version_a"]}
-            )
-            add(
-                "training_session_items",
-                f"item_{key}",
-                **common,
-                session_version_id=ids[f"session_version_{key}"],
-                position=1,
-                kind=kind,
-                **refs,
-            )
-            add(
-                "training_runs",
-                f"run_{key}",
-                **common,
-                user_id=ids["user_a"],
-                session_version_id=ids[f"session_version_{key}"],
-                state="STARTED",
-                idempotency_key=f"fixture_{key}",
-                payload_hash="a" * 64,
-            )
-        add("rubrics", "rubric", **common, situation_id=ids["situation_a"])
-        add(
-            "rubric_versions",
-            "rubric_version",
-            **common,
-            rubric_id=ids["rubric"],
-            situation_id=ids["situation_a"],
-            situation_version_id=ids["version_a"],
-            version_number=1,
-            status="DRAFT",
-        )
-        add(
-            "rubric_criteria",
-            "criterion",
-            **common,
-            rubric_version_id=ids["rubric_version"],
-            key="fixture",
-            weight=1,
-        )
-        add(
-            "attempts",
-            "attempt",
-            **common,
-            user_id=ids["user_a"],
-            situation_version_id=ids["version_a"],
-            response={"choice": "A"},
-            idempotency_key="fixture_attempt",
-            payload_hash="a" * 64,
-        )
-        add(
-            "evaluations",
-            "evaluation",
-            **common,
-            attempt_id=ids["attempt"],
-            situation_version_id=ids["version_a"],
-            rubric_version_id=ids["rubric_version"],
-            rulebook_edition_id=ids["edition_a"],
-            algorithm_version="fixture",
-            score=50,
-            breakdown={"fixture": True},
-        )
-        add(
-            "audit_log",
-            "audit",
-            **common,
-            actor_user_id=ids["user_a"],
-            action="fixture",
-            details={},
-        )
-        add(
-            "audit_log",
-            "private_audit",
-            organization_id=ids["personal"],
-            actor_user_id=ids["user_a"],
-            action="private fixture",
-            details={},
-        )
+        ids = seed_fixture(connection)
     yield admin, migrator, runtime, ids, config
     for engine in [admin, runtime, migrator]:
         engine.dispose()
