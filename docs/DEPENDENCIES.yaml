@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "gate": "GATE-00",
+  "types": {
+    "HARD": "COMPLETED con evidencia y aprobación",
+    "CONTRACT": "interfaz aprobada",
+    "EXTERNAL": "recurso o permiso verificable",
+    "OPTIONAL": "no bloquea MVP"
+  },
+  "deliveries": {
+    "P-00": {
+      "name": "Alcance",
+      "HARD": [],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "P-01": {
+      "name": "Arquitectura",
+      "HARD": [
+        "P-00"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "P-02": {
+      "name": "UX árbitro",
+      "HARD": [
+        "P-00"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "P-03": {
+      "name": "UX instructor",
+      "HARD": [
+        "P-00"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "P-04": {
+      "name": "Backlog y riesgos",
+      "HARD": [
+        "P-01",
+        "P-02",
+        "P-03"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-00": {
+      "name": "Repositorio y CI",
+      "HARD": [
+        "P-01",
+        "P-04"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "versiones soportadas verificadas"
+      ],
+      "classification": "REQUIRED"
+    },
+    "E-01": {
+      "name": "Configuración y API",
+      "HARD": [
+        "E-00"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-02": {
+      "name": "Modelo de datos",
+      "HARD": [
+        "E-01"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "PostgreSQL de prueba"
+      ],
+      "classification": "REQUIRED"
+    },
+    "E-03": {
+      "name": "Autenticación",
+      "HARD": [
+        "E-02"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "proyecto Supabase Auth de prueba y configuración JWT"
+      ],
+      "classification": "REQUIRED"
+    },
+    "E-04": {
+      "name": "Auditoría",
+      "HARD": [
+        "E-03"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-05": {
+      "name": "Ediciones de reglas",
+      "HARD": [
+        "E-04"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-06": {
+      "name": "Situaciones versionadas",
+      "HARD": [
+        "E-05"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-07": {
+      "name": "Videos privados",
+      "HARD": [
+        "E-03",
+        "E-06"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "proveedor privado y video con derechos"
+      ],
+      "classification": "REQUIRED"
+    },
+    "E-08": {
+      "name": "Aprobación y publicación",
+      "HARD": [
+        "E-04",
+        "E-06",
+        "E-07"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "especialista arbitral autorizado"
+      ],
+      "classification": "REQUIRED"
+    },
+    "E-09": {
+      "name": "Biblioteca",
+      "HARD": [
+        "E-03",
+        "E-08"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-10": {
+      "name": "Rúbricas",
+      "HARD": [
+        "E-05",
+        "E-06"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-11": {
+      "name": "Intentos y evaluación",
+      "HARD": [
+        "E-09",
+        "E-10"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-12": {
+      "name": "Resultados",
+      "HARD": [
+        "E-11"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-13": {
+      "name": "Progreso",
+      "HARD": [
+        "E-11"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-14": {
+      "name": "Revisión de evaluaciones",
+      "HARD": [
+        "E-04",
+        "E-11"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-15": {
+      "name": "Administración",
+      "HARD": [
+        "E-03",
+        "E-04",
+        "E-11"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-16": {
+      "name": "Apelaciones",
+      "HARD": [
+        "E-14"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "OPTIONAL"
+    },
+    "E-17": {
+      "name": "QA integral",
+      "HARD": [
+        "E-12",
+        "E-13",
+        "E-14",
+        "E-15"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "REQUIRED"
+    },
+    "E-18": {
+      "name": "Preparación del piloto",
+      "HARD": [
+        "E-17"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "institución piloto, hosting, soporte, derechos y presupuesto"
+      ],
+      "classification": "REQUIRED"
+    },
+    "E-19": {
+      "name": "Asistente IA",
+      "HARD": [
+        "E-04",
+        "E-05",
+        "E-08"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [
+        "proveedor IA y presupuesto aprobados"
+      ],
+      "classification": "OPTIONAL"
+    },
+    "E-20": {
+      "name": "Optimización",
+      "HARD": [
+        "E-18"
+      ],
+      "CONTRACT": [],
+      "EXTERNAL": [],
+      "classification": "FUTURE"
+    }
+  }
+}

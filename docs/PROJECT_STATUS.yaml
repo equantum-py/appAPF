@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "gate": {
+    "id": "GATE-00",
+    "status": "IN_REVIEW",
+    "approval": null
+  },
+  "active_delivery": "GATE-00",
+  "application_implemented": false,
+  "deliveries": {
+    "P-00": {
+      "status": "IN_REVIEW",
+      "approval": null,
+      "reason": "propuesta documental preparada; HARD no satisfechos hasta aprobación conjunta"
+    },
+    "P-01": {
+      "status": "IN_REVIEW",
+      "approval": null,
+      "reason": "propuesta documental preparada; HARD no satisfechos hasta aprobación conjunta"
+    },
+    "P-02": {
+      "status": "IN_REVIEW",
+      "approval": null,
+      "reason": "propuesta documental preparada; HARD no satisfechos hasta aprobación conjunta"
+    },
+    "P-03": {
+      "status": "IN_REVIEW",
+      "approval": null,
+      "reason": "propuesta documental preparada; HARD no satisfechos hasta aprobación conjunta"
+    },
+    "P-04": {
+      "status": "IN_REVIEW",
+      "approval": null,
+      "reason": "propuesta documental preparada; HARD no satisfechos hasta aprobación conjunta"
+    },
+    "E-00": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-01": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-02": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-03": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-04": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-05": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-06": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-07": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-08": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-09": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-10": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-11": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-12": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-13": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-14": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-15": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-16": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-17": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-18": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-19": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    },
+    "E-20": {
+      "status": "BLOCKED",
+      "approval": null,
+      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+    }
+  }
+}

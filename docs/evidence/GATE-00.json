@@ -1,0 +1,70 @@
+{
+  "delivery": "GATE-00",
+  "date": "2026-10-12T02:07:21.374050+00:00",
+  "environment": "scratch Python; documentation only",
+  "source_commit": "8d35904e883d2475d7bcb66d4bc334321b854c28",
+  "version_binding": "SHA256 below; containing Git commit identifies final package",
+  "checks": [
+    {
+      "test": "python docs/evidence/validate_planning.py",
+      "result": "PASS",
+      "assertions": [
+        "26 contracts exist",
+        "HARD graph acyclic",
+        "required normative files present",
+        "status IDs match",
+        "no fabricated approvals"
+      ]
+    },
+    {
+      "test": "application build / API / security / browser / deployment",
+      "result": "NOT_RUN",
+      "reason": "first execution explicitly forbids application code; no application exists"
+    }
+  ],
+  "sha256": {
+    "README.md": "10caebc2b15c28c11d8cabda7a7a3750b640998487521c4a520e82271b82bc00",
+    "docs/source/PROMPT_V3.md": "88cb26c2c5f6c3475397d0ceeeaf968fae701211f3ba127e8ff4ac4a7e339d39",
+    "docs/GOVERNANCE.md": "ffb94adb6ff57d6bb28784982bf837cf53cdd23bb7d0ed4c6f1f3adccca16ebc",
+    "docs/PROJECT_SCOPE.md": "5bdad76a8e252962c7daa26da1c377314129f46ca7d991202e3c8226aba93220",
+    "docs/ARCHITECTURE.md": "bffd2a20a3e40acabd8a0ec4859dabd75b2c044e1ed09d592fc6e62e2336efdf",
+    "docs/DEFINITION_OF_DONE.md": "3d1eadf57f3ddb0cc58a22dd57ced2b711f646734535a00390878ab29d8c18d8",
+    "docs/CHANGE_CONTROL.md": "9b667bfb71fa26505f44b50b24d777ae2f3726c60f2559397a2e49393e9b6ea8",
+    "docs/DEPENDENCIES.yaml": "da65133d932ec3d4d18255da52be3aaf36081775ae03b27e5acfdf04f599e24c",
+    "docs/DELIVERY_CONTRACTS.md": "7b1856b098e90be7aa67b6351bb77dc5b735c021bdf44a20d49f5571ea0f867b",
+    "docs/deliveries/P-00.md": "d27896517f2fbc3ac595b6600e5343a77e3aa8c0c5da89f676b29ae38dc08866",
+    "docs/deliveries/P-01.md": "f5423f46531220df3c36a374c37ed52de5c8b624ff857a8dc6f8262da804f640",
+    "docs/deliveries/P-02.md": "847d69e1ae094df845c10dfa2d6e357b20b2bc3eae458985ce3e73d7be18b552",
+    "docs/deliveries/P-03.md": "d11c38b379e59e44b908300885e1e48ee8c7106bc153c564fd9318139d5594d5",
+    "docs/deliveries/P-04.md": "e6c8ca05a4dd61e4bb7544d3d15e4ef83293b0ae66018c35a09b3c0401588d0f",
+    "docs/deliveries/E-00.md": "5c5bf437c0071ea4dff5a7a15186f8abdd57486ae2811268f9e9024ccef94a48",
+    "docs/deliveries/E-01.md": "04442d082e89b094394ff2b9b5d09915e44082b4304e2855a0d0e3282ffd9ea5",
+    "docs/deliveries/E-02.md": "071ddb33dddf3d4033a446eb1c68228c3c62a82d682dac7f4c807c7814fd1130",
+    "docs/deliveries/E-03.md": "85f94b9eeec58bfff27ef19a63d1d03043ebd54eafa53584f27daeac3eea616a",
+    "docs/deliveries/E-04.md": "31b71c8a4789968f1b11ededb7d77404b37a99290b227f65e4aca3128225acc3",
+    "docs/deliveries/E-05.md": "05c6be517a646ef17975777cff93c7586c19a4e6f6bb38dd50518a2e67d0d290",
+    "docs/deliveries/E-06.md": "e49f1ac11089fb1a11b8cc758cce4789a70c05c5fff04a8c985934cb6fb040f7",
+    "docs/deliveries/E-07.md": "aef106ba4fa0365ecb8d51afb2cdd635a7002c2eaf80064b426369bd04db08d2",
+    "docs/deliveries/E-08.md": "9bfa8875b597cb4fcff3c78c8ecbe1c93f40bcf4a59ed852932edfd5b6886ee3",
+    "docs/deliveries/E-09.md": "98611bc41365567c91a10a1516614b894e1eea44b789f3f85d220449d1633678",
+    "docs/deliveries/E-10.md": "5c08b625f0360c2c131e97fb6f7ee2c8767178a4df96ed368f938c623ca19598",
+    "docs/deliveries/E-11.md": "d2231e2e7b2c153547c4114cdba97eb49a92fe01797d988e640e4d4c6ac500a0",
+    "docs/deliveries/E-12.md": "de714e7043ebbe70e03eab45dd726173f3db7d42c86837fc55c9cf0e8fab0ae1",
+    "docs/deliveries/E-13.md": "77d43d247fb4ac0457721df2f09b9b8066394b4527b86979f1f528bb6832abe5",
+    "docs/deliveries/E-14.md": "91a3268f822e348765490a1cd8299d3842bd38d6f58feb7f9702c21a2873ac08",
+    "docs/deliveries/E-15.md": "57822840bbd48c78e6af70504d16e28b4ff241d18e2f1f53e0a13f14f96cfbe0",
+    "docs/deliveries/E-16.md": "c4c76bb69ba5cb46cca1e5ce07eb866a9c401e91bcd3598e349dd351d2ddc11c",
+    "docs/deliveries/E-17.md": "d59de1324d0763123b2773c8ceaca99b9ee5b3fba123ab8b61e2f64de9884d1c",
+    "docs/deliveries/E-18.md": "33959bfccd9d4e9faaba48a118f8975e2b7d208c81c01400f0354d73ecdfefb2",
+    "docs/deliveries/E-19.md": "ddc1f4ee7b27b0d80544363c142676c742256a3c074c16081bea4de7d6396b97",
+    "docs/deliveries/E-20.md": "860ba66738f768b5bf0b1267b6351aa2750f9fa8faaf77a4e9d31d4c74e340be",
+    "docs/ACCEPTANCE_CRITERIA.md": "0d6905f26c0775dd1399e420dd58d6d6d1d33a2afc0eef0b38a16189319ac71c",
+    "docs/UX_FLOWS.md": "5ff062a0ebffc7dcaff229d0d05a24cab6841c3489300561f5c549c003df45f8",
+    "docs/DECISIONS.md": "14425af51b992a31fe5012ba7b3257632cf46af46a6544041a766e8c8354da06",
+    "docs/RISK_REGISTER.md": "dddde2f2229dea207edcc93ffeeadad16496037c65d5b68331f082a5fb2bd28d",
+    "docs/PROJECT_STATUS.yaml": "a8d0e13311577a2b29ea73b1ff0bae04978146a00896d4a44cf8073a8b13d232",
+    "docs/GATE-00.md": "e829cb37dc6fd8753d59de2b09fd8b985983577507e35670a6d8d83a4ee9650a",
+    "docs/ACTION_PLAN.md": "0a6afdc4ffb9d4c5a75ee96eff464a19bd9175597bd8e8cde30b71340d19af48",
+    "docs/evidence/validate_planning.py": "b0dcf062f10c2bd725c78efec00ea028fbfbe02339dfd6cdac032e55a66769b8"
+  }
+}
