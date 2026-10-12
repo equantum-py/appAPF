@@ -9,13 +9,14 @@ dependencies = [
     "alembic==1.20.0",
     "uvicorn==0.54.0",
     "psycopg[binary]==3.3.6",
+    "pyjwt[crypto]==2.15.1",
 ]
 [dependency-groups]
 dev = ["pytest==9.1.1", "httpx==0.28.1", "ruff==0.17.0"]
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
-markers = ["postgres: requires the isolated real PostgreSQL E-02 target"]
+markers = ["postgres: requires the isolated real PostgreSQL E-02 target", "live_auth: requires official Supabase Auth in isolated CI"]
 [tool.ruff]
 target-version = "py312"
 [tool.ruff.lint]

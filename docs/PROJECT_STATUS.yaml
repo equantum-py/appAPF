@@ -11,7 +11,7 @@
       "scope": "GATE-00 y planificación P-00..P-04; no cierres de implementación"
     }
   },
-  "active_delivery": "E-02",
+  "active_delivery": "E-03",
   "application_implemented": true,
   "deliveries": {
     "P-00": {
@@ -96,16 +96,23 @@
       "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38195776012"
     },
     "E-02": {
-      "status": "IN_REVIEW",
-      "approval": null,
-      "reason": "23 domain tables verified in PostgreSQL17.11; 55 tests and Alembic check PASS; pending human closure",
+      "status": "COMPLETED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "949b46e65aa7cb55ce5125eb1c691f51a879a305",
+        "date": "2026-10-12T01:04:23-03:00",
+        "statement": "Apruebo E-02 del commit 949b46e",
+        "scope": "Cierre E-02; ejecución E-03 dentro de línea base aprobada"
+      },
+      "reason": "Cierre aprobado del commit verificado en PostgreSQL",
       "verified_commit": "949b46e65aa7cb55ce5125eb1c691f51a879a305",
       "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38199926053"
     },
     "E-03": {
-      "status": "BLOCKED",
+      "status": "IN_PROGRESS",
       "approval": null,
-      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+      "reason": "E-02 aprobado; autenticación API y navegador implementada, pendiente CI con Auth oficial efímero",
+      "external_blockers": []
     },
     "E-04": {
       "status": "BLOCKED",

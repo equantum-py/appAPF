@@ -120,7 +120,12 @@ def test_internal_error_and_access_log_omit_sensitive_values(caplog):
 
 
 def test_production_disables_http_documentation():
-    env = {"APP_ENV": "production", "CORS_ORIGINS": '["https://example.com"]'}
+    env = {
+        "APP_ENV": "production",
+        "CORS_ORIGINS": '["https://example.com"]',
+        "SUPABASE_URL": "https://apf-fixture.example",
+        "API_DATABASE_URL": "postgresql+psycopg://apf_runtime:fixture@db.example/apf?sslmode=verify-full",
+    }
     with TestClient(create_app(env)) as client:
         for path in ["/docs", "/openapi.json", "/redoc"]:
             assert client.get(path).status_code == 404
