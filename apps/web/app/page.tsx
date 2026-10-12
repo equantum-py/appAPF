@@ -51,8 +51,8 @@ export default function Home() {
                   <path d="M10 4v12m0 0 5-5m-5 5-5-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </ButtonLink>
-              <ButtonLink href="#principios" size="lg" variant="secondary">
-                Nuestros principios
+              <ButtonLink href="/demo" size="lg" variant="secondary">
+                Recorrer la demo
               </ButtonLink>
             </div>
             <p className="mt-6 text-sm text-[var(--text-muted)]">
