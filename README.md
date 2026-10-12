@@ -20,3 +20,5 @@ Ver docs/GATE-00.md, docs/PROJECT_STATUS.yaml y docs/deliveries/E-00.md.
 GitHub Actions replica verificaciones en checkout limpio y guarda el SHA del commit verificado.
 
 Usar `--no-access-log` para que Uvicorn no registre URL/query. La aplicación registra JSON con método, estado e identificador. No contiene secretos.
+
+Dirección CHG-002 aprobada; [GATE-01 propuesto](docs/gates/GATE-01/README.md) pendiente de adopción. E-01 conserva aprobación de cierre pendiente.

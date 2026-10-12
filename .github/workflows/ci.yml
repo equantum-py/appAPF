@@ -36,6 +36,7 @@ jobs:
       - name: Documentation and diff
         run: |
           python docs/evidence/validate_planning.py
+          python docs/gates/GATE-01/evidence/validate.py
           git diff --exit-code -- package-lock.json services/api/uv.lock
           git diff --check
       - name: Record verified commit

@@ -1,0 +1,6 @@
+# Flujos y permisos
+Árbitro: acceso -> espacio personal o institución autorizada -> seleccionar modalidad -> sesión publicada. Cognitivo: video online -> decisión/regla/confianza -> confirmar -> API evalúa -> explicación -> progreso. Físico: instrucciones -> ejecutar sesión -> registro online/autodeclarado -> historial físico, sin nota arbitral.
+Offline etapa 1: abrir interfaz/instrucciones descargadas; video y envío muestran que requieren conexión. No notificar éxito de envío ni resultado oficial sin servidor. Al reconectar reautenticar; no existe cola de intentos MVP.
+Instructor: institución -> contenido -> borrador -> revisión humana -> publicación -> progreso autorizado/revisión. Rol no autoriza toda institución ni espacio personal ajeno.
+Revisor técnico: aprueba situaciones/versiones; revisor físico (capacidad del rol instructor/revisor): aprueba ejercicios dentro de su competencia. Administrador: membresías/configuración institucional, sin autoaprobar criterio por ser admin. Propietario personal: su historial; sin derechos de publicación oficial.
+Etapa 2: grupo -> asignación con versiones/plazo/política de intentos -> ejecución -> cumplimiento -> feedback; instructor solo grupos asignados. Exportación verifica mismo alcance antes de generar y descargar; PDF/CSV no habilita acceso ajeno.

@@ -92,7 +92,7 @@
     "E-02": {
       "status": "BLOCKED",
       "approval": null,
-      "reason": "dependencias no COMPLETED; contrato debe expandirse"
+      "reason": "Bloqueada por cierre E-01 y aprobación/rebaselining GATE-01; no migraciones ejecutadas"
     },
     "E-03": {
       "status": "BLOCKED",
@@ -185,5 +185,25 @@
       "reason": "dependencias no COMPLETED; contrato debe expandirse"
     }
   },
-  "application_scope": "Base web y API mínima; módulos de negocio no implementados"
+  "application_scope": "Base web y API mínima; módulos de negocio no implementados",
+  "active_gate": "GATE-01",
+  "change_requests": {
+    "CHG-002": {
+      "status": "APPROVED",
+      "approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "9628f4e2a54d1167f9311ce8cf54e17d8af5be99",
+        "date": "2026-10-11T23:50:24-03:00",
+        "statement": "Aprobado!",
+        "scope": "Dirección funcional CHG-002 y preparación GATE-01; no cierre E-01 ni implementación ampliada"
+      }
+    }
+  },
+  "gates": {
+    "GATE-01": {
+      "status": "IN_REVIEW",
+      "approval": null,
+      "package": "docs/gates/GATE-01/README.md"
+    }
+  }
 }
