@@ -109,10 +109,11 @@
       "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38199926053"
     },
     "E-03": {
-      "status": "IN_PROGRESS",
+      "status": "IN_REVIEW",
       "approval": null,
-      "reason": "E-02 aprobado; autenticación API y navegador implementada, pendiente CI con Auth oficial efímero",
-      "external_blockers": []
+      "reason": "CI PASS: 95 pruebas backend + navegador real; espera aprobación humana",
+      "external_blockers": [],
+      "commit": "165307e472e0e13ea2ff1ba3eaf65f52e5d2790f"
     },
     "E-04": {
       "status": "BLOCKED",

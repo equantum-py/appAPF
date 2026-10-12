@@ -1,0 +1,43 @@
+{
+  "delivery": "E-03",
+  "status": "IN_REVIEW",
+  "approval": null,
+  "commit": "165307e472e0e13ea2ff1ba3eaf65f52e5d2790f",
+  "date": "2026-10-12T04:45:18.295344+00:00",
+  "environment": "GitHub Actions ubuntu-latest, Node24, Python3.12; PostgreSQL17.11; official Supabase Auth v2.196.0 ephemeral; Chromium Playwright1.64.0",
+  "result": "PASS",
+  "run_id": 38204865151,
+  "url": "https://github.com/equantum-py/appAPF/actions/runs/38204865151",
+  "tests": {
+    "backend": 95,
+    "browser": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "checks": {
+    "jwt_and_real_provider": "PASS",
+    "tenant_membership_roles": "PASS",
+    "disabled_membership": "PASS",
+    "runtime_no_bypass": "PASS",
+    "migration_revert_upgrade_and_no_drift": "PASS",
+    "web_lint_types_build": "PASS",
+    "browser_signin_reload_scope_logout": "PASS",
+    "documentation_validators": "PASS"
+  },
+  "artifact": {
+    "id": 11726628406,
+    "digest": "sha256:340b4a17f5c705ecacd48fb192bbc6127999d8b145757c4d7492aa663806d850",
+    "reports_preserved": "ci-report/"
+  },
+  "corrections": [
+    "correction-01.json",
+    "correction-02.json",
+    "correction-03.json"
+  ],
+  "limitations": [
+    "Ephemeral official Auth only; no persistent cloud deployment or gateway verification",
+    "Local logout does not instantly invalidate an issued JWT",
+    "Business user provisioning uses guarded CI fixture; no registration/admin implementation"
+  ]
+}
