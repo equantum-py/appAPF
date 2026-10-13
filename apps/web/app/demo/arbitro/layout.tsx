@@ -1,33 +1,10 @@
-import Link from "next/link";
+import { Barlow_Condensed, Inter } from "next/font/google";
 import type { ReactNode } from "react";
-import { ArbitroNav } from "../_components/nav";
-import { BrandMark } from "../../components/brand-mark";
+
+const display = Barlow_Condensed({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-rf-display", display: "swap" });
+const text = Inter({ subsets: ["latin"], variable: "--font-rf-text", display: "swap" });
+
+/** App del árbitro: blanco y negro editorial, titulares condensados. */
 export default function ArbitroLayout({ children }: { children: ReactNode }) {
-  return (
-    <div className="app-shell">
-      <header className="app-header">
-        <Link href="/demo/arbitro" className="app-brand">
-          <BrandMark className="size-8" />
-          <span>
-            Formación<span className="brand-sub">ARBITRAL</span>
-          </span>
-        </Link>
-        <details className="profile-menu">
-          <summary>
-            <span className="profile-avatar">AD</span>
-            <span>
-              Árbitro <span aria-hidden>⌄</span>
-            </span>
-          </summary>
-          <div className="profile-dropdown">
-            <p>Perfil de demostración</p>
-            <Link href="/demo/arbitro">Árbitro Demo</Link>
-            <Link href="/demo/panel">Cambiar a instructor</Link>
-          </div>
-        </details>
-      </header>
-      <main className="app-content">{children}</main>
-      <ArbitroNav />
-    </div>
-  );
+  return <div className={`rf ${display.variable} ${text.variable}`}>{children}</div>;
 }
