@@ -1,10 +1,32 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArbitroNav } from "../_components/nav";
-
+import { BrandMark } from "../../components/brand-mark";
 export default function ArbitroLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="mx-auto flex min-h-[calc(100vh-36px)] max-w-md flex-col bg-[var(--surface)] sm:my-6 sm:min-h-0 sm:overflow-hidden sm:rounded-[2rem] sm:border sm:border-[var(--border)] sm:shadow-[var(--shadow-lift)]">
-      <div className="flex-1 px-5 pb-6 pt-5">{children}</div>
+    <div className="app-shell">
+      <header className="app-header">
+        <Link href="/demo/arbitro" className="app-brand">
+          <BrandMark className="size-8" />
+          <span>
+            Formación<span className="brand-sub">ARBITRAL</span>
+          </span>
+        </Link>
+        <details className="profile-menu">
+          <summary>
+            <span className="profile-avatar">AD</span>
+            <span>
+              Árbitro <span aria-hidden>⌄</span>
+            </span>
+          </summary>
+          <div className="profile-dropdown">
+            <p>Perfil de demostración</p>
+            <Link href="/demo/arbitro">Árbitro Demo</Link>
+            <Link href="/demo/panel">Cambiar a instructor</Link>
+          </div>
+        </details>
+      </header>
+      <main className="app-content">{children}</main>
       <ArbitroNav />
     </div>
   );
