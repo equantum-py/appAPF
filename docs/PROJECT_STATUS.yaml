@@ -151,7 +151,10 @@
     "E-05": {
       "status": "BLOCKED",
       "approval": null,
-      "reason": "Dependencia HARD E-04 COMPLETED; pendiente expansión y aceptación del contrato antes de READY e implementación"
+      "reason": "Contrato E-05 detallado v1 en revisión; HARD E-04 satisfecha. Pendiente aceptación antes de READY e implementación",
+      "contract_status": "IN_REVIEW",
+      "contract": "docs/deliveries/E-05.md",
+      "implementation_started": false
     },
     "E-06": {
       "status": "BLOCKED",
