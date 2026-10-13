@@ -9,7 +9,25 @@ permissions:
 jobs:
   foundation:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:19000
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_ci_fixture
+      NEXT_PUBLIC_API_URL: http://127.0.0.1:18000
+    services:
+      postgres:
+        image: postgres:17.11
+        env:
+          POSTGRES_DB: apf_e02_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: test_admin_only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d apf_e02_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -29,20 +47,73 @@ jobs:
           npm run build
       - name: Python install and checks
         working-directory: services/api
+        env:
+          E03_LIVE_AUTH: isolated
+          E02_TEST_MODE: isolated
+          E02_TEST_ADMIN_URL: postgresql+psycopg://postgres:test_admin_only@localhost:5432/apf_e02_test
+          E02_TEST_MIGRATOR_URL: postgresql+psycopg://apf_migrator:test_migrator_only@localhost:5432/apf_e02_test
+          E02_TEST_RUNTIME_URL: postgresql+psycopg://apf_runtime:test_runtime_only@localhost:5432/apf_e02_test
+          PYTHONPATH: .
         run: |
           uv sync --locked
           uv run ruff check .
-          uv run pytest -q
+          uv run python -m tests.bootstrap_postgres
+          uv run python -m tests.start_auth
+          mkdir -p ../../ci-evidence
+          uv run python migrations/build_initial_snapshot.py --check
+          uv run pytest -q --junitxml=../../ci-evidence/postgres-tests.xml
+          uv run alembic check
+          uv run python -c "import json, pathlib, os; from sqlalchemy import create_engine; from app.shared.test_database import isolated_test_url; e=create_engine(isolated_test_url('E02_TEST_ADMIN_URL')); c=e.connect(); v=c.exec_driver_sql('SELECT version()').scalar(); pathlib.Path('../../ci-evidence/postgres-version.json').write_text(json.dumps({'commit':os.environ['GITHUB_SHA'],'version':v})+'\n'); c.close()"
+      - name: Browser authentication verification
+        working-directory: services/api
+        env:
+          E03_LIVE_AUTH: isolated
+          E02_TEST_MODE: isolated
+          E02_TEST_ADMIN_URL: postgresql+psycopg://postgres:test_admin_only@localhost:5432/apf_e02_test
+          E02_TEST_MIGRATOR_URL: postgresql+psycopg://apf_migrator:test_migrator_only@localhost:5432/apf_e02_test
+          E02_TEST_RUNTIME_URL: postgresql+psycopg://apf_runtime:test_runtime_only@localhost:5432/apf_e02_test
+          API_DATABASE_URL: postgresql+psycopg://apf_runtime:test_runtime_only@localhost:5432/apf_e02_test
+          APP_ENV: test
+          CORS_ORIGINS: '["http://127.0.0.1:13000"]'
+          SUPABASE_URL: http://127.0.0.1:19000
+          PYTHONPATH: .
+        run: |
+          uv run python -m tests.browser_fixture
+          uv run uvicorn app.main:app --host 127.0.0.1 --port 18000 --no-access-log > /tmp/apf-api.log 2>&1 &
+          cd ../..
+          npm run start --workspace apps/web -- --hostname 127.0.0.1 --port 13000 > /tmp/apf-web.log 2>&1 &
+          python - <<'PYREADY'
+          import time, urllib.request
+          for url in ('http://127.0.0.1:18000/v1/health', 'http://127.0.0.1:13000/ingresar'):
+              for attempt in range(60):
+                  try:
+                      with urllib.request.urlopen(url, timeout=2) as response:
+                          if response.status == 200: break
+                  except Exception: pass
+                  time.sleep(0.5)
+              else: raise RuntimeError('CI service readiness failed')
+          PYREADY
+          npx playwright install --with-deps chromium
+          npm exec --workspace apps/web -- playwright test
+      - name: Remove ephemeral Auth resources
+        if: always()
+        run: |
+          docker rm -f apf-auth-e03 >/dev/null 2>&1 || true
+          rm -f /tmp/apf-e03-auth.env /tmp/apf-e03-browser.json
       - name: Documentation and diff
         run: |
           python docs/evidence/validate_planning.py
+          python docs/gates/GATE-01/evidence/validate.py
           git diff --exit-code -- package-lock.json services/api/uv.lock
           git diff --check
       - name: Record verified commit
         run: |
           mkdir -p ci-evidence
           echo "commit=$GITHUB_SHA" > ci-evidence/commit.txt
+          python docs/evidence/E-04/summarize.py ci-evidence/postgres-tests.xml --commit "$GITHUB_SHA" --output ci-evidence/audit-cases.json
+          python docs/evidence/E-05/summarize.py ci-evidence/postgres-tests.xml --commit "$GITHUB_SHA" --output ci-evidence/rule-cases.json
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: foundation-evidence
           path: ci-evidence/

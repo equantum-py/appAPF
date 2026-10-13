@@ -1,0 +1,154 @@
+{
+  "delivery": "E-02",
+  "status": "IN_REVIEW",
+  "approval": null,
+  "date": "2026-10-12T03:20:12.152377+00:00",
+  "environment": "local Python3.12.14; uv0.12.23; no PostgreSQL/Docker",
+  "base_commit": "fcadc5f0953b8c2bbe0c68f84e86703e024f587b",
+  "version_binding": "source SHA256 and containing commit",
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--locked"
+      ],
+      "cwd": "services/api",
+      "result": "PASS",
+      "exit_code": 0,
+      "report": "00.log"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "ruff",
+        "check",
+        "."
+      ],
+      "cwd": "services/api",
+      "result": "PASS",
+      "exit_code": 0,
+      "report": "01.log"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "pytest",
+        "-m",
+        "not postgres",
+        "-q"
+      ],
+      "cwd": "services/api",
+      "result": "PASS",
+      "exit_code": 0,
+      "report": "02.log"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "app",
+        "migrations"
+      ],
+      "cwd": "services/api",
+      "result": "PASS",
+      "exit_code": 0,
+      "report": "03.log"
+    },
+    {
+      "command": [
+        "python",
+        "docs/evidence/validate_planning.py"
+      ],
+      "cwd": ".",
+      "result": "PASS",
+      "exit_code": 0,
+      "report": "04.log"
+    },
+    {
+      "command": [
+        "python",
+        "docs/gates/GATE-01/evidence/validate.py"
+      ],
+      "cwd": ".",
+      "result": "PASS",
+      "exit_code": 0,
+      "report": "05.log"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": ".",
+      "result": "PASS",
+      "exit_code": 0,
+      "report": "06.log"
+    },
+    {
+      "test": "T01..T11 and PostgreSQL additional security constraints",
+      "result": "NOT_RUN",
+      "reason": "no local PostgreSQL; required in CI before approval"
+    },
+    {
+      "test": "staged diff including new frozen SQL",
+      "result": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ]
+    }
+  ],
+  "sha256": {
+    "services/api/app/__init__.py": "64a6d0ac49aa53326bf03ecad2e39236237f6a0740afad260dc910ec1a85ee10",
+    "services/api/app/factory.py": "c4dd00ef5cb8b26b5a22b0014f4d29ce1fd4428cb338e71182fef08d22002f6a",
+    "services/api/app/main.py": "43750bd743570d51d0f7563a0d362ddc61e69b78014ce502c46e5e931da9d875",
+    "services/api/app/analytics/__init__.py": "5031c2b1c995b2fffd8396619aafb398962361720f179873dbd4f7719b5686ba",
+    "services/api/app/catalog/__init__.py": "1514f1bf4b051780f36a0de141e21fd8c3e5f14961f3d76f0d7af5813a94296d",
+    "services/api/app/catalog/models.py": "696c8d9c297338168d53f398f9ea94e24d102e15a51bb2aaa55b6669f2385e36",
+    "services/api/app/training/__init__.py": "ff5586d6fe2939b88e411ddab9236af4e053ed7efacd1e34a96bd128fb303981",
+    "services/api/app/training/models.py": "bb34bac7871ba0d2067ca164cd1622a1275632f9624ba8244db071ec5120bf02",
+    "services/api/app/assistant/__init__.py": "b66b3e8c51d2ef8a828c9dcb45e887b472adea8be07069b133f748ef56f0adf6",
+    "services/api/app/rules/__init__.py": "f110de66b1a42ac90b3e05e0b0bb6304d6be66a43eaa8e0b574588926fbc7cee",
+    "services/api/app/rules/models.py": "a3b5bc88620ad0ee323cb3ac5e5c483c93303d85d62373038209db4835d0d1e0",
+    "services/api/app/evaluation/__init__.py": "1139d3e1a35cfd676ea658aec437b976234953044d51d5c074bcd56da48a6001",
+    "services/api/app/evaluation/models.py": "ff10d8da26a2a69b1207a4be6a1e3b082259b621c33c36e6c5a925c1d09f77f8",
+    "services/api/app/identity/__init__.py": "ee69de4652e6b26d0a2521e83d2b0155d44453036680e1529bfe586d3b48e2a1",
+    "services/api/app/identity/models.py": "1d4884b174ecada9454ab4d6bde8e38db8dd0b506df75a9dbcd968b2ea03ad77",
+    "services/api/app/shared/__init__.py": "536375a585d663735c69fab097520c922fa3aefa5d5d184d8741e560ffbc2173",
+    "services/api/app/shared/config.py": "50b1927c9f97721c589abe03784e5f7c7d3965a2f149871a5f831faab69f24a6",
+    "services/api/app/shared/database.py": "119efcf160249f43622254855e82e25145a86cb4033958162fab5447777b0073",
+    "services/api/app/shared/test_database.py": "046d20cabce38df9ac68c67e595396b66fc2b8ee95ab75a898b01b97710304df",
+    "services/api/app/shared/logging.py": "3cc22edf6f8880f4524000a5b493d9b95b893bb12e515db5444cfbef0243821b",
+    "services/api/app/media/__init__.py": "376dcf0b4e476c29af4b219354e5b2371a7c44922f54fd3c97bfbe87ade27d1f",
+    "services/api/app/media/models.py": "1297a0d72599727ed69d1442a2e2d70dccb1ba06d281d5ca499a89bf28b1cd0f",
+    "services/api/app/audit/__init__.py": "00d5d989a06fa58840272c9d8e38d72e64a3c4a9c96502a4ac0d1de7e9bcaa13",
+    "services/api/app/audit/models.py": "bd22b9db662deb43f1ebdad8152fdfcfd8004081bb30ce27c2c633975617e386",
+    "services/api/app/organizations/__init__.py": "751c85e310fc016cad122a23df8f40ca2e3bc64d04d7cb000f0109236e0c6501",
+    "services/api/app/organizations/models.py": "6798f6ff26a9e9ad4622d5896225a8072cbf6d1ecb6d8a3e41cde29d1cd1e4c1",
+    "services/api/tests/test_api.py": "e8f493b589196397e854213a72695a55f2c231c77df432e55c1050923d5ac24e",
+    "services/api/tests/__init__.py": "9edb9033e12d504250b8f4330558b8226e747561822cddb3d2393bb5f6f07cc8",
+    "services/api/tests/test_metadata.py": "28f095b970290dc2a66eabd6c0e94764d26488f90f717728a3d8be947b0e53b6",
+    "services/api/tests/test_migration_target.py": "c17b1bbcf295f4c18f6650cba1332889ca8033ccc7ca8485ce1e7a077327e612",
+    "services/api/tests/bootstrap_postgres.py": "6cc9959fa6588f283aaf27169ce50511c5059e99714fd110095dd6d120401ab2",
+    "services/api/tests/test_migrations.py": "850131c85f27a83dff8e13cc822f1f8d4d1fcdab23c72dc6aca8b0444f103161",
+    "services/api/tests/test_structure.py": "657563d077238851621f95f104284f056ea0948be4e6ffdc7bb030c2579b69d1",
+    "services/api/migrations/script.py.mako": "849e6d4b05fe0dff5cada78d2fc27a8e3ba38dd4fc241af999af725b1c885f96",
+    "services/api/migrations/README.md": "0fd94041919d0b2e8c389b280eb40355b3522712f806c5648462663c1ebc3cac",
+    "services/api/migrations/build_initial_snapshot.py": "330d3ffb1c2960046171c5d4307cce565c3452db5d53c541a5cce57e65c4055a",
+    "services/api/migrations/env.py": "e2cfb8ed02e65e910f6202be22c54200574435503e021c0b05340281f4a24d8c",
+    "services/api/migrations/versions/0001_domain_schema.py": "8038c2b24952efe3fe192fb9c0fa3b607fd81ad5aeb5b76fb0e09ead31bd9c8f",
+    "services/api/migrations/versions/0001_tables.sql": "2916feb98c77c8d5db8603488fd8721d8400a4130ffda1244c76e69c08d08d09",
+    "services/api/migrations/versions/0001_security.sql": "9dc6b1a60183a36919b4a480846fe0e586495014cc94fabbb225b2dd95f5522d",
+    "services/api/migrations/versions/0001_tables.json": "3de25edd4f8f6fc19cb235a34d904078e01a383306544cc2b66c11c4ae2b9ffc"
+  }
+}

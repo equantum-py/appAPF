@@ -1,0 +1,277 @@
+[
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env0]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env1]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env2]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env3]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env4]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env5]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env6]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env7]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env8]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env9]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env10]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env11]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env12]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env13]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env14]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env15]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_invalid_configuration_blocks_startup_without_values[env16]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_health_and_server_request_id",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_http_errors[get-/missing-404]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_http_errors[post-/v1/health-405]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_cors_permitted_and_denied",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_internal_error_and_access_log_omit_sensitive_values",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_production_disables_http_documentation",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_api",
+    "name": "test_openapi_contract_matches_export",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_metadata",
+    "name": "test_domain_inventory_and_frozen_snapshot",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migration_target",
+    "name": "test_migration_target_guard[-postgresql+psycopg://localhost/apf_e02_test]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migration_target",
+    "name": "test_migration_target_guard[isolated-postgresql+psycopg://remote.example/apf_e02_test]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migration_target",
+    "name": "test_migration_target_guard[isolated-postgresql+psycopg://localhost/production]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migration_target",
+    "name": "test_migration_target_guard[isolated-sqlite:///apf_e02_test]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t01_inventory",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t02_constraints_and_indexes",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t03_downgrade_and_upgrade",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t04_cross_tenant_foreign_key",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t05_wrong_item_modality",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t06_duplicate_membership",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t07_duplicate_session_position",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t08_physical_result_rejects_cognitive_item",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t09_runtime_privileges",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t10_no_metadata_drift",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_t11_concurrent_idempotency_key",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_rls_scope_and_private_owner",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_physical_units_are_separate",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_published_version_and_children_are_protected",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_migrations",
+    "name": "test_approval_is_exact_and_separate_from_author",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[identity]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[organizations]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[rules]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[catalog]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[media]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[training]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[evaluation]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[analytics]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[assistant]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[audit]",
+    "result": "PASS"
+  },
+  {
+    "class": "tests.test_structure",
+    "name": "test_module_boundary_imports[shared]",
+    "result": "PASS"
+  }
+]

@@ -1,0 +1,1 @@
+{"commit":"b05b8ac8c478599301ef51f0f249c296c0cc172e","run":38204676071,"backend":"95 passed; official Auth token accepted; Alembic no drift","browser":"NOT_RUN: readiness used /health instead of existing /v1/health","change":"use versioned health endpoint"}

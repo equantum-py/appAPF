@@ -1,0 +1,7 @@
+2026-10-12T03:29:58.5107714Z PASS: initial metadata matches frozen table/index snapshot
+2026-10-12T03:30:04.9108800Z 55 passed, 1 warning in 5.46s
+2026-10-12T03:30:05.7859738Z No new upgrade operations detected.
+2026-10-12T03:30:06.3737333Z PASS: active v2 graph, contracts, recorded approvals and completed dependencies
+2026-10-12T03:30:07.1184277Z Artifact foundation-evidence.zip successfully finalized. Artifact ID 11724204265
+2026-10-12T03:30:07.1185764Z Artifact foundation-evidence has been successfully uploaded! Final size is 1609 bytes. Artifact ID is 11724204265
+2026-10-12T03:30:07.1190804Z Artifact download URL: https://github.com/equantum-py/appAPF/actions/runs/38199926053/artifacts/11724204265

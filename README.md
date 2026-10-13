@@ -1,9 +1,9 @@
 # Plataforma de formación arbitral
-Proyecto independiente de eQuantum. Sin vínculo institucional APF.
-GATE-00 aprobado por Derlis sobre b6117d1. E-00: fundación en revisión; no hay entrenamiento, API operativa ni despliegue.
+Proyecto independiente de eQuantum; sin vínculo institucional APF.
+Línea base activa: [GATE-01 v2](docs/BASELINE_INDEX.md). E-00, E-01, E-02, E-03, E-04 y E-05 aprobadas. Identidad y aislamiento verificados con Supabase Auth y PostgreSQL efímeros; despliegue cloud persistente pendiente. E-04 auditoría cerrada sobre 47ec9a2: [evidencia verificable](docs/evidence/E-04/manifest.json) y [aprobación](docs/approvals/E-04.json). E-05 ediciones de reglas cerrada sobre 224626c: [evidencia verificable](docs/evidence/E-05/manifest.json) y [aprobación](docs/approvals/E-05.json). Siguiente entrega: E-06 situaciones versionadas, pendiente de detallar y aceptar su contrato antes de implementar. Entrenamiento, video privado y evaluación funcional aún pendientes.
 
-## Comprobaciones reproducibles
-Node 24 y Python 3.12. No requiere servicios externos de negocio ni secretos.
+## Comprobaciones
+Node 24, Python 3.12 y uv 0.12.23; lockfiles comprometidos.
 ```bash
 npm ci
 npm run lint
@@ -12,9 +12,9 @@ npm run build
 cd services/api
 uv sync --locked
 uv run ruff check .
-uv run pytest -q
+uv run pytest -m 'not postgres' -q
+PYTHONPATH=. uv run python migrations/build_initial_snapshot.py --check
 ```
-Desde raíz: `python docs/evidence/validate_planning.py`.
-Ejecutar web: `npm run dev --workspace apps/web`. API todavía no tiene servidor; corresponde E-01.
-Ver docs/GATE-00.md, docs/PROJECT_STATUS.yaml y docs/deliveries/E-00.md.
-GitHub Actions replica verificaciones en checkout limpio y guarda el SHA del commit verificado.
+Pruebas PostgreSQL: seguir [procedimiento E-02](docs/evidence/E-02/README.md). CI ejecuta también PostgreSQL real efímero; no requiere cuentas cloud de negocio.
+API: definir APP_ENV y CORS_ORIGINS según .env.example; desde services/api ejecutar `uv run uvicorn app.main:app --no-access-log`. GET /v1/health indica proceso/configuración, no conexión DB. .env no se carga automáticamente.
+Documentación canónica en docs/, estado operativo en PROJECT_STATUS.yaml. Paquetes aprobados y evidencias históricas conservados.

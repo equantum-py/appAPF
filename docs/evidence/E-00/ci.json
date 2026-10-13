@@ -1,0 +1,79 @@
+{
+  "delivery": "E-00",
+  "commit": "ce7dfa73fd4ca60477b9d7fdfcdb98a9309ba5e7",
+  "environment": "GitHub Actions ubuntu-latest, Node 24, Python 3.12, uv 0.12.23",
+  "date": "2026-10-12T02:16:28Z",
+  "result": "PASS",
+  "run_id": 38195094051,
+  "url": "https://github.com/equantum-py/appAPF/actions/runs/38195094051",
+  "jobs": [
+    {
+      "id": 114635875262,
+      "name": "foundation",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install uv",
+          "conclusion": "success"
+        },
+        {
+          "name": "Web install and checks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Python install and checks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Documentation and diff",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record verified commit",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "approval": null,
+  "limitations": [
+    "No API, DB, Auth, private media, PWA, browser QA or deployment in E-00.",
+    "eslint-config-next includes transitive eslint 9 deprecation warning; direct lint uses eslint 10.12.0. Track on dependency update; checks passed."
+  ]
+}

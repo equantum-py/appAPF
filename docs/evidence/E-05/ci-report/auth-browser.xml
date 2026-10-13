@@ -1,0 +1,6 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="1.715065">
+<testsuite name="auth.spec.ts" timestamp="2026-10-13T19:13:49.208Z" hostname="" tests="1" failures="0" skipped="0" time="0.896" errors="0">
+<testcase name="Supabase Auth login, protected API scope, refresh and local logout" classname="auth.spec.ts" time="0.896">
+</testcase>
+</testsuite>
+</testsuites>

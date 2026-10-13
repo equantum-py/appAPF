@@ -789,3 +789,27 @@
     font-size: 11px;
   }
 }
+
+/* Páginas base de main (portada en desarrollo, ingreso y /app). */
+:where(.home-page, .access-page) {
+  max-width: 720px;
+  padding: 80px 24px;
+  margin: 0 auto;
+}
+:where(.home-page, .access-page) h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 500; line-height: 1.15; }
+:where(.home-page, .access-page) p { font-size: 18px; line-height: 1.6; }
+.eyebrow { font-size: 14px; color: #526759; }
+.status { margin-top: 40px; font-size: 15px; }
+.home-page footer { margin-top: 80px; font-size: 13px; color: #526759; }
+
+.access-page { max-width: 520px; }
+.access-form { display: grid; gap: 12px; margin: 32px 0; }
+.access-form label { font-size: 15px; }
+.access-form input { padding: 12px; border: 1px solid #a8b5ad; border-radius: 6px; font: inherit; min-width: 0; }
+.access-page button { padding: 12px 20px; border: 0; border-radius: 6px; background: #214f39; color: white; font: inherit; cursor: pointer; }
+.access-page button:disabled { opacity: .65; cursor: wait; }
+.access-page input:focus-visible, .access-page button:focus-visible { outline: 3px solid #679b7b; outline-offset: 3px; }
+.membership-list { list-style: none; padding: 0; display: grid; gap: 16px; }
+.membership-list li { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid #d3dcd6; }
+.membership-list strong { font-weight: 500; }
+.membership-list span { color: #526759; font-size: 14px; }

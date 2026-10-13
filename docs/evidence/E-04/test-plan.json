@@ -1,0 +1,29 @@
+{
+  "delivery": "E-04",
+  "type": "CONTRACT_TEST_PLAN",
+  "date": "2026-10-12",
+  "contract": "docs/deliveries/E-04.md",
+  "basis_commit": "1103e4e11a4b556cbe153150e5e1ebc7807fc532",
+  "contract_status": "IN_REVIEW",
+  "implementation_started": false,
+  "tests": {
+    "AUD-01": "NOT_RUN",
+    "AUD-02": "NOT_RUN",
+    "AUD-03": "NOT_RUN",
+    "AUD-04": "NOT_RUN",
+    "AUD-05": "NOT_RUN",
+    "AUD-06": "NOT_RUN",
+    "AUD-07": "NOT_RUN",
+    "AUD-08": "NOT_RUN",
+    "AUD-09": "NOT_RUN",
+    "AUD-10": "NOT_RUN",
+    "AUD-11": "NOT_RUN",
+    "AUD-12": "NOT_RUN",
+    "AUD-13": "NOT_RUN",
+    "AUD-14": "NOT_RUN",
+    "AUD-15": "NOT_RUN",
+    "AUD-16": "NOT_RUN",
+    "AUD-17": "NOT_RUN"
+  },
+  "note": "Plan de pruebas; no evidencia de implementación. CI de este commit valida documentación y regresión existente; no convierte estos casos en PASS."
+}

@@ -1,0 +1,116 @@
+{
+  "delivery": "E-02",
+  "status": "IN_REVIEW",
+  "approval": null,
+  "commit": "949b46e65aa7cb55ce5125eb1c691f51a879a305",
+  "date": "2026-10-12T03:30:07Z",
+  "environment": "GitHub Actions ubuntu-latest, Python3.12.15, Node24.21.0; PostgreSQL17.11 ephemeral",
+  "result": "PASS",
+  "run_id": 38199926053,
+  "url": "https://github.com/equantum-py/appAPF/actions/runs/38199926053",
+  "jobs": [
+    {
+      "id": 114650850613,
+      "name": "foundation",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Initialize containers",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install uv",
+          "conclusion": "success"
+        },
+        {
+          "name": "Web install and checks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Python install and checks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Documentation and diff",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record verified commit",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stop containers",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "total": 55,
+    "postgres": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "checks": {
+    "migration_upgrade_downgrade_upgrade": "PASS",
+    "schema_metadata_drift": "PASS",
+    "runtime_no_superuser_bypassrls_or_ddl": "PASS",
+    "tenant_foreign_keys_and_rls_context": "PASS",
+    "physical_units_and_modality": "PASS",
+    "concurrent_idempotency_unique_row": "PASS",
+    "published_versions_children_and_history": "PASS",
+    "web_build_lint_types_and_api_regression": "PASS"
+  },
+  "artifact": {
+    "id": 11724204265,
+    "digest": "sha256:5b93ecb83c09e0c8870a116f2923dc42e950e869681a1fda64c0e95c05472b92",
+    "reports_preserved": "ci-report/"
+  },
+  "corrections": [
+    "correction-01.json",
+    "correction-02.json",
+    "correction-03.json"
+  ],
+  "limitations": [
+    "Schema tested only in ephemeral PostgreSQL; no production deployment",
+    "JWT and per-endpoint membership authorization deferred to E-03; RLS context is supplied by trusted API",
+    "Evaluation API idempotence deferred to E-11; E-02 verifies database uniqueness only"
+  ]
+}

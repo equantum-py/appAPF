@@ -1,0 +1,58 @@
+{
+  "delivery": "E-04",
+  "status": "IN_REVIEW",
+  "approval": null,
+  "commit": "47ec9a2481261f81f6a12557e3d68cfcd0c9f7cb",
+  "contract_approved_commit": "0ee2b259bbb474072cf432d2000e89c4863cbc2d",
+  "date": "2026-10-12T23:11:23.459072+00:00",
+  "environment": "GitHub Actions ubuntu-latest; Node 24; Python 3.12; PostgreSQL 17.11; official Supabase Auth v2.196.0 ephemeral; Chromium Playwright 1.64.0",
+  "commands": [
+    "npm ci",
+    "npm run lint",
+    "npm run typecheck",
+    "npm run build",
+    "uv sync --locked",
+    "uv run ruff check .",
+    "uv run python -m tests.bootstrap_postgres",
+    "uv run python -m tests.start_auth",
+    "uv run python migrations/build_initial_snapshot.py --check",
+    "uv run pytest -q --junitxml=../../ci-evidence/postgres-tests.xml",
+    "uv run alembic check",
+    "npm exec --workspace apps/web -- playwright test",
+    "python docs/evidence/validate_planning.py",
+    "python docs/gates/GATE-01/evidence/validate.py",
+    "git diff --check",
+    "python docs/evidence/E-04/summarize.py ci-evidence/postgres-tests.xml --commit \"$GITHUB_SHA\" --output ci-evidence/audit-cases.json"
+  ],
+  "result": "PASS",
+  "run_id": 38320546485,
+  "url": "https://github.com/equantum-py/appAPF/actions/runs/38320546485",
+  "counts": {
+    "backend": 159,
+    "browser": 1,
+    "aud_cases": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "reports": "ci-report/",
+  "case_mapping": "ci-report/audit-cases.json",
+  "report_hashes": "report-sha256.json",
+  "artifact": {
+    "id": 11779057205,
+    "digest": "sha256:084ea179db07f5e278a0fdc16817fcfe488b07a931b110539e741478fe18a6ff",
+    "digest_verified": true
+  },
+  "limitations": [
+    "Future actions are format/transaction fixtures; future resource existence and operation permissions belong to their owning modules",
+    "No persistent cloud deployment, production data, new UI or distributed exactly-once claim",
+    "Runtime is append-only; DB owner/superuser can administer database",
+    "Local Auth logout and JWKS limits remain as described in E-03"
+  ],
+  "contract_approval_record": "../../approvals/E-04-contract.json",
+  "capture": {
+    "location": "GitHub Actions foundation-evidence artifact only",
+    "file": "auth-account.png",
+    "sha256": "53367319fcf5159c46b723457df00ef0adfa364179e25dad699adecf8ebe258d"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "delivery": "E-01",
+  "commit": "83658aebb85451708e4c58a0467d7359dcf7f54f",
+  "result": "PASS",
+  "environment": "GitHub Actions ubuntu-latest; Node 24, Python 3.12, uv 0.12.23",
+  "date": "2026-10-12",
+  "run_id": 38195776012,
+  "url": "https://github.com/equantum-py/appAPF/actions/runs/38195776012",
+  "jobs": [
+    {
+      "id": 114637955510,
+      "name": "foundation",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install uv",
+          "conclusion": "success"
+        },
+        {
+          "name": "Web install and checks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Python install and checks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Documentation and diff",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record verified commit",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "approval": null
+}

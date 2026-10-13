@@ -1,0 +1,78 @@
+{
+  "delivery": "GATE-01",
+  "status": "IN_REVIEW",
+  "approval": null,
+  "commit": "c332262f8f08a4521a57a3beb20c273d6ab8cba8",
+  "date": "2026-10-12T02:58:48Z",
+  "environment": "GitHub Actions ubuntu-latest; web/API regression and gate validators",
+  "result": "PASS",
+  "url": "https://github.com/equantum-py/appAPF/actions/runs/38197888901",
+  "jobs": [
+    {
+      "id": 114644558934,
+      "name": "foundation",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install uv",
+          "conclusion": "success"
+        },
+        {
+          "name": "Web install and checks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Python install and checks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Documentation and diff",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record verified commit",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Documentary adoption proposal; no new business implementation or PostgreSQL migration tested."
+  ]
+}

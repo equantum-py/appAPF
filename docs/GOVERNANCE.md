@@ -1,9 +1,7 @@
-# Gobierno
-Estado: propuesta para GATE-00. Fuente inicial: prompt V3 adjunto.
-Product Owner y responsable de aprobación: Derlis Aguilera. Arquitectura, implementación y preparación de QA: agente asistente; sus revisiones no equivalen a revisión independiente. Especialista arbitral: pendiente de designar; bloquea publicación de contenido técnico real.
+# Gobierno vigente v2
+Conserva gobierno GATE-00: roles, estados, evidencias, control de cambios y cierre humano. CHG-002 autoriza preparar esta propuesta; no concede aprobación del paquete ni de E-01.
+PO/aprobación: Derlis. Implementación y revisión técnica preparada: agente; no QA independiente. Validación arbitral: revisor técnico autorizado por institución. Validación física: responsable cualificado designado; recursos pendientes antes de publicar contenidos físicos.
+No renumerar E-*; nuevos N-* para ampliaciones. Al aprobar GATE-01, los documentos de esta carpeta se vuelven línea base vigente y el índice raíz apunta a ellos. Antes de aprobar: raíz GATE-00 vigente, ampliación bloqueada.
+Autonomía permite preparar y probar entrega autorizada; HARD solo se satisface con COMPLETED y aprobación. No modificar producción, costos, datos reales o publicación oficial sin autorización específica.
 
-Estados: PENDING, BLOCKED, READY, IN_PROGRESS, IN_REVIEW, FAILED, COMPLETED. COMPLETED exige evidencia y aprobación humana explícita registrada con fecha y versión. READY exige dependencias COMPLETED y contratos aprobados. No hay aprobaciones retroactivas ni implícitas por un resultado de prueba.
-La autorización de automatismo permite preparar documentos, código, pruebas y commits en main dentro del alcance; no equivale a aprobar entregas, gastos, producción o contenidos oficiales.
-
-Orden: decisiones aprobadas registradas, gobierno, arquitectura, dependencias, DoD, contratos y control de cambios. Una contradicción bloquea solo la operación afectada y se registra. No modificar silenciosamente la línea base.
-Antes de implementar: leer estado, contrato, dependencias, riesgos y evidencia de la versión aprobada. Después: verificar, registrar evidencia, dejar IN_REVIEW y presentar resultado. No iniciar dependientes de una entrega IN_REVIEW.
+Estado: vigente; GATE-01 aprobado. Este documento y raíz son línea base canónica v2; docs/gates/GATE-01 conserva paquete aprobado de referencia.

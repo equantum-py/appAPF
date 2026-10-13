@@ -1,6 +1,6 @@
-# Registro de contratos
-Un contrato por ID en deliveries/. Los contratos de implementación son borradores: expandir endpoints, permisos, archivos, fixtures y evidencias antes de declarar READY. No habilitan implementación por sí solos.
-CONTRACT está vacío porque no se autorizó desarrollo paralelo ni contratos específicos. Incorporarlos mediante control de cambios antes de usarlos.
+# Contratos v2 — línea base aprobada
+Conservar P-* y E-* con historial original. N-* son entregas nuevas. Rutas/fixtures de entregas futuras se precisan antes de READY, no se aprueban implícitamente como código por aceptar el mapa. E-02 cuenta con casos explícitos.
+
 - [P-00: Alcance](deliveries/P-00.md)
 - [P-01: Arquitectura](deliveries/P-01.md)
 - [P-02: UX árbitro](deliveries/P-02.md)
@@ -27,3 +27,19 @@ CONTRACT está vacío porque no se autorizó desarrollo paralelo ni contratos es
 - [E-18: Preparación del piloto](deliveries/E-18.md)
 - [E-19: Asistente IA](deliveries/E-19.md)
 - [E-20: Optimización](deliveries/E-20.md)
+- [N-00: Sitio público informativo](deliveries/N-00.md)
+- [N-01: PWA y offline acotado](deliveries/N-01.md)
+- [N-02: Catálogo físico versionado](deliveries/N-02.md)
+- [N-03: Sesiones físicas y registro](deliveries/N-03.md)
+- [N-04: Grupos y asignaciones](deliveries/N-04.md)
+- [N-05: Tests institucionales versionados](deliveries/N-05.md)
+- [N-06: Feedback pedagógico](deliveries/N-06.md)
+- [N-07: Reportes PDF CSV](deliveries/N-07.md)
+- [N-08: Memoria y reconocimiento](deliveries/N-08.md)
+- [N-09: Sesiones combinadas](deliveries/N-09.md)
+- [N-10: Licencias y suscripciones](deliveries/N-10.md)
+- [N-11: Designaciones](deliveries/N-11.md)
+- [N-12: Informes de partido](deliveries/N-12.md)
+- [N-13: Veeduría](deliveries/N-13.md)
+- [N-14: Liquidación de honorarios](deliveries/N-14.md)
+- [N-15: Estímulos audiovisuales](deliveries/N-15.md)

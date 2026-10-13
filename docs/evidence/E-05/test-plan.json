@@ -1,0 +1,33 @@
+{
+  "delivery": "E-05",
+  "type": "CONTRACT_TEST_PLAN",
+  "date": "2026-10-13",
+  "basis_commit": "411f81e640e01d75b6a862cdcb2db7376a7cb695",
+  "contract": "docs/deliveries/E-05.md",
+  "contract_status": "IN_REVIEW",
+  "implementation_started": false,
+  "cases": {
+    "RUL-01": "NOT_RUN",
+    "RUL-02": "NOT_RUN",
+    "RUL-03": "NOT_RUN",
+    "RUL-04": "NOT_RUN",
+    "RUL-05": "NOT_RUN",
+    "RUL-06": "NOT_RUN",
+    "RUL-07": "NOT_RUN",
+    "RUL-08": "NOT_RUN",
+    "RUL-09": "NOT_RUN",
+    "RUL-10": "NOT_RUN",
+    "RUL-11": "NOT_RUN",
+    "RUL-12": "NOT_RUN",
+    "RUL-13": "NOT_RUN",
+    "RUL-14": "NOT_RUN",
+    "RUL-15": "NOT_RUN",
+    "RUL-16": "NOT_RUN"
+  },
+  "regressions": {
+    "audit": "AUD-01..17 required at implementation",
+    "identity": "E-03 real Auth/browser regression",
+    "schema": "Upgrade/downgrade/upgrade 0003 with existing situation/evaluation references"
+  },
+  "note": "Plan documental. CI de este commit verifica regresiones existentes; no demuestra implementación RUL."
+}
