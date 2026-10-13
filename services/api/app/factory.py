@@ -14,6 +14,7 @@ from app.audit.routes import router as audit_router
 from app.identity.jwt import JWTVerifier
 from app.identity.routes import router as identity_router
 from app.organizations.access import AccessService
+from app.rules.routes import router as rules_router
 from app.shared.auth_config import AuthSettings
 from app.shared.config import Settings
 from app.shared.logging import record_request
@@ -53,10 +54,11 @@ def create_app(env: Mapping[str, str] | None = None) -> FastAPI:
     )
     app.include_router(identity_router)
     app.include_router(audit_router)
+    app.include_router(rules_router)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=list(settings.cors_origins),
-        allow_methods=["GET"],
+        allow_methods=["GET", "POST"],
         allow_headers=["Content-Type", "Authorization"],
         expose_headers=["X-Request-ID"],
         allow_credentials=False,

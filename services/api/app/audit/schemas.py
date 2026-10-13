@@ -10,6 +10,9 @@ from pydantic import BaseModel, ConfigDict, Field, model_serializer, model_valid
 
 
 class Action(StrEnum):
+    EDITION_CREATED = "rulebook.edition.created"
+    EDITIONS_READ = "rulebook.editions.read"
+    EDITION_READ = "rulebook.edition.read"
     MEMBERSHIPS_READ = "organization.memberships.read"
     EVENTS_READ = "audit.events.read"
     SITUATION_PUBLISHED = "situation.version.published"
@@ -21,6 +24,7 @@ class Action(StrEnum):
 
 
 ResourceType = Literal[
+    "rulebook_edition",
     "organization",
     "situation_version",
     "physical_exercise_version",
@@ -29,6 +33,9 @@ ResourceType = Literal[
     "evaluation_review",
 ]
 SPECS = {
+    Action.EDITION_CREATED: ("rulebook_edition", set()),
+    Action.EDITIONS_READ: ("organization", {"returned_count"}),
+    Action.EDITION_READ: ("rulebook_edition", set()),
     Action.MEMBERSHIPS_READ: ("organization", {"returned_count"}),
     Action.EVENTS_READ: ("organization", {"returned_count"}),
     Action.SITUATION_PUBLISHED: ("situation_version", {"version_number"}),

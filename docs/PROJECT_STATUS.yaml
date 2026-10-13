@@ -149,12 +149,19 @@
       "external_blockers": []
     },
     "E-05": {
-      "status": "BLOCKED",
+      "status": "IN_PROGRESS",
       "approval": null,
-      "reason": "Contrato E-05 detallado v1 en revisión; HARD E-04 satisfecha. Pendiente aceptación antes de READY e implementación",
-      "contract_status": "IN_REVIEW",
+      "reason": "Contrato aceptado sobre 00a3623; implementación y pruebas en curso",
+      "contract_status": "ACCEPTED",
       "contract": "docs/deliveries/E-05.md",
-      "implementation_started": false
+      "implementation_started": true,
+      "contract_approval": {
+        "approver": "Derlis Aguilera",
+        "approved_commit": "00a36235432e7956e6e37fd423badbf88448c174",
+        "date": "2026-10-13T16:02:04-03:00",
+        "statement": "Apruebo el contrato E-05 del commit 00a3623",
+        "scope": "Aceptación del contrato E-05 e implementación/pruebas en su alcance; no cierre ni producción"
+      }
     },
     "E-06": {
       "status": "BLOCKED",

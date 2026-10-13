@@ -135,6 +135,10 @@ class AccessService:
             raise ForbiddenAccess()
         return actor, member, organization
 
+    def authorized_organization(self, connection, identity, organization_id):
+        """Resolve active scope inside the caller's transaction, without committing."""
+        return self._organization_scope(connection, identity, organization_id)
+
     def audit_events(self, identity, organization_id, query, request_id):
         try:
             with self.engine.begin() as connection:

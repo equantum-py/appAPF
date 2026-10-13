@@ -111,6 +111,7 @@ jobs:
           mkdir -p ci-evidence
           echo "commit=$GITHUB_SHA" > ci-evidence/commit.txt
           python docs/evidence/E-04/summarize.py ci-evidence/postgres-tests.xml --commit "$GITHUB_SHA" --output ci-evidence/audit-cases.json
+          python docs/evidence/E-05/summarize.py ci-evidence/postgres-tests.xml --commit "$GITHUB_SHA" --output ci-evidence/rule-cases.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
