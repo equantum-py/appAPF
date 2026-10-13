@@ -1,0 +1,58 @@
+{
+  "delivery": "E-05",
+  "status": "IN_REVIEW",
+  "approval": null,
+  "commit": "224626c13b7b7c8f84c99df796d0ca1720dd44e1",
+  "contract_approved_commit": "00a36235432e7956e6e37fd423badbf88448c174",
+  "date": "2026-10-13T19:15:48.516899+00:00",
+  "environment": "GitHub Actions ubuntu-latest; Node24; Python3.12; PostgreSQL17.11; official Supabase Auth v2.196.0 ephemeral; Chromium Playwright1.64.0",
+  "run_id": 38452938738,
+  "url": "https://github.com/equantum-py/appAPF/actions/runs/38452938738",
+  "result": "PASS",
+  "counts": {
+    "backend": 209,
+    "browser": 1,
+    "rule_cases": 16,
+    "audit_cases": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "commands": [
+    "npm ci",
+    "npm run lint",
+    "npm run typecheck",
+    "npm run build",
+    "uv sync --locked",
+    "uv run ruff check .",
+    "uv run python -m tests.bootstrap_postgres",
+    "uv run python -m tests.start_auth",
+    "uv run pytest -q --junitxml=../../ci-evidence/postgres-tests.xml",
+    "uv run python migrations/build_initial_snapshot.py --check",
+    "uv run alembic check",
+    "npm exec --workspace apps/web -- playwright test",
+    "python docs/evidence/validate_planning.py",
+    "python docs/gates/GATE-01/evidence/validate.py",
+    "git diff --check",
+    "python docs/evidence/E-04/summarize.py ci-evidence/postgres-tests.xml --commit \"$GITHUB_SHA\" --output ci-evidence/audit-cases.json",
+    "python docs/evidence/E-05/summarize.py ci-evidence/postgres-tests.xml --commit \"$GITHUB_SHA\" --output ci-evidence/rule-cases.json"
+  ],
+  "reports": "ci-report/",
+  "case_mapping": "ci-report/rule-cases.json",
+  "regression_mapping": "ci-report/audit-cases.json",
+  "report_hashes": "report-sha256.json",
+  "artifact": {
+    "id": 11840992679,
+    "digest": "sha256:785126720b3ea2bf5c7225eb14d8615d95cab4604c16d7b1da9ba294698d511a",
+    "digest_verified": true
+  },
+  "migration": "0003_rulebook_editions_immutable; tests preserve existing references across downgrade/upgrade; TRUNCATE privilege stays absent",
+  "contract_approval_record": "../../approvals/E-05-contract.json",
+  "capture_location": "CI artifact only",
+  "limitations": [
+    "Metadata registry only; no copied official rules, publication UI or cloud deployment",
+    "Situation/evaluation reference tests use SQL fixtures, not implemented E-06/E-11 products",
+    "Labels preserve case; new UUID represents corrections; no mutation/delete endpoints",
+    "Runtime append-only; DB owner administration and E-03 Auth/JWKS limits remain"
+  ]
+}

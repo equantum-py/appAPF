@@ -149,9 +149,9 @@
       "external_blockers": []
     },
     "E-05": {
-      "status": "IN_PROGRESS",
+      "status": "IN_REVIEW",
       "approval": null,
-      "reason": "Contrato aceptado sobre 00a3623; implementación y pruebas en curso",
+      "reason": "CI PASS: 209 backend, RUL-01..16, AUD-01..17 y 1 Chromium; cierre humano pendiente",
       "contract_status": "ACCEPTED",
       "contract": "docs/deliveries/E-05.md",
       "implementation_started": true,
@@ -161,7 +161,11 @@
         "date": "2026-10-13T16:02:04-03:00",
         "statement": "Apruebo el contrato E-05 del commit 00a3623",
         "scope": "Aceptación del contrato E-05 e implementación/pruebas en su alcance; no cierre ni producción"
-      }
+      },
+      "commit": "224626c13b7b7c8f84c99df796d0ca1720dd44e1",
+      "verified_commit": "224626c13b7b7c8f84c99df796d0ca1720dd44e1",
+      "evidence": "https://github.com/equantum-py/appAPF/actions/runs/38452938738",
+      "external_blockers": []
     },
     "E-06": {
       "status": "BLOCKED",

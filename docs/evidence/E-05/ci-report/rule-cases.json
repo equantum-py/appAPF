@@ -1,0 +1,303 @@
+{
+  "commit": "224626c13b7b7c8f84c99df796d0ca1720dd44e1",
+  "date": "2026-10-13T19:13:52.731736+00:00",
+  "run_id": "38452938738",
+  "report": "postgres-tests.xml",
+  "result": "PASS",
+  "total_backend_tests": 209,
+  "cases": {
+    "RUL-01": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul01_create_trim_server_identity_audit"
+        }
+      ]
+    },
+    "RUL-02": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul02_roles_read_own_editions"
+        }
+      ]
+    },
+    "RUL-03": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul03_write_roles_foreign_and_disabled"
+        }
+      ]
+    },
+    "RUL-04": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul04_personal_owner_and_others"
+        }
+      ]
+    },
+    "RUL-05": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul05_auth_missing_expired_forged_unknown"
+        }
+      ]
+    },
+    "RUL-06": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul06_invalid_http_body_no_persistence[body0]"
+        },
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul06_invalid_http_body_no_persistence[body1]"
+        },
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul06_invalid_http_body_no_persistence[body2]"
+        },
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul06_invalid_http_body_no_persistence[body3]"
+        },
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul06_invalid_http_body_no_persistence[body4]"
+        },
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul06_invalid_http_body_no_persistence[body5]"
+        },
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul06_invalid_http_body_no_persistence[body6]"
+        },
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul06_invalid_http_body_no_persistence[body7]"
+        },
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul06_invalid_http_body_no_persistence[body8]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body0]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body1]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body2]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body3]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body4]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body5]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body6]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body7]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body8]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body9]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body10]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_closed_invalid_input[body11]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_normalization_boundaries[a]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_normalization_boundaries[\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9\\xe9]"
+        },
+        {
+          "module": "tests.test_rules_service",
+          "test": "test_rul06_normalization_boundaries[  Edici\\xf3n  A  ]"
+        }
+      ]
+    },
+    "RUL-07": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul07_duplicates_case_and_tenant"
+        }
+      ]
+    },
+    "RUL-08": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul08_concurrent_creation_real_transactions"
+        }
+      ]
+    },
+    "RUL-09": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul09_unknown_foreign_detail_and_internal_resolver"
+        }
+      ]
+    },
+    "RUL-10": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul10_real_foreign_keys_for_situation_and_evaluation"
+        }
+      ]
+    },
+    "RUL-11": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul11_immutable_referenced_editions"
+        }
+      ]
+    },
+    "RUL-12": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul12_audit_failure_atomic_and_private[create]"
+        },
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul12_audit_failure_atomic_and_private[page]"
+        },
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul12_audit_failure_atomic_and_private[detail]"
+        }
+      ]
+    },
+    "RUL-13": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul13_migration_with_existing_references"
+        }
+      ]
+    },
+    "RUL-14": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul14_stable_pagination_equal_timestamps"
+        },
+        {
+          "module": "tests.test_rules_routes",
+          "test": "test_rul14_invalid_query_never_reaches_database[params0]"
+        },
+        {
+          "module": "tests.test_rules_routes",
+          "test": "test_rul14_invalid_query_never_reaches_database[params1]"
+        },
+        {
+          "module": "tests.test_rules_routes",
+          "test": "test_rul14_invalid_query_never_reaches_database[params2]"
+        },
+        {
+          "module": "tests.test_rules_routes",
+          "test": "test_rul14_invalid_query_never_reaches_database[params3]"
+        },
+        {
+          "module": "tests.test_rules_routes",
+          "test": "test_rul14_invalid_query_never_reaches_database[params4]"
+        },
+        {
+          "module": "tests.test_rules_routes",
+          "test": "test_rul14_invalid_query_never_reaches_database[params5]"
+        },
+        {
+          "module": "tests.test_rules_routes",
+          "test": "test_rul14_invalid_query_never_reaches_database[params6]"
+        },
+        {
+          "module": "tests.test_rules_routes",
+          "test": "test_rul14_invalid_query_never_reaches_database[params7]"
+        }
+      ]
+    },
+    "RUL-15": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul15_events_ids_without_labels_or_secrets"
+        }
+      ]
+    },
+    "RUL-16": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_rules_postgres",
+          "test": "test_rul16_scope_pool_clear_after_reads_writes_and_errors"
+        },
+        {
+          "module": "tests.test_rules_routes",
+          "test": "test_rul16_cors_post_openapi_and_no_mutation_methods"
+        },
+        {
+          "module": "tests.test_api",
+          "test": "test_openapi_contract_matches_export"
+        },
+        {
+          "module": "tests.test_migrations",
+          "test": "test_t10_no_metadata_drift"
+        },
+        {
+          "module": "tests.test_auth_live",
+          "test": "test_real_auth_issued_token_database_permissions_and_logout_client_boundary"
+        }
+      ]
+    }
+  },
+  "scope": "E-05 metadata/API; references use SQL fixtures, not future product APIs"
+}

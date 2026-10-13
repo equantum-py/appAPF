@@ -1,0 +1,376 @@
+{
+  "commit": "224626c13b7b7c8f84c99df796d0ca1720dd44e1",
+  "date": "2026-10-13T19:13:52.690537+00:00",
+  "run_id": "38452938738",
+  "report": "postgres-tests.xml",
+  "total_backend_tests": 209,
+  "result": "PASS",
+  "cases": {
+    "AUD-01": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud01_membership_read_generates_exact_event"
+        }
+      ]
+    },
+    "AUD-02": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud02_audit_read_no_recursion_event_after_page"
+        }
+      ]
+    },
+    "AUD-03": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud03_roles_cross_tenant_and_disabled"
+        }
+      ]
+    },
+    "AUD-04": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud04_personal_owner_and_institutional_roles"
+        }
+      ]
+    },
+    "AUD-05": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud05_invalid_expired_forged_unknown_identity"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud05_missing_invalid_auth_and_binding_fail_closed"
+        }
+      ]
+    },
+    "AUD-06": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud06_service_future_catalog_fixtures[situation.version.published-version_a-situation_version-attrs0]"
+        },
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud06_service_future_catalog_fixtures[physical.exercise.version.published-physical_version-physical_exercise_version-attrs1]"
+        },
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud06_service_future_catalog_fixtures[training.run.started-run_physical-training_run-attrs2]"
+        },
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud06_service_future_catalog_fixtures[training.run.completed-run_cognitive-training_run-attrs3]"
+        },
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud06_service_future_catalog_fixtures[physical.result.recorded-None-physical_result-attrs4]"
+        },
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud06_service_future_catalog_fixtures[evaluation.review.recorded-None-evaluation_review-attrs5]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud06_future_format_without_future_module[situation.version.published-situation_version-attrs0]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud06_future_format_without_future_module[physical.exercise.version.published-physical_exercise_version-attrs1]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud06_future_format_without_future_module[training.run.started-training_run-attrs2]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud06_future_format_without_future_module[training.run.completed-training_run-attrs3]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud06_future_format_without_future_module[physical.result.recorded-physical_result-attrs4]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud06_future_format_without_future_module[evaluation.review.recorded-evaluation_review-attrs5]"
+        }
+      ]
+    },
+    "AUD-07": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs0]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs1]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs2]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs3]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs4]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs5]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs6]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs7]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs8]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs9]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_payload_rejected_before_sql_and_not_logged[attrs10]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_invalid_event_identity_and_action[changes0]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_invalid_event_identity_and_action[changes1]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_invalid_event_identity_and_action[changes2]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud07_invalid_event_identity_and_action[changes3]"
+        }
+      ]
+    },
+    "AUD-08": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud08_context_and_cross_tenant_insert"
+        }
+      ]
+    },
+    "AUD-09": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud09_runtime_immutable_and_unprivileged"
+        }
+      ]
+    },
+    "AUD-10": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud10_owner_trigger_guards_update_and_delete"
+        }
+      ]
+    },
+    "AUD-11": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud11_insert_failure_never_releases_data[memberships]"
+        },
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud11_insert_failure_never_releases_data[audit-events]"
+        }
+      ]
+    },
+    "AUD-12": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud12_mutation_event_transaction_atomicity"
+        },
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud12_audit_validation_failure_reverts_mutation"
+        }
+      ]
+    },
+    "AUD-13": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud13_pool_context_clear_after_success_and_failure"
+        }
+      ]
+    },
+    "AUD-14": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud14_stable_cursor_filters_limits"
+        }
+      ]
+    },
+    "AUD-15": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params0]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params1]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params2]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params3]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params4]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params5]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params6]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params7]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params8]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params9]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params10]"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud15_invalid_query_never_calls_data_service[params11]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud15_query_contract_invalid[values0]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud15_query_contract_invalid[values1]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud15_query_contract_invalid[values2]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud15_query_contract_invalid[values3]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud15_query_contract_invalid[values4]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud15_query_contract_invalid[values5]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud15_query_contract_invalid[values6]"
+        },
+        {
+          "module": "tests.test_audit_service",
+          "test": "test_aud15_query_contract_invalid[values7]"
+        }
+      ]
+    },
+    "AUD-16": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_audit_postgres",
+          "test": "test_aud16_legacy_details_never_leak_or_mutate"
+        }
+      ]
+    },
+    "AUD-17": {
+      "result": "PASS",
+      "testcases": [
+        {
+          "module": "tests.test_api",
+          "test": "test_openapi_contract_matches_export"
+        },
+        {
+          "module": "tests.test_metadata",
+          "test": "test_domain_inventory_and_frozen_snapshot"
+        },
+        {
+          "module": "tests.test_migrations",
+          "test": "test_t10_no_metadata_drift"
+        },
+        {
+          "module": "tests.test_auth_postgres",
+          "test": "test_scope_migration_can_revert_and_restore"
+        },
+        {
+          "module": "tests.test_auth_postgres",
+          "test": "test_personal_history_hidden_and_transaction_context_does_not_leak"
+        },
+        {
+          "module": "tests.test_auth_live",
+          "test": "test_real_auth_issued_token_database_permissions_and_logout_client_boundary"
+        },
+        {
+          "module": "tests.test_audit_routes",
+          "test": "test_aud17_no_http_event_write_or_mutation_surface"
+        }
+      ]
+    }
+  },
+  "scope": "E-04 HTTP/real PostgreSQL; future actions are format fixtures only"
+}
