@@ -19,7 +19,7 @@ export function BottomNav() {
         const active = item.href === "/demo/arbitro" ? path === "/demo/arbitro" : path.startsWith(item.href);
         return (
           <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className="rf-nav-item">
-            <Icon name={item.icon} filled={active} className="size-[22px]" />
+            <Icon name={path === "/demo/arbitro" && item.icon === "entrenar" ? "videoentrenar" : item.icon} filled={active} className="size-[22px]" />
             <span>{item.label}</span>
           </Link>
         );

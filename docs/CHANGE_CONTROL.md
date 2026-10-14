@@ -16,3 +16,5 @@ CHG-007 MINOR de interfaz: aplicación del diseño de Claude y correcciones del 
 CHG-009 MINOR de interfaz: Entrada azul oscuro e Inicio con accesos fotográficos, según propuesta aprobada expresamente por Derlis el 2026-10-14. Detalle en changes/CHG-009.md. Sustituye la bienvenida de CHG-008; conserva correcciones de flujo. No amplía ni cierra E-06.
 
 CHG-010 MINOR de interfaz: simplificación del Inicio a una foto y tres accesos, aprobada por Derlis el 2026-10-14. Detalle en changes/CHG-010.md. Conserva bienvenida de CHG-009 y todas las correcciones funcionales; no amplía entregas E-*.
+
+CHG-011 MINOR de interfaz: Inicio premium según referencia y recursos aportados por Derlis el 2026-10-14. Sólo preview; producción pendiente de aprobación final por instrucción expresa del documento adjunto. Detalle en changes/CHG-011.md.

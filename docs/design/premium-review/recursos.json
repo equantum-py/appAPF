@@ -1,0 +1,29 @@
+{
+  "reference_sha256": "c6d66959721c71a76189d0c3175af6f9adb5c569415514c9db8a7c5436bde1a7",
+  "resources": [
+    {
+      "file": "apps/web/app/demo/arbitro/_premium/apf-hero.jpg",
+      "sha256": "7ac5b377a93b8ae8b43ecd8b4230548d1756ca05819c14c28d4fab5311604402",
+      "archive_identical": true,
+      "provenance": "Recurso suministrado por el usuario para reproducir su diseño aprobado; sin descarga de terceros."
+    },
+    {
+      "file": "apps/web/app/demo/arbitro/_premium/apf-jugadas.jpg",
+      "sha256": "20b27e41ede27b16296e14e5ecc17687d52c6b779fced513211bb997b39f5593",
+      "archive_identical": true,
+      "provenance": "Recurso suministrado por el usuario para reproducir su diseño aprobado; sin descarga de terceros."
+    },
+    {
+      "file": "apps/web/app/demo/arbitro/_premium/apf-logo.png",
+      "sha256": "ba4570a239f1107e19bd84e5533f41539893c027d208eda76e2d14bde4099aba",
+      "archive_identical": true,
+      "provenance": "Recurso suministrado por el usuario para reproducir su diseño aprobado; sin descarga de terceros."
+    },
+    {
+      "file": "apps/web/app/demo/arbitro/_premium/apf-reglas.jpg",
+      "sha256": "b2529b0a12d6212ff491a083064728da6e6953c17e02a05a43f6e27319cd8300",
+      "archive_identical": true,
+      "provenance": "Recurso suministrado por el usuario para reproducir su diseño aprobado; sin descarga de terceros."
+    }
+  ]
+}
