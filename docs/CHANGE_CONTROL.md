@@ -18,3 +18,5 @@ CHG-009 MINOR de interfaz: Entrada azul oscuro e Inicio con accesos fotográfico
 CHG-010 MINOR de interfaz: simplificación del Inicio a una foto y tres accesos, aprobada por Derlis el 2026-10-14. Detalle en changes/CHG-010.md. Conserva bienvenida de CHG-009 y todas las correcciones funcionales; no amplía entregas E-*.
 
 CHG-011 MINOR de interfaz: Inicio premium según referencia y recursos aportados por Derlis el 2026-10-14. Sólo preview; producción pendiente de aprobación final por instrucción expresa del documento adjunto. Detalle en changes/CHG-011.md.
+
+CHG-012 MINOR documental propuesta: expansión de N-02/N-03 a petición de Derlis el 2026-10-14. Preparación física como prioridad de producto; HARD y alcance etapa 1 conservados. Contrato IN_REVIEW en contracts/PREPARACION_FISICA_V1.md; implementación BLOCKED, sin cambios de código, SQL ni producción. Reordenar HARD exige otro CHG MAJOR aprobado.

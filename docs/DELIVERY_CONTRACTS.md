@@ -43,3 +43,6 @@ Conservar P-* y E-* con historial original. N-* son entregas nuevas. Rutas/fixtu
 - [N-13: Veeduría](deliveries/N-13.md)
 - [N-14: Liquidación de honorarios](deliveries/N-14.md)
 - [N-15: Estímulos audiovisuales](deliveries/N-15.md)
+
+## Contratos expandidos en revisión
+- [Preparación física v1 — N-02 y N-03 / CHG-012](contracts/PREPARACION_FISICA_V1.md)
