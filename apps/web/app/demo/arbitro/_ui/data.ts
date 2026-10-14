@@ -8,7 +8,7 @@ import {
   type Sanction,
   type Situation,
 } from "../../_data";
-import type { SceneKind } from "./scene";
+import { fotos, type Foto } from "./fotos";
 
 export const topics = ["Para vos", "Faltas", "Mano", "Fuera de juego"] as const;
 export type Topic = (typeof topics)[number];
@@ -27,30 +27,39 @@ export const isLaw = (value: unknown): value is LawId =>
   lawChoices.some((law) => law.id === value);
 export const lawById = (id: LawId) => lawChoices.find((law) => law.id === id)!;
 
-const extras: Record<string, { scene: SceneKind; improve: string }> = {
+const extras: Record<string, { foto: Foto; prompt: string; improve: string }> = {
   "entrada-mediocampo": {
-    scene: "entrada",
+    foto: fotos.disputaEntrada,
+    prompt:
+      "En mediocampo, el atacante controla el balón de espaldas. Un defensor llega desde atrás, hay contacto en la pierna de apoyo y el atacante cae.",
     improve:
       "Fijate en la dirección y el momento del contacto. Si llega por detrás y sin opción real de jugar el balón, pensá primero en una entrada temeraria.",
   },
   "disputa-area": {
-    scene: "area",
+    foto: fotos.disputaHombro,
+    prompt:
+      "Balón largo hacia el área. Defensor y delantero corren juntos, chocan hombro con hombro y el delantero pierde el equilibrio.",
     improve:
       "Separá contacto de falta. Hombro con hombro, con el balón a distancia de juego y sin fuerza desmedida, es una disputa legal.",
   },
   "brazo-defensor": {
-    scene: "mano",
+    foto: fotos.cabezazoArea,
+    prompt:
+      "Centro desde la derecha. A pocos metros, el balón golpea en el brazo del defensor, que lo tiene cerca del cuerpo mientras se gira.",
     improve:
       "Mirá la posición del brazo antes del contacto, no después. Si está pegado al cuerpo, no amplía la silueta.",
   },
   "pase-profundidad": {
-    scene: "fuera",
+    foto: fotos.asistenteBandera,
+    prompt:
+      "Pase en profundidad. En el momento del pase, el delantero parte cerca del penúltimo defensor y recibe solo frente al arquero.",
     improve:
       "Congelá la imagen en el momento del pase y compará con el penúltimo defensor. Recién después decidí si interviene en el juego.",
   },
 };
 
-export const sceneOf = (s: Situation) => extras[s.id].scene;
+export const fotoOf = (s: Situation) => extras[s.id].foto;
+export const promptOf = (s: Situation) => extras[s.id].prompt;
 export const lawOf = (s: Situation) =>
   lawById(s.rule === "Fuera de juego" ? "11" : "12");
 export const improveOf = (s: Situation) => extras[s.id].improve;

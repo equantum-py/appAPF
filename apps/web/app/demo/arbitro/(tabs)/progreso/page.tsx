@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { decisions, labelOf, progressByRule, sanctions } from "../../../_data";
-import { byId, lawOf, pastAnswers, resultHref, sceneOf } from "../../_ui/data";
-import { Scene } from "../../_ui/scene";
+import { byId, fotoOf, lawOf, pastAnswers, resultHref } from "../../_ui/data";
+import { Photo } from "../../_ui/photo";
 
 export default function ProgresoPage() {
   return (
@@ -42,7 +42,7 @@ export default function ProgresoPage() {
             <li key={a.id}>
               <Link href={resultHref(a.id, a.d, a.s, a.l)} className="rf-row">
                 <span className="rf-row-thumb">
-                  <Scene kind={sceneOf(s)} className="size-full" />
+                  <Photo foto={fotoOf(s)} sizes="64px" />
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="rf-row-title">{s.title}</span>

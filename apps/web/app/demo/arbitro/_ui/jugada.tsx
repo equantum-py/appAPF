@@ -9,8 +9,14 @@ import {
   type Sanction,
   type Situation,
 } from "../../_data";
-import { lawChoices, resultHref, sceneOf, type LawId } from "./data";
-import { Scene } from "./scene";
+import {
+  fotoOf,
+  lawChoices,
+  promptOf,
+  resultHref,
+  type LawId,
+} from "./data";
+import { Photo } from "./photo";
 
 /** La jugada ocupa toda la pantalla; la decisión se toma en un panel inferior. */
 export function Jugada({
@@ -40,12 +46,17 @@ export function Jugada({
     return () => window.removeEventListener("beforeunload", warn);
   }, [dirty]);
   const leave = () =>
-    dirty ? exitDialog.current?.showModal() : router.push("/");
+    dirty ? exitDialog.current?.showModal() : router.push("/demo/arbitro");
 
   return (
     <div className="rf-play-screen" data-deciding={deciding}>
       <div className="rf-play-stage">
-        <Scene kind={sceneOf(situation)} className="size-full" />
+        <Photo
+          foto={fotoOf(situation)}
+          sizes="(min-width: 1024px) calc(100vw - 420px), 100vw"
+          priority
+          className="rf-stage-photo"
+        />
         <div className="rf-play-top">
           <button
             type="button"
@@ -67,9 +78,16 @@ export function Jugada({
             {position}/{total}
           </span>
         </div>
-        <span className="rf-badge rf-stage-badge">
-          Ilustración en lugar del video · {situation.duration}
-        </span>
+        <div className="rf-stage-copy">
+          <p className="rf-stage-label">
+            Ejercicio de demostración · sin video real
+          </p>
+          <p className="rf-stage-prompt">{promptOf(situation)}</p>
+          <p className="rf-stage-credit">
+            Foto de referencia, no muestra esta jugada:{" "}
+            {fotoOf(situation).author} · CC BY 2.0
+          </p>
+        </div>
       </div>
 
       <section className="rf-sheet" aria-labelledby="jugada-titulo">
@@ -81,7 +99,7 @@ export function Jugada({
         {!deciding ? (
           <>
             <p className="rf-lead mt-2">
-              Mirá la jugada completa. Cuando estés listo, decidí qué cobrás.
+              Leé la situación. Cuando estés listo, decidí qué cobrás.
             </p>
             <button
               type="button"
@@ -93,6 +111,7 @@ export function Jugada({
           </>
         ) : (
           <>
+            <p className="rf-recap">{promptOf(situation)}</p>
             <fieldset className="mt-4">
               <legend className="rf-eyebrow mb-2">¿Qué cobrás?</legend>
               <div className="grid grid-cols-2 gap-2">
@@ -192,7 +211,7 @@ export function Jugada({
           className="rf-ghost"
           onClick={() => {
             exitDialog.current?.close();
-            router.push("/");
+            router.push("/demo/arbitro");
           }}
         >
           Salir y descartar

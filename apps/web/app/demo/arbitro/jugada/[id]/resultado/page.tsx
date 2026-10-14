@@ -13,12 +13,12 @@ import {
   isLaw,
   lawById,
   lawOf,
+  fotoOf,
   relatedOf,
-  sceneOf,
 } from "../../../_ui/data";
 import { ResultHeading } from "../../../_ui/result-focus";
 import { Icon } from "../../../_ui/icons";
-import { Scene } from "../../../_ui/scene";
+import { Photo } from "../../../_ui/photo";
 
 const isDecision = (v: unknown): v is Decision =>
   decisions.some((d) => d.id === v);
@@ -79,7 +79,7 @@ export default async function ResultadoPage({
     <div className="rf-page">
       <div className="rf-topbar">
         <Link
-          href="/"
+          href="/demo/arbitro"
           className="rf-round rf-round-light"
           aria-label="Volver al inicio"
         >
@@ -92,8 +92,12 @@ export default async function ResultadoPage({
       <div className="rf-result-layout">
         <div>
           <div className="rf-hero-media rf-hero-short">
-            <Scene kind={sceneOf(situation)} className="size-full" />
-            <span className="rf-badge">Ilustración</span>
+            <Photo
+              foto={fotoOf(situation)}
+              sizes="(min-width: 1024px) 580px, (min-width: 480px) 400px, 100vw"
+              priority
+            />
+            <span className="rf-badge">Foto de referencia</span>
           </div>
           <p className="rf-eyebrow mt-4">
             {situation.rule} · {situation.title}
@@ -157,7 +161,7 @@ export default async function ResultadoPage({
                 className="rf-row"
               >
                 <span className="rf-row-thumb">
-                  <Scene kind={sceneOf(related)} className="size-full" />
+                  <Photo foto={fotoOf(related)} sizes="64px" />
                 </span>
                 <span className="min-w-0">
                   <span className="rf-row-title">{related.title}</span>
@@ -190,7 +194,7 @@ export default async function ResultadoPage({
               </Link>
             </>
           )}
-          <Link href="/" className="rf-ghost">
+          <Link href="/demo/arbitro" className="rf-ghost">
             Volver al inicio
           </Link>
           <p className="rf-note text-center">
