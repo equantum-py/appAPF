@@ -136,8 +136,8 @@ test("clean exit, rule-only draft exit and invalid result input", async ({
   expect(home.status()).toBe(200);
   expect(home.url()).not.toContain("/demo");
   await page.goto("/demo/arbitro");
-  await expect(page.getByRole("heading", { name: "Entrada desde atrás en mediocampo", exact: true })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Inicio", exact: true })).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("heading", { name: "¿Qué vas a entrenar hoy?", exact: true })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Inicio", exact: true })).toHaveAttribute("aria-current", "page");
 });
 
 for (const width of [320, 390, 768, 1440]) {
@@ -151,14 +151,10 @@ for (const width of [320, 390, 768, 1440]) {
     page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
     await page.goto("/");
     await expect(
-      page.getByRole("heading", { name: "Decidí mejor en cada jugada.", exact: true }),
+      page.getByRole("heading", { name: "Plataforma arbitral", exact: true }),
     ).toBeVisible();
-    await expect(page.getByRole("figure")).toContainText("Regla a corregir");
-    const photo = page.getByRole("img", { name: /Árbitro con el brazo en alto/ });
-    await expect(photo).toBeVisible();
-    expect(
-      await photo.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0),
-    ).toBeTruthy();
+    await expect(page.getByText("Entrená tu criterio. Prepará tu partido.")).toBeVisible();
+    await expect(page.getByText("Proyecto independiente", { exact: false })).toBeVisible();
     const start = page.getByRole("link", { name: "Comenzar", exact: true });
     const account = page.getByRole("link", { name: "Ya tengo cuenta", exact: true });
     await expect(account).toHaveAttribute("href", "/ingresar");
@@ -171,6 +167,29 @@ for (const width of [320, 390, 768, 1440]) {
     await start.click();
     await expect(page).toHaveURL("/demo/arbitro");
     await expect(page.getByRole("note")).toContainText("datos ficticios");
+    await expect(page.getByRole("heading", { name: "¿Qué vas a entrenar hoy?" })).toBeVisible();
+    const physical = page.locator(".rf-photo-physical");
+    await expect(physical).toContainText("Próximamente");
+    await expect(physical.locator("a, button")).toHaveCount(0);
+    for (const photo of await page.locator(".rf-training-home img").all()) {
+      await photo.scrollIntoViewIfNeeded();
+      await expect(photo).toBeVisible();
+      await expect.poll(() => photo.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBeTruthy();
+    }
+    await page.getByRole("link", { name: /Decisiones de juego/ }).click();
+    await expect(page).toHaveURL("/demo/arbitro/entrenar");
+    await expect(page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Entrenar", exact: true })).toHaveAttribute("aria-current", "page");
+    await page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Inicio", exact: true }).click();
+    await page.getByRole("link", { name: /Reglas del juego/ }).click();
+    await expect(page).toHaveURL("/demo/arbitro/entrenar#reglas");
+    await expect(page.locator("#reglas")).toBeInViewport();
+    await page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Inicio", exact: true }).click();
+    await page.getByRole("link", { name: /Tus resultados/ }).click();
+    await expect(page).toHaveURL("/demo/arbitro/progreso");
+    await page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Inicio", exact: true }).click();
+    await page.getByRole("link", { name: "Créditos", exact: true }).click();
+    await expect(page.locator("#creditos")).toBeInViewport();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
     await page.goto("/");
     await account.click();
     await expect(page).toHaveURL("/ingresar");

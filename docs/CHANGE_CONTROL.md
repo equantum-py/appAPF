@@ -12,3 +12,5 @@ CHG-005 MINOR documental: contrato E-04 expandido a solicitud de Derlis el 2026-
 CHG-006 MINOR documental: expansión contractual E-05 solicitada por Derlis el 2026-10-13; detalle en changes/CHG-006.md. Contrato IN_REVIEW; no implementación ni alteración de HARD. Migración de protección y extensión audit solo propuestas hasta aceptación.
 
 CHG-007 MINOR de interfaz: aplicación del diseño de Claude y correcciones del recorrido de demo a solicitud expresa de Derlis el 2026-10-14. Detalle en changes/CHG-007.md. No amplía ni cierra entregas E-*; preserva rutas de acceso y backend aprobados.
+
+CHG-009 MINOR de interfaz: Entrada azul oscuro e Inicio con accesos fotográficos, según propuesta aprobada expresamente por Derlis el 2026-10-14. Detalle en changes/CHG-009.md. Sustituye la bienvenida de CHG-008; conserva correcciones de flujo. No amplía ni cierra E-06.

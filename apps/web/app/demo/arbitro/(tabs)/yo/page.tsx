@@ -41,7 +41,7 @@ export default function YoPage() {
         sin vínculo institucional con la APF.
       </p>
 
-      <h2 className="rf-eyebrow rf-section-title mt-7">
+      <h2 id="creditos" className="rf-eyebrow rf-section-title mt-7">
         Créditos de fotografías
       </h2>
       <p className="rf-lead mt-3">

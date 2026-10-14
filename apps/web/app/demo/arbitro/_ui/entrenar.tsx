@@ -29,7 +29,8 @@ export function Entrenar() {
         </div>
       </div>
 
-      <h2 className="rf-eyebrow rf-section-title mt-6">Jugadas de decisión</h2>
+      <h2 id="reglas" className="rf-eyebrow rf-section-title mt-6">Jugadas de decisión</h2>
+      <p className="rf-note">Elegí un tema. Cada ejercicio muestra su regla y, después de confirmar, el criterio explicado.</p>
       <TopicChips value={topic} onChange={setTopic} />
 
       <div className="rf-train">
