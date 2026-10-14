@@ -40,7 +40,7 @@ export function Jugada({
     return () => window.removeEventListener("beforeunload", warn);
   }, [dirty]);
   const leave = () =>
-    dirty ? exitDialog.current?.showModal() : router.push("/demo/arbitro");
+    dirty ? exitDialog.current?.showModal() : router.push("/");
 
   return (
     <div className="rf-play-screen" data-deciding={deciding}>
@@ -192,7 +192,7 @@ export function Jugada({
           className="rf-ghost"
           onClick={() => {
             exitDialog.current?.close();
-            router.push("/demo/arbitro");
+            router.push("/");
           }}
         >
           Salir y descartar

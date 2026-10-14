@@ -79,7 +79,7 @@ export default async function ResultadoPage({
     <div className="rf-page">
       <div className="rf-topbar">
         <Link
-          href="/demo/arbitro"
+          href="/"
           className="rf-round rf-round-light"
           aria-label="Volver al inicio"
         >
@@ -190,7 +190,7 @@ export default async function ResultadoPage({
               </Link>
             </>
           )}
-          <Link href="/demo/arbitro" className="rf-ghost">
+          <Link href="/" className="rf-ghost">
             Volver al inicio
           </Link>
           <p className="rf-note text-center">

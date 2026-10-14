@@ -106,7 +106,7 @@ test("clean exit, rule-only draft exit and invalid result input", async ({
 }) => {
   await page.goto("/demo/arbitro/jugada/entrada-mediocampo");
   await page.getByRole("button", { name: "Salir de la práctica" }).click();
-  await expect(page).toHaveURL(/\/demo\/arbitro$/);
+  await expect(page).toHaveURL("/");
   await page.goto("/demo/arbitro/jugada/entrada-mediocampo");
   await page.getByRole("button", { name: "Decidir", exact: true }).click();
   await page
@@ -118,7 +118,7 @@ test("clean exit, rule-only draft exit and invalid result input", async ({
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await page.getByRole("button", { name: "Salir de la práctica" }).click();
   await page.getByRole("button", { name: "Salir y descartar" }).click();
-  await expect(page).toHaveURL(/\/demo\/arbitro$/);
+  await expect(page).toHaveURL("/");
   for (const query of [
     "d=tld&s=amarilla",
     "d=tld&s=amarilla&l=99",
@@ -135,4 +135,7 @@ test("clean exit, rule-only draft exit and invalid result input", async ({
   const home = await request.get("/");
   expect(home.status()).toBe(200);
   expect(home.url()).not.toContain("/demo");
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: "Entrada desde atrás en mediocampo", exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Inicio", exact: true })).toHaveAttribute("aria-current", "page");
 });
