@@ -106,7 +106,7 @@ test("clean exit, rule-only draft exit and invalid result input", async ({
 }) => {
   await page.goto("/demo/arbitro/jugada/entrada-mediocampo");
   await page.getByRole("button", { name: "Salir de la práctica" }).click();
-  await expect(page).toHaveURL("/");
+  await expect(page).toHaveURL("/demo/arbitro");
   await page.goto("/demo/arbitro/jugada/entrada-mediocampo");
   await page.getByRole("button", { name: "Decidir", exact: true }).click();
   await page
@@ -118,7 +118,7 @@ test("clean exit, rule-only draft exit and invalid result input", async ({
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await page.getByRole("button", { name: "Salir de la práctica" }).click();
   await page.getByRole("button", { name: "Salir y descartar" }).click();
-  await expect(page).toHaveURL("/");
+  await expect(page).toHaveURL("/demo/arbitro");
   for (const query of [
     "d=tld&s=amarilla",
     "d=tld&s=amarilla&l=99",
@@ -135,7 +135,45 @@ test("clean exit, rule-only draft exit and invalid result input", async ({
   const home = await request.get("/");
   expect(home.status()).toBe(200);
   expect(home.url()).not.toContain("/demo");
-  await page.goto("/");
+  await page.goto("/demo/arbitro");
   await expect(page.getByRole("heading", { name: "Entrada desde atrás en mediocampo", exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "Inicio", exact: true })).toHaveAttribute("aria-current", "page");
 });
+
+for (const width of [320, 390, 768, 1440]) {
+  test(`welcome at / presents the platform and starts the demo at ${width}px`, async ({
+    page,
+  }) => {
+    const height = width === 320 ? 568 : width === 1440 ? 900 : 844;
+    await page.setViewportSize({ width, height });
+    const errors: string[] = [];
+    page.on("pageerror", (error) => errors.push(error.message));
+    page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+    await page.goto("/");
+    await expect(
+      page.getByRole("heading", { name: "Decidí mejor en cada jugada.", exact: true }),
+    ).toBeVisible();
+    await expect(page.getByRole("figure")).toContainText("Regla a corregir");
+    const photo = page.getByRole("img", { name: /Árbitro con el brazo en alto/ });
+    await expect(photo).toBeVisible();
+    expect(
+      await photo.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0),
+    ).toBeTruthy();
+    const start = page.getByRole("link", { name: "Comenzar", exact: true });
+    const account = page.getByRole("link", { name: "Ya tengo cuenta", exact: true });
+    await expect(account).toHaveAttribute("href", "/ingresar");
+    // Las dos acciones entran en la primera pantalla.
+    const box = await account.boundingBox();
+    expect(box!.y + box!.height).toBeLessThanOrEqual(height);
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+    ).toBeTruthy();
+    await start.click();
+    await expect(page).toHaveURL("/demo/arbitro");
+    await expect(page.getByRole("note")).toContainText("datos ficticios");
+    await page.goto("/");
+    await account.click();
+    await expect(page).toHaveURL("/ingresar");
+    expect(errors).toEqual([]);
+  });
+}
