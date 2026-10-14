@@ -1,0 +1,32 @@
+<testsuites id="" name="" tests="13" failures="0" skipped="0" errors="0" time="40.928911">
+<testsuite name="demo.spec.ts" timestamp="2026-10-14T19:21:49.719Z" hostname="" tests="9" failures="0" skipped="0" time="30.96" errors="0">
+<testcase name="rule comparison, exit guard and relevant practice at 320px" classname="demo.spec.ts" time="4.078">
+</testcase>
+<testcase name="rule comparison, exit guard and relevant practice at 390px" classname="demo.spec.ts" time="3.677">
+</testcase>
+<testcase name="rule comparison, exit guard and relevant practice at 768px" classname="demo.spec.ts" time="4.424">
+</testcase>
+<testcase name="rule comparison, exit guard and relevant practice at 1440px" classname="demo.spec.ts" time="5.115">
+</testcase>
+<testcase name="clean exit, rule-only draft exit and invalid result input" classname="demo.spec.ts" time="2.595">
+</testcase>
+<testcase name="welcome at / presents the platform and starts the demo at 320px" classname="demo.spec.ts" time="3.02">
+</testcase>
+<testcase name="welcome at / presents the platform and starts the demo at 390px" classname="demo.spec.ts" time="2.763">
+</testcase>
+<testcase name="welcome at / presents the platform and starts the demo at 768px" classname="demo.spec.ts" time="2.571">
+</testcase>
+<testcase name="welcome at / presents the platform and starts the demo at 1440px" classname="demo.spec.ts" time="2.717">
+</testcase>
+</testsuite>
+<testsuite name="premium.spec.ts" timestamp="2026-10-14T19:21:49.719Z" hostname="" tests="4" failures="0" skipped="0" time="7.68" errors="0">
+<testcase name="premium home composition and existing routes at 375px" classname="premium.spec.ts" time="2.016">
+</testcase>
+<testcase name="premium home composition and existing routes at 390px" classname="premium.spec.ts" time="2.154">
+</testcase>
+<testcase name="premium home composition and existing routes at 393px" classname="premium.spec.ts" time="1.761">
+</testcase>
+<testcase name="premium home composition and existing routes at 430px" classname="premium.spec.ts" time="1.749">
+</testcase>
+</testsuite>
+</testsuites>
