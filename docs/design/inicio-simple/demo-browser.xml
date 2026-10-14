@@ -1,0 +1,22 @@
+<testsuites id="" name="" tests="9" failures="0" skipped="0" errors="0" time="62.5632">
+<testsuite name="demo.spec.ts" timestamp="2026-10-14T18:24:21.174Z" hostname="" tests="9" failures="0" skipped="0" time="58.076" errors="0">
+<testcase name="rule comparison, exit guard and relevant practice at 320px" classname="demo.spec.ts" time="4.465">
+</testcase>
+<testcase name="rule comparison, exit guard and relevant practice at 390px" classname="demo.spec.ts" time="4.473">
+</testcase>
+<testcase name="rule comparison, exit guard and relevant practice at 768px" classname="demo.spec.ts" time="4.955">
+</testcase>
+<testcase name="rule comparison, exit guard and relevant practice at 1440px" classname="demo.spec.ts" time="8.854">
+</testcase>
+<testcase name="clean exit, rule-only draft exit and invalid result input" classname="demo.spec.ts" time="4.579">
+</testcase>
+<testcase name="welcome at / presents the platform and starts the demo at 320px" classname="demo.spec.ts" time="6.001">
+</testcase>
+<testcase name="welcome at / presents the platform and starts the demo at 390px" classname="demo.spec.ts" time="6.99">
+</testcase>
+<testcase name="welcome at / presents the platform and starts the demo at 768px" classname="demo.spec.ts" time="11.198">
+</testcase>
+<testcase name="welcome at / presents the platform and starts the demo at 1440px" classname="demo.spec.ts" time="6.561">
+</testcase>
+</testsuite>
+</testsuites>

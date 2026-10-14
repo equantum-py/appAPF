@@ -14,3 +14,5 @@ CHG-006 MINOR documental: expansión contractual E-05 solicitada por Derlis el 2
 CHG-007 MINOR de interfaz: aplicación del diseño de Claude y correcciones del recorrido de demo a solicitud expresa de Derlis el 2026-10-14. Detalle en changes/CHG-007.md. No amplía ni cierra entregas E-*; preserva rutas de acceso y backend aprobados.
 
 CHG-009 MINOR de interfaz: Entrada azul oscuro e Inicio con accesos fotográficos, según propuesta aprobada expresamente por Derlis el 2026-10-14. Detalle en changes/CHG-009.md. Sustituye la bienvenida de CHG-008; conserva correcciones de flujo. No amplía ni cierra E-06.
+
+CHG-010 MINOR de interfaz: simplificación del Inicio a una foto y tres accesos, aprobada por Derlis el 2026-10-14. Detalle en changes/CHG-010.md. Conserva bienvenida de CHG-009 y todas las correcciones funcionales; no amplía entregas E-*.
