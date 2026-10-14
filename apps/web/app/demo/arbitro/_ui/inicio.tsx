@@ -3,7 +3,16 @@
 import Link from "next/link";
 import { useState } from "react";
 import { TopicChips } from "./chips";
-import { byId, byTopic, lawOf, pastAnswers, resultHref, sceneOf, toImprove, type Topic } from "./data";
+import {
+  byId,
+  byTopic,
+  lawOf,
+  pastAnswers,
+  resultHref,
+  sceneOf,
+  toImprove,
+  type Topic,
+} from "./data";
 import { Icon } from "./icons";
 import { Scene } from "./scene";
 
@@ -14,7 +23,9 @@ export function Inicio() {
   const [topic, setTopic] = useState<Topic>("Para vos");
   const pool = byTopic(topic);
   const next = pool[0];
-  const list = toImprove.filter((t) => topic === "Para vos" || byId(t.id)!.rule === topic);
+  const list = toImprove.filter(
+    (t) => topic === "Para vos" || byId(t.id)!.rule === topic,
+  );
   const play = `/demo/arbitro/jugada/${next.id}`;
 
   return (
@@ -43,7 +54,10 @@ export function Inicio() {
         </Link>
       </section>
 
-      <Link href={resultHref(last.id, last.d, last.s)} className="rf-result">
+      <Link
+        href={resultHref(last.id, last.d, last.s, last.l)}
+        className="rf-result"
+      >
         <span className="rf-result-thumb">
           <Scene kind={sceneOf(lastSituation)} className="size-full" />
           <span className="rf-play" aria-hidden>
@@ -63,14 +77,20 @@ export function Inicio() {
           Para corregir
         </h2>
         {list.length === 0 ? (
-          <p className="rf-empty">No tenés nada pendiente en este tema. Seguí practicando para mantenerlo.</p>
+          <p className="rf-empty">
+            No tenés nada pendiente en este tema. Seguí practicando para
+            mantenerlo.
+          </p>
         ) : (
           <ul className="rf-list">
             {list.map((item) => {
               const s = byId(item.id)!;
               return (
                 <li key={item.title}>
-                  <Link href={`/demo/arbitro/jugada/${s.id}`} className="rf-row">
+                  <Link
+                    href={`/demo/arbitro/jugada/${s.id}`}
+                    className="rf-row"
+                  >
                     <span className="rf-row-thumb">
                       <Scene kind={sceneOf(s)} className="size-full" />
                     </span>
