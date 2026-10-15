@@ -14,7 +14,7 @@ for (const width of [375, 390, 768]) {
 
 test("E01 navegación desde perfil físico", async ({ page }) => {
   await page.goto("/demo/arbitro/fisico/perfil");
-  await page.getByRole("link", { name: /Administrar dispositivos/ }).click();
+  await page.getByRole("link", { name: /Conectar dispositivos/ }).click();
   await expect(page).toHaveURL(/\/fisico\/dispositivos$/);
 });
 
