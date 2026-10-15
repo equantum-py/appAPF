@@ -24,6 +24,6 @@ test("cronómetro inicia, pausa, reanuda y finaliza",async({page})=>{
  await page.waitForTimeout(1200);
  await expect(page.getByLabel("Tiempo transcurrido")).toHaveText(stopped??"");
  await page.getByRole("button",{name:"Reanudar"}).click();
- await page.getByRole("button",{name:"Finalizar"}).click();
- await expect(page.getByText("Resumen de demostración")).toBeVisible();
+ await page.getByRole("button",{name:"Detener"}).click();
+ await expect(page.getByText("Resumen de sesión")).toBeVisible();
 });
