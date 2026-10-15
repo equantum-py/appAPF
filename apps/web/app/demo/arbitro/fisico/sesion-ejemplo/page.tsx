@@ -2,14 +2,14 @@
 import Link from "next/link";
 import {useSearchParams} from "next/navigation";
 import {exerciseById} from "../exerciseData";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 
 type Phase = "ready" | "running" | "paused" | "finished";
 const steps = ["Preparación y calentamiento", "Ejercicio de demostración", "Vuelta a la calma"];
 function format(seconds: number) {
   return `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
 }
-export default function PhysicalSessionExamplePage() {
+function PhysicalSessionExamplePage() {
   const searchParams=useSearchParams();
   const exercise=exerciseById(searchParams.get("ejercicio")??"sprints");
   const [phase, setPhase] = useState<Phase>("ready");
@@ -66,3 +66,4 @@ export default function PhysicalSessionExamplePage() {
     </div>
   </main>;
 }
+\nexport default function Page(){return <Suspense fallback={<main className="p-6">Cargando entrenamiento…</main>}><PhysicalSessionExamplePage/></Suspense>}\n
