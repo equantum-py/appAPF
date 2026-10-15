@@ -178,7 +178,7 @@ for (const width of [320, 390, 768, 1440]) {
     }
     await page.getByRole("link", { name: "Jugadas", exact: true }).click();
     await expect(page).toHaveURL("/demo/arbitro/entrenar");
-    await expect(page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Entrenar", exact: true })).toHaveAttribute("aria-current", "page");
+    await expect(page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Entrenar", exact: true })).toHaveAttribute("href", "/demo/arbitro/fisico/entrenar");
     await page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Inicio", exact: true }).click();
     await page.getByRole("link", { name: /Reglas del juego/ }).click();
     await expect(page).toHaveURL("/demo/arbitro/entrenar#reglas");
