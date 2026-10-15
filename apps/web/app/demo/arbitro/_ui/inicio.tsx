@@ -37,14 +37,13 @@ export function Inicio() {
       <section className="rf-premium-training" aria-labelledby="premium-training-title">
         <h2 id="premium-training-title">¿Qué quieres entrenar hoy?</h2>
 
-        <Link href="/demo/arbitro/fisico" className="rf-premium-physical" aria-label="Abrir preview de Preparación física">
-          <span className="rf-premium-physical-icon"><Icon name="correr" filled={false} className="size-6" /></span>
-          <span className="rf-premium-physical-copy">
-            <span>Preparación física</span>
-            <small>Mejorá tu rendimiento como árbitro.</small>
+        <Link href="/demo/arbitro/fisico" aria-label="Explorar preparación física, preview" className="relative mb-4 flex min-h-[190px] overflow-hidden rounded-[22px] bg-[#082a43] text-white shadow-lg">
+          <Image src={hero} alt="" fill sizes="(min-width: 440px) 440px, 100vw" className="object-cover object-center opacity-30" />
+          <span className="relative z-10 flex w-full flex-col justify-between gap-4 p-5">
+            <span className="flex items-center justify-between gap-2"><span className="rounded-full bg-[#38c5f4] px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-[#062b43]">Entrenamiento destacado</span><span className="text-xs text-white/80">Preview</span></span>
+            <span><span className="block text-[27px] font-bold leading-tight tracking-tight">Preparación física</span><span className="mt-1 block text-[13px] text-white/85">Tu rendimiento también se entrena.</span></span>
+            <span className="flex w-fit items-center gap-3 rounded-full bg-[#38c5f4] px-5 py-3 text-[13px] font-bold text-[#062b43]">Explorar preparación física <span aria-hidden>→</span></span>
           </span>
-          <span className="rf-premium-soon">Preview</span>
-          <span className="rf-premium-lock" aria-hidden>→</span>
         </Link>
 
         <div className="rf-premium-cards">
