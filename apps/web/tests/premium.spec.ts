@@ -20,20 +20,23 @@ for (const width of [375, 390, 393, 430]) {
     expect(Math.abs(left!.y - right!.y)).toBeLessThan(1);
     expect(Math.abs(left!.height - right!.height)).toBeLessThan(1);
     expect(right!.x).toBeGreaterThan(left!.x + left!.width);
-    const physical = page.locator(".rf-premium-physical");
-    await expect(physical).toContainText("Mejorá tu rendimiento como árbitro.");
-    await expect(physical).toContainText("Próximamente");
-    await expect(physical.locator("a,button")).toHaveCount(0);
+    const physical = page.getByRole("link", { name: "Explorar preparación física, preview" });
+    await expect(physical).toContainText("Preparación física");
+    await expect(physical).toContainText("Explorar preparación física");
     // The contract permits natural vertical scrolling; verify the last module
     // remains accessible above the fixed navigation when the user reaches it.
     await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
-    const control = await physical.boundingBox();
+    const control = await cards.last().boundingBox();
     const nav = page.getByRole("navigation", { name: "Principal" });
     const navBox = await nav.boundingBox();
     expect(control!.y + control!.height).toBeLessThanOrEqual(navBox!.y);
     await expect(nav.getByRole("link")).toHaveCount(4);
     await expect(nav.getByRole("link", { name: "Inicio", exact: true })).toHaveAttribute("aria-current", "page");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+    await physical.click();
+    await expect(page).toHaveURL("/demo/arbitro/fisico");
+    await expect(page.getByRole("heading", { name: "Preparación física" })).toBeVisible();
+    await page.getByRole("link", { name: "← Inicio" }).click();
     await page.getByRole("link", { name: "Comenzar entrenamiento" }).click();
     await expect(page).toHaveURL("/demo/arbitro/jugada/entrada-mediocampo");
     await expect(page.getByRole("button", { name: "Decidir", exact: true })).toBeVisible();
