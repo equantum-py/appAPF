@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import PhysicalNav from "../PhysicalNav";
 import { useState } from "react";
 const days=["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"];
 const activities=["Velocidad","Resistencia","Movilidad","Agilidad","Fuerza","Recuperación","Descanso"];
