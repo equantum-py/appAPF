@@ -22,10 +22,7 @@ export default function PhysicalPreviewPage() {
         <p className="mt-2 text-sm text-[#607182]">Entrená las capacidades que exige dirigir un partido.</p>
       </div>
       <nav aria-label="Áreas de preparación física" className="mb-7 grid grid-cols-4 gap-1 rounded-2xl bg-white p-1 shadow-sm">
-        <span className="rounded-xl bg-[#d8f3ff] px-1 py-3 text-center text-xs font-bold text-[#06415e]">Entrenar</span>
-        <span className="px-1 py-3 text-center text-xs text-[#738291]">Mi plan</span>
-        <span className="px-1 py-3 text-center text-xs text-[#738291]">Historial</span>
-        <span className="px-1 py-3 text-center text-xs text-[#738291]">Progreso</span>
+        {[["Entrenar","entrenar"],["Mi plan","plan"],["Historial","rendimiento"],["Mi perfil","perfil"]].map(([label, slug]) => <Link key={slug} href={`/demo/arbitro/fisico/${slug}`} className="rounded-xl px-1 py-3 text-center text-xs font-semibold text-[#06415e] hover:bg-[#d8f3ff]">{label}</Link>)}
       </nav>
       <section aria-labelledby="physical-groups">
         <h2 id="physical-groups" className="mb-4 text-xl font-bold">¿Qué querés trabajar hoy?</h2>
