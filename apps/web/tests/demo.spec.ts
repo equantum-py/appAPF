@@ -168,9 +168,9 @@ for (const width of [320, 390, 768, 1440]) {
     await expect(page).toHaveURL("/demo/arbitro");
     await expect(page.getByRole("note")).toContainText("datos ficticios");
     await expect(page.getByRole("heading", { name: "ENTRENÁ TU CRITERIO" })).toBeVisible();
-    const physical = page.locator(".rf-premium-physical");
-    await expect(physical).toContainText("Próximamente");
-    await expect(physical.locator("a, button")).toHaveCount(0);
+    const physical = page.getByRole("link", { name: "Explorar preparación física, preview" });
+    await expect(physical).toContainText("Preparación física");
+    await expect(physical).toHaveAttribute("href", "/demo/arbitro/fisico");
     for (const photo of await page.locator(".rf-premium-home img").all()) {
       await photo.scrollIntoViewIfNeeded();
       await expect(photo).toBeVisible();
