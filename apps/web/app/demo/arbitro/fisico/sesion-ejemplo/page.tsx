@@ -1,66 +1,63 @@
+"use client";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
-const blocks = [
-  "Objetivo de la sesión",
-  "Material necesario",
-  "Bloques ordenados",
-  "Descansos e instrucciones",
-  "Medición cuando corresponda",
-];
-
+type Phase = "ready" | "running" | "paused" | "finished";
+const steps = ["Preparación y calentamiento", "Ejercicio de demostración", "Vuelta a la calma"];
+function format(seconds: number) {
+  return `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
+}
 export default function PhysicalSessionExamplePage() {
-  return (
-    <main className="min-h-dvh bg-[#f5f7fa] px-5 pb-24 pt-6 text-[#10243f] md:px-8 lg:px-12">
-      <div className="mx-auto max-w-5xl">
-        <header className="mb-7 flex flex-col gap-5 border-b border-[#dce4ee] pb-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <span className="text-[10px] font-semibold tracking-[0.18em] text-[#637181]">SESIÓN DE EJEMPLO</span>
-            <h1 className="mt-2 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Así se verá una sesión</h1>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-[#637181]">
-              Esta vista explica el recorrido previsto sin inventar cargas, tiempos ni rutinas reales.
-            </p>
-          </div>
-          <Link href="/demo/arbitro/fisico" className="text-sm font-semibold text-[#155ec5] hover:underline">
-            ← Preparación física
-          </Link>
-        </header>
-
-        <section className="grid gap-4 lg:grid-cols-[1fr_300px]">
-          <div className="rounded-[28px] border border-[#dce4ee] bg-white p-6 sm:p-8">
-            <span className="inline-flex rounded-full bg-[#eaf6ff] px-3 py-1.5 text-[11px] font-semibold text-[#126db3]">
-              Preview · contenido no validado
-            </span>
-            <h2 className="mt-5 text-2xl font-semibold tracking-[-0.03em]">Sesión guiada de ejemplo</h2>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#637181]">
-              En producción, este espacio mostrará únicamente contenido aprobado por el responsable físico: objetivo, nivel, material, duración estimada, bloques, protocolo y versión.
-            </p>
-            <div className="mt-7 space-y-3">
-              {blocks.map((block, index) => (
-                <div key={block} className="flex items-center gap-4 rounded-2xl bg-[#f7f9fb] p-4">
-                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-[#0d2949] text-xs font-semibold text-white">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <strong className="block text-sm font-semibold">{block}</strong>
-                    <small className="mt-1 block text-xs text-[#7a8796]">Pendiente de contenido especialista</small>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <aside className="h-fit rounded-[28px] bg-[#0d2949] p-6 text-white">
-            <span className="text-[10px] font-semibold tracking-[0.18em] text-[#9bdcff]">ESTADO</span>
-            <h3 className="mt-3 text-xl font-semibold tracking-[-0.025em]">No iniciar entrenamiento</h3>
-            <p className="mt-3 text-sm leading-6 text-[#d4e6f8]">
-              Esta pantalla no registra actividad. Cuando el módulo real exista, iniciar una sesión creará una ejecución identificable y trazable.
-            </p>
-            <button type="button" disabled className="mt-6 w-full cursor-not-allowed rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold text-white/45">
-              Iniciar sesión
-            </button>
-          </aside>
-        </section>
-      </div>
-    </main>
-  );
+  const [phase, setPhase] = useState<Phase>("ready");
+  const [elapsed, setElapsed] = useState(0);
+  const [step, setStep] = useState(0);
+  const started = useRef<number | null>(null);
+  const accumulated = useRef(0);
+  useEffect(() => {
+    if (phase !== "running") return;
+    started.current = Date.now();
+    const tick = () => setElapsed(Math.floor((accumulated.current + Date.now() - (started.current ?? Date.now())) / 1000));
+    const id = window.setInterval(tick, 250);
+    return () => window.clearInterval(id);
+  }, [phase]);
+  const pause = () => {
+    if (started.current !== null) accumulated.current += Date.now() - started.current;
+    started.current = null;
+    setElapsed(Math.floor(accumulated.current / 1000));
+    setPhase("paused");
+  };
+  const finish = () => {
+    if (!window.confirm("¿Finalizar esta sesión de demostración?")) return;
+    if (phase === "running" && started.current !== null) accumulated.current += Date.now() - started.current;
+    setElapsed(Math.floor(accumulated.current / 1000));
+    started.current = null;
+    setPhase("finished");
+  };
+  const reset = () => { if (!window.confirm("¿Descartar el tiempo de esta sesión?")) return; accumulated.current = 0; started.current = null; setElapsed(0); setStep(0); setPhase("ready"); };
+  return <main className="min-h-dvh bg-[#f5f7fa] px-5 pb-28 pt-6 text-[#10243f]">
+    <div className="mx-auto max-w-2xl">
+      <Link href="/demo/arbitro/fisico" onClick={e => { if (phase !== "ready" && phase !== "finished" && !window.confirm("¿Salir y descartar esta sesión sin guardar?")) e.preventDefault(); }} className="text-sm font-semibold text-sky-700">← Preparación física</Link>
+      <p className="mt-7 text-xs font-bold uppercase tracking-widest text-sky-700">Demo interactiva · sin guardado</p>
+      <h1 className="mt-2 text-3xl font-bold">Sesión de ejemplo</h1>
+      <p className="mt-3 text-sm text-slate-600">Cronómetro de demostración. No prescribe cargas, tiempos ni pruebas oficiales.</p>
+      <section className="mt-7 rounded-[28px] bg-[#0d2949] p-6 text-center text-white shadow-lg">
+        <p className="text-sm text-sky-200">{phase === "finished" ? "Sesión finalizada" : steps[step]}</p>
+        <output aria-label="Tiempo transcurrido" aria-live="off" className="my-6 block font-mono text-6xl font-bold tabular-nums">{format(elapsed)}</output>
+        <p className="mb-5 text-xs text-white/70">{phase === "ready" ? "Lista para comenzar" : phase === "running" ? "Cronómetro en marcha" : phase === "paused" ? "En pausa" : "Resumen local · no guardado"}</p>
+        <div className="flex flex-wrap justify-center gap-3">
+          {phase === "ready" && <button className="rounded-full bg-[#4dd0f6] px-7 py-3 font-bold text-[#082a43]" onClick={() => setPhase("running")}>Comenzar</button>}
+          {phase === "running" && <button className="rounded-full bg-[#4dd0f6] px-7 py-3 font-bold text-[#082a43]" onClick={pause}>Pausar</button>}
+          {phase === "paused" && <button className="rounded-full bg-[#4dd0f6] px-7 py-3 font-bold text-[#082a43]" onClick={() => setPhase("running")}>Reanudar</button>}
+          {(phase === "running" || phase === "paused") && <button className="rounded-full border border-white/50 px-6 py-3 font-semibold" onClick={finish}>Finalizar</button>}
+          {phase === "finished" && <button className="rounded-full bg-[#4dd0f6] px-7 py-3 font-bold text-[#082a43]" onClick={reset}>Nueva sesión</button>}
+        </div>
+      </section>
+      {phase !== "finished" ? <section className="mt-6 rounded-2xl bg-white p-5">
+        <h2 className="font-semibold">Recorrido ilustrativo</h2>
+        <div className="mt-4 space-y-2">{steps.map((name, i) => <button key={name} type="button" onClick={() => setStep(i)} className={`flex w-full items-center justify-between rounded-xl p-4 text-left text-sm ${step === i ? "bg-sky-100 font-bold text-sky-900" : "bg-slate-50"}`}><span>{i + 1}. {name}</span><span>{step === i ? "Actual" : "Ver"}</span></button>)}</div>
+        {(phase === "running" || phase === "paused") && <button className="mt-5 text-sm font-semibold text-red-700" onClick={reset}>Descartar sesión</button>}
+      </section> : <section className="mt-6 rounded-2xl bg-white p-6"><h2 className="text-xl font-bold">Resumen de demostración</h2><p className="mt-3 text-sm">Tiempo transcurrido: <strong>{format(elapsed)}</strong></p><p className="mt-2 text-sm text-slate-600">Este resultado solo existe en esta pantalla. No se guarda, no mide rendimiento físico ni constituye una evaluación.</p><Link href="/demo/arbitro/fisico" className="mt-5 inline-block text-sm font-semibold text-sky-700">Volver a Preparación física →</Link></section>}
+      <p className="mt-6 text-xs leading-5 text-slate-500">La demo no reemplaza la supervisión de un preparador físico. Sin respaldo institucional de la APF.</p>
+    </div>
+  </main>;
 }
