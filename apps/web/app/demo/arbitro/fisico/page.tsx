@@ -22,7 +22,7 @@ export default function PhysicalPreviewPage() {
         <p className="mt-2 text-sm text-[#607182]">Entrená las capacidades que exige dirigir un partido.</p>
       </div>
       <nav aria-label="Áreas de preparación física" className="mb-7 grid grid-cols-4 gap-1 rounded-2xl bg-white p-1 shadow-sm">
-        {[["Entrenar","entrenar"],["Mi plan","plan"],["Historial","rendimiento"],["Mi perfil","perfil"]].map(([label, slug]) => <Link key={slug} href={`/demo/arbitro/fisico/${slug}`} className="rounded-xl px-1 py-3 text-center text-xs font-semibold text-[#06415e] hover:bg-[#d8f3ff]">{label}</Link>)}
+        {[["Entrenar","entrenar"],["Mi plan","plan"],["Progreso","rendimiento"],["Mi perfil","perfil"]].map(([label, slug]) => <Link key={slug} href={`/demo/arbitro/fisico/${slug}`} className="rounded-xl px-1 py-3 text-center text-xs font-semibold text-[#06415e] hover:bg-[#d8f3ff]">{label}</Link>)}
       </nav>
       <Link href="/demo/arbitro/fisico/sesion-ejemplo" className="mb-6 flex items-center justify-between gap-4 rounded-[22px] bg-[#0d2949] px-5 py-5 text-white shadow-lg"><span><span className="block text-[10px] font-bold uppercase tracking-widest text-[#79d8f5]">Acceso rápido</span><strong className="mt-1 block text-xl">Comenzar entrenamiento</strong><span className="mt-1 block text-xs text-white/70">Cronómetro y sesión de demostración</span></span><span aria-hidden="true" className="grid size-12 shrink-0 place-items-center rounded-full bg-[#4dd0f6] text-xl font-bold text-[#082a43]">→</span></Link>
       <section aria-labelledby="physical-groups">
