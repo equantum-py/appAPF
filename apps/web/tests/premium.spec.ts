@@ -27,10 +27,10 @@ for (const width of [375, 390, 393, 430]) {
     // remains accessible above the fixed navigation when the user reaches it.
     await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
     const control = await cards.last().boundingBox();
-    const nav = page.getByRole("navigation", { name: "Principal" });
+    const nav = page.getByRole("navigation", { name: "Navegación principal" });
     const navBox = await nav.boundingBox();
     expect(control!.y + control!.height).toBeLessThanOrEqual(navBox!.y);
-    await expect(nav.getByRole("link")).toHaveCount(4);
+    await expect(nav.getByRole("link")).toHaveCount(5);
     await expect(nav.getByRole("link", { name: "Inicio", exact: true })).toHaveAttribute("aria-current", "page");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
     await physical.click();
@@ -43,7 +43,7 @@ for (const width of [375, 390, 393, 430]) {
     await page.getByRole("button", { name: "Salir de la práctica" }).click();
     await page.getByRole("link", { name: "Jugadas", exact: true }).click();
     await expect(page).toHaveURL("/demo/arbitro/entrenar");
-    await page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Inicio", exact: true }).click();
+    await page.getByRole("navigation", { name: "Navegación principal" }).getByRole("link", { name: "Inicio", exact: true }).click();
     await page.getByRole("link", { name: "Reglas del juego", exact: true }).click();
     await expect(page).toHaveURL("/demo/arbitro/entrenar#reglas");
     expect(errors).toEqual([]);
