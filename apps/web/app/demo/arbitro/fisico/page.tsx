@@ -1,112 +1,55 @@
 import Link from "next/link";
-import { Icon } from "../_ui/icons";
 
-const categories = [
-  { name: "Resistencia", detail: "Base aeróbica y continuidad" },
-  { name: "Velocidad", detail: "Aceleración y cambios de ritmo" },
-  { name: "Fuerza", detail: "Trabajo complementario" },
-  { name: "Movilidad", detail: "Preparación y recuperación" },
-];
-
-const sessions = [
-  {
-    title: "Sesión guiada de ejemplo",
-    meta: "Preview · contenido por validar",
-    description:
-      "Muestra cómo se presentarán objetivo, bloques, materiales y registro. No guarda resultados ni prescribe cargas reales.",
-  },
-  {
-    title: "Historial de entrenamiento",
-    meta: "Preview · sin datos persistidos",
-    description:
-      "Vista prevista para consultar sesiones completadas, abandonadas y mediciones cuando el módulo funcional esté habilitado.",
-  },
+const groups = [
+  { title: "Velocidad y aceleración", subtitle: "Salidas, aceleración y sprints repetidos", exercises: ["Aceleración corta", "Sprint progresivo", "Sprints repetidos (RSA)"], color: "from-[#09273e] to-[#125f84]" },
+  { title: "Resistencia", subtitle: "Sostener el esfuerzo durante el partido", exercises: ["Carrera continua", "Intervalos de carrera", "Cambios de ritmo"], color: "from-[#103c3b] to-[#20837c]" },
+  { title: "Agilidad y dirección", subtitle: "Reaccionar y desplazarte con control", exercises: ["Desplazamiento lateral", "Cambios de dirección", "Circuito con conos"], color: "from-[#252e4d] to-[#4863a2]" },
+  { title: "Fuerza y estabilidad", subtitle: "Preparación muscular complementaria", exercises: ["Sentadillas", "Zancadas", "Plancha"], color: "from-[#303748] to-[#607083]" },
+  { title: "Movilidad", subtitle: "Preparar articulaciones y movimientos", exercises: ["Movilidad de cadera", "Movilidad de tobillos", "Movilidad de columna"], color: "from-[#194b55] to-[#3e91a0]" },
+  { title: "Recuperación", subtitle: "Vuelta a la calma y recuperación", exercises: ["Caminata suave", "Movilidad controlada", "Vuelta a la calma"], color: "from-[#294754] to-[#547c8c]" },
 ];
 
 export default function PhysicalPreviewPage() {
   return (
-    <main className="min-h-dvh bg-[#f5f7fa] px-5 pb-24 pt-6 text-[#10243f] md:px-8 lg:px-12">
-      <div className="mx-auto max-w-5xl">
-        <header className="mb-7 flex flex-col gap-5 border-b border-[#dce4ee] pb-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <span className="text-[10px] font-semibold tracking-[0.18em] text-[#637181]">PREVIEW NAVEGABLE</span>
-            <h1 className="mt-2 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Preparación física</h1>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-[#637181]">
-              Propuesta visual aprobada. Esta pantalla usa datos ficticios y no guarda entrenamientos.
-            </p>
-          </div>
-          <Link href="/demo/arbitro" className="text-sm font-semibold text-[#155ec5] hover:underline">
-            ← Inicio
-          </Link>
-        </header>
-
-        <section className="relative overflow-hidden rounded-[28px] bg-[#0d2949] p-6 text-white shadow-[0_18px_50px_rgba(13,41,73,0.18)] sm:p-8">
-          <div className="flex max-w-3xl items-start gap-4">
-            <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-[#28b8ff] text-[#0d2949]">
-              <Icon name="correr" filled={false} className="size-8" />
-            </span>
-            <div>
-              <span className="text-[10px] font-semibold tracking-[0.18em] text-[#9bdcff]">PRIORIDAD DEL ÁRBITRO</span>
-              <h2 className="mt-2 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">Entrená tu rendimiento físico</h2>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-[#d4e6f8]">
-                Sesiones organizadas por objetivo, historial y progreso. Las rutinas reales deben ser validadas por un responsable físico especializado.
-              </p>
-            </div>
-          </div>
-          <span className="mt-6 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-medium text-white/90">
-            Demo · sin persistencia
-          </span>
-        </section>
-
-        <section className="mt-9" aria-labelledby="physical-categories-title">
-          <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <span className="text-[10px] font-semibold tracking-[0.18em] text-[#637181]">CATEGORÍAS</span>
-              <h2 id="physical-categories-title" className="mt-1 text-xl font-semibold tracking-[-0.025em]">¿Qué querés trabajar?</h2>
-            </div>
-            <span className="text-xs text-[#7a8796]">Contenido pendiente de validación</span>
-          </div>
-          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {categories.map((category) => (
-              <button key={category.name} type="button" className="group min-h-36 rounded-2xl border border-[#dce4ee] bg-white p-4 text-left transition hover:-translate-y-0.5 hover:border-[#8ccfff] hover:shadow-sm">
-                <span className="block text-base font-semibold">{category.name}</span>
-                <small className="mt-2 block text-xs leading-5 text-[#6a7887]">{category.detail}</small>
-                <span className="mt-5 block text-lg text-[#1583d8] transition group-hover:translate-x-1" aria-hidden>→</span>
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-10" aria-labelledby="physical-sessions-title">
-          <div className="mb-4">
-            <span className="text-[10px] font-semibold tracking-[0.18em] text-[#637181]">SESIONES GUIADAS</span>
-            <h2 id="physical-sessions-title" className="mt-1 text-xl font-semibold tracking-[-0.025em]">Tu entrenamiento</h2>
-          </div>
-          <div className="space-y-3">
-            {sessions.map((session, index) => (
-              <article key={session.title} className="grid gap-4 rounded-2xl border border-[#dce4ee] bg-white p-5 sm:grid-cols-[52px_1fr_auto] sm:items-center">
-                <div className="grid size-11 place-items-center rounded-xl bg-[#eaf6ff] text-sm font-semibold text-[#126db3]">0{index + 1}</div>
-                <div>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#7b8795]">{session.meta}</span>
-                  <h3 className="mt-1 text-base font-semibold">{session.title}</h3>
-                  <p className="mt-1 max-w-2xl text-xs leading-5 text-[#667584]">{session.description}</p>
-                </div>
-                {index === 0 ? (
-                  <Link href="/demo/arbitro/fisico/sesion-ejemplo" className="text-sm font-semibold text-[#155ec5] hover:underline">
-                    Ver sesión →
-                  </Link>
-                ) : (
-                  <span className="text-xs font-medium text-[#8b96a2]">Sin datos reales</span>
-                )}
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <aside className="mt-8 rounded-2xl border border-[#c8d8e8] bg-[#eef6fd] px-4 py-3 text-xs leading-5 text-[#48637c]">
-          <strong>Importante:</strong> esta preview no habilita entrenamiento físico real, no persiste respuestas y no representa criterios oficiales de la APF.
-        </aside>
+    <main className="mx-auto max-w-4xl px-4 pb-28 pt-5 text-[#10283b] sm:px-8">
+      <header className="mb-6 flex items-center justify-between gap-3">
+        <Link href="/demo/arbitro" className="text-sm font-semibold text-[#167aa5]">← Inicio</Link>
+        <span className="rounded-full bg-[#e9f2f8] px-3 py-1 text-[11px] text-[#426277]">Vista previa · sin registros</span>
+      </header>
+      <div className="mb-6">
+        <span className="text-[11px] font-bold uppercase tracking-[.16em] text-[#228db8]">Tu centro de entrenamiento</span>
+        <h1 className="mt-1 text-[32px] font-bold leading-tight tracking-tight">Preparación física</h1>
+        <p className="mt-2 text-sm text-[#607182]">Entrená las capacidades que exige dirigir un partido.</p>
       </div>
+      <nav aria-label="Áreas de preparación física" className="mb-7 grid grid-cols-4 gap-1 rounded-2xl bg-white p-1 shadow-sm">
+        <span className="rounded-xl bg-[#d8f3ff] px-1 py-3 text-center text-xs font-bold text-[#06415e]">Entrenar</span>
+        <span className="px-1 py-3 text-center text-xs text-[#738291]">Mi plan</span>
+        <span className="px-1 py-3 text-center text-xs text-[#738291]">Historial</span>
+        <span className="px-1 py-3 text-center text-xs text-[#738291]">Progreso</span>
+      </nav>
+      <section aria-labelledby="physical-groups">
+        <h2 id="physical-groups" className="mb-4 text-xl font-bold">¿Qué querés trabajar hoy?</h2>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {groups.map((group) => (
+            <article key={group.title} className={`overflow-hidden rounded-[20px] bg-gradient-to-br ${group.color} p-5 text-white shadow-sm`}>
+              <div className="mb-5">
+                <h3 className="text-xl font-semibold">{group.title}</h3>
+                <p className="mt-1 text-xs text-white/80">{group.subtitle}</p>
+              </div>
+              <div className="mb-4 flex flex-wrap gap-2">
+                {group.exercises.map((exercise) => <span key={exercise} className="rounded-full bg-white/15 px-3 py-1.5 text-[11px] text-white">{exercise}</span>)}
+              </div>
+              <Link href="/demo/arbitro/fisico/sesion-ejemplo" className="inline-flex min-h-11 items-center rounded-full bg-[#4dd0f6] px-5 text-xs font-bold text-[#092e44]">Explorar ejercicios →</Link>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="mt-7 rounded-2xl bg-white p-5 shadow-sm">
+        <h2 className="text-lg font-bold">Diseñá tu entrenamiento</h2>
+        <p className="mt-1 text-sm text-[#607182]">Próximamente podrás combinar ejercicios aprobados y registrar tus sesiones.</p>
+        <span className="mt-3 inline-block rounded-full bg-[#eef2f5] px-3 py-2 text-xs text-[#617284]">Disponible en una etapa posterior</span>
+      </section>
+      <p className="mt-5 text-xs leading-relaxed text-[#6b7c8a]">Demo sin guardado. Ejercicios ilustrativos, no prescripciones. La selección de cargas, descansos y pruebas requiere validación profesional. Sin respaldo institucional de la APF.</p>
     </main>
   );
 }
