@@ -6,7 +6,7 @@ import reglas from "../_premium/apf-reglas.jpg";
 import logo from "../_premium/apf-logo.png";
 import { Icon } from "./icons";
 
-/** Inicio según referencia suministrada; sólo UI, sin entrenamiento nuevo. */
+/** Inicio según referencia suministrada; sólo UI de demo, sin entrenamiento persistido. */
 export function Inicio() {
   return (
     <div className="rf-premium-home">
@@ -36,6 +36,17 @@ export function Inicio() {
       </section>
       <section className="rf-premium-training" aria-labelledby="premium-training-title">
         <h2 id="premium-training-title">¿Qué quieres entrenar hoy?</h2>
+
+        <Link href="/demo/arbitro/fisico" className="rf-premium-physical" aria-label="Abrir preview de Preparación física">
+          <span className="rf-premium-physical-icon"><Icon name="correr" filled={false} className="size-6" /></span>
+          <span className="rf-premium-physical-copy">
+            <span>Preparación física</span>
+            <small>Mejorá tu rendimiento como árbitro.</small>
+          </span>
+          <span className="rf-premium-soon">Preview</span>
+          <span className="rf-premium-lock" aria-hidden>→</span>
+        </Link>
+
         <div className="rf-premium-cards">
           <Link href="/demo/arbitro/entrenar" className="rf-premium-card" aria-label="Jugadas">
             <Image src={jugadas} alt="" fill sizes="(min-width: 440px) 204px, 46vw" className="rf-premium-photo" />
@@ -55,15 +66,6 @@ export function Inicio() {
               <span className="rf-premium-card-arrow" aria-hidden>→</span>
             </span>
           </Link>
-        </div>
-        <div className="rf-premium-physical">
-          <span className="rf-premium-physical-icon"><Icon name="correr" filled={false} className="size-6" /></span>
-          <span className="rf-premium-physical-copy">
-            <span>Preparación física</span>
-            <small>Mejorá tu rendimiento como árbitro.</small>
-          </span>
-          <span className="rf-premium-soon">Próximamente</span>
-          <Icon name="candado" filled={false} className="rf-premium-lock" />
         </div>
       </section>
     </div>
