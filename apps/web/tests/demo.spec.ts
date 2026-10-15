@@ -185,7 +185,7 @@ for (const width of [320, 390, 768, 1440]) {
     await expect(page.locator("#reglas")).toBeInViewport();
     await page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Inicio", exact: true }).click();
     await page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Progreso", exact: true }).click();
-    await expect(page).toHaveURL("/demo/arbitro/progreso");
+    await expect(page).toHaveURL("/demo/arbitro/fisico/rendimiento");
     await page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "Inicio", exact: true }).click();
     await page.getByRole("link", { name: "Mi perfil", exact: true }).click();
     await expect(page).toHaveURL("/demo/arbitro/yo");
