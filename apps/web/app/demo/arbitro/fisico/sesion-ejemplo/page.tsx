@@ -66,4 +66,5 @@ function PhysicalSessionExamplePage() {
     </div>
   </main>;
 }
-\nexport default function Page(){return <Suspense fallback={<main className="p-6">Cargando entrenamiento…</main>}><PhysicalSessionExamplePage/></Suspense>}\n
+
+export default function Page(){return <Suspense fallback={<main className="p-6">Cargando entrenamiento…</main>}><PhysicalSessionExamplePage/></Suspense>}
