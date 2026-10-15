@@ -37,7 +37,7 @@ for (const width of [375, 390, 393, 430]) {
     await expect(page).toHaveURL("/demo/arbitro/fisico");
     await expect(page.getByRole("heading", { name: "Preparación física" })).toBeVisible();
     await page.getByRole("navigation", { name: "Navegación principal" }).getByRole("link", { name: "Inicio", exact: true }).click();
-    await page.getByRole("link", { name: "Comenzar entrenamiento" }).click();
+    await page.locator('a.rf-premium-start[href="/demo/arbitro/jugada/entrada-mediocampo"]').click();
     await expect(page).toHaveURL("/demo/arbitro/jugada/entrada-mediocampo");
     await expect(page.getByRole("button", { name: "Decidir", exact: true })).toBeVisible();
     await page.getByRole("button", { name: "Salir de la práctica" }).click();
